@@ -30,9 +30,10 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
-                   FontFamily="{StaticResource ZeldaFont}"
                    Text="MASKS"
                    FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="{StaticResource ZeldaFont}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
 

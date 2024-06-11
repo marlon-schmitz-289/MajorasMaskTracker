@@ -1,4 +1,5 @@
-﻿using MajorasMaskTracker.Util;
+﻿using MajorasMaskTracker.Store;
+using MajorasMaskTracker.Util;
 using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
@@ -12,46 +13,42 @@ public class QuestStatusPageViewmodel : BaseViewModel
     
     #region Remains
     
-    private bool _odolwaCollected = false;
     public bool OdolwaCollected
     {
-        get => _odolwaCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.OdolwaCollected;
         set
         {
-            _odolwaCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.OdolwaCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _gohtCollected = false;
     public bool GohtCollected
     {
-        get => _gohtCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.GohtCollected;
         set
         {
-            _gohtCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.GohtCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _gyorgCollected = false;
     public bool GyorgCollected
     {
-        get => _gyorgCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.GyorgCollected;
         set
         {
-            _gyorgCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.GyorgCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _twinmoldCollected = false;
     public bool TwinmoldCollected
     {
-        get => _twinmoldCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.TwinmoldCollected;
         set
         {
-            _twinmoldCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.TwinmoldCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -61,15 +58,14 @@ public class QuestStatusPageViewmodel : BaseViewModel
     
     #region Important Items
 
-    private int _collectedHeartPieces = 0;
     public int CollectedHeartPieces
     {
-        get => _collectedHeartPieces;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.CollectedHeartPieces;
         set
         {
             if (value <= 52 && value >= 0)
             {
-                _collectedHeartPieces = value;
+                SettingsModelStore.Instance.SettingsModel.QuestStatus.CollectedHeartPieces = value;
             }
             
             NotifyPropertyChanged();
@@ -78,27 +74,26 @@ public class QuestStatusPageViewmodel : BaseViewModel
     }
     public bool IsHeartPieceCollected => CollectedHeartPieces > 0;
 
-    private bool _bombersNotebookCollected = false;
+    
     public bool BombersNotebookCollected
     {
-        get => _bombersNotebookCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.BombersNotebookCollected;
         set
         {
-            _bombersNotebookCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.BombersNotebookCollected = value;
             NotifyPropertyChanged();
         }
     }
     
     
-    private CollectedWallet _wallet = CollectedWallet.None;
     public CollectedWallet Wallet
     {
-        get => _wallet;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.Wallet;
         set
         {
             if (value is > CollectedWallet.GiantsWallet or < CollectedWallet.None) return;
             
-            _wallet = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.Wallet = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsAnyWalletCollected));
             NotifyPropertyChanged(nameof(IsChildWalletCollected));
@@ -106,29 +101,26 @@ public class QuestStatusPageViewmodel : BaseViewModel
             NotifyPropertyChanged(nameof(IsGiantWalletCollected));
         }
     }
-    
     public bool IsAnyWalletCollected => Wallet != CollectedWallet.None;
     public bool IsChildWalletCollected => Wallet == CollectedWallet.ChildWallet;
     public bool IsAdultWalletCollected => Wallet == CollectedWallet.AdultWallet;
     public bool IsGiantWalletCollected => Wallet == CollectedWallet.GiantsWallet;
     
     
-    private CollectedMagic _magic = CollectedMagic.None;
     public CollectedMagic Magic
     {
-        get => _magic;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.Magic;
         set
         {
             if (value is > CollectedMagic.DoubleMagic or < CollectedMagic.None) return;
             
-            _magic = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.Magic = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsAnyMagicCollected));
             NotifyPropertyChanged(nameof(IsMagicCollected));
             NotifyPropertyChanged(nameof(IsDoubleMagicCollected));
         }
     }
-    
     public bool IsAnyMagicCollected => Magic != CollectedMagic.None;
     public bool IsMagicCollected => Magic == CollectedMagic.Magic;
     public bool IsDoubleMagicCollected => Magic == CollectedMagic.DoubleMagic;
@@ -138,112 +130,102 @@ public class QuestStatusPageViewmodel : BaseViewModel
     
     #region Songs
     
-    private bool _songOfTimeCollected = false;
     public bool SongOfTimeCollected
     {
-        get => _songOfTimeCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfTimeCollected;
         set
         {
-            _songOfTimeCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfTimeCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _songOfHealingCollected = false;
     public bool SongOfHealingCollected
     {
-        get => _songOfHealingCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfHealingCollected;
         set
         {
-            _songOfHealingCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfHealingCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _eponasSongCollected = false;
     public bool EponasSongCollected
     {
-        get => _eponasSongCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.EponasSongCollected;
         set
         {
-            _eponasSongCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.EponasSongCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _songOfSoaringCollected = false;
     public bool SongOfSoaringCollected
     {
-        get => _songOfSoaringCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfSoaringCollected;
         set
         {
-            _songOfSoaringCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfSoaringCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _songOfStormsCollected = false;
     public bool SongOfStormsCollected
     {
-        get => _songOfStormsCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfStormsCollected;
         set
         {
-            _songOfStormsCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.SongOfStormsCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _sonataOfAwakeningCollected = false;
     public bool SonataOfAwakeningCollected
     {
-        get => _sonataOfAwakeningCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.SonataOfAwakeningCollected;
         set
         {
-            _sonataOfAwakeningCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.SonataOfAwakeningCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _goronLullabyCollected = false;
     public bool GoronLullabyCollected
     {
-        get => _goronLullabyCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.GoronLullabyCollected;
         set
         {
-            _goronLullabyCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.GoronLullabyCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _newWaveBossaNovaCollected = false;
     public bool NewWaveBossaNovaCollected
     {
-        get => _newWaveBossaNovaCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.NewWaveBossaNovaCollected;
         set
         {
-            _newWaveBossaNovaCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.NewWaveBossaNovaCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _elegyOfEmptinessCollected = false;
     public bool ElegyOfEmptinessCollected
     {
-        get => _elegyOfEmptinessCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.ElegyOfEmptinessCollected;
         set
         {
-            _elegyOfEmptinessCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.ElegyOfEmptinessCollected = value;
             NotifyPropertyChanged();
         }
     }
 
-    private bool _oathToOrderCollected = false;
     public bool OathToOrderCollected
     {
-        get => _oathToOrderCollected;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.OathToOrderCollected;
         set
         {
-            _oathToOrderCollected = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.OathToOrderCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -253,15 +235,14 @@ public class QuestStatusPageViewmodel : BaseViewModel
     
     #region Equipment
 
-    private CollectedSword _sword = CollectedSword.None;
     public CollectedSword Sword
     {
-        get => _sword;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.Sword;
         set
         {
             if (value is > CollectedSword.GildedSword or < CollectedSword.None) return;
             
-            _sword = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.Sword = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsAnySwordCollected));
             NotifyPropertyChanged(nameof(IsKokiriSwordCollected));
@@ -269,43 +250,39 @@ public class QuestStatusPageViewmodel : BaseViewModel
             NotifyPropertyChanged(nameof(IsGildedSwordCollected));
         }
     }
-    
     public bool IsAnySwordCollected => Sword != CollectedSword.None;
     public bool IsKokiriSwordCollected => Sword == CollectedSword.KokiriSword;
     public bool IsRazorSwordCollected => Sword == CollectedSword.RazorSword;
     public bool IsGildedSwordCollected => Sword == CollectedSword.GildedSword;
     
     
-    private CollectedShield _shield = CollectedShield.None;
     public CollectedShield Shield
     {
-        get => _shield;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.Shield;
         set
         {
             if (value is > CollectedShield.MirrorShield or < CollectedShield.None) return;
             
-            _shield = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.Shield = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsAnyShieldCollected));
             NotifyPropertyChanged(nameof(IsHeroShieldCollected));
             NotifyPropertyChanged(nameof(IsMirrorShieldCollected));
         }
     }
-    
     public bool IsAnyShieldCollected => Shield != CollectedShield.None;
     public bool IsHeroShieldCollected => Shield == CollectedShield.HeroShield;
     public bool IsMirrorShieldCollected => Shield == CollectedShield.MirrorShield;
     
     
-    private CollectedQuiver _quiver = CollectedQuiver.None;
     public CollectedQuiver Quiver
     {
-        get => _quiver;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.Quiver;
         set
         {
             if (value is > CollectedQuiver.LargestQuiver or < CollectedQuiver.None) return;
             
-            _quiver = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.Quiver = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsAnyQuiverCollected));
             NotifyPropertyChanged(nameof(IsQuiverCollected));
@@ -313,22 +290,20 @@ public class QuestStatusPageViewmodel : BaseViewModel
             NotifyPropertyChanged(nameof(IsLargestQuiverCollected));
         }
     }
-    
     public bool IsAnyQuiverCollected => Quiver != CollectedQuiver.None;
     public bool IsQuiverCollected => Quiver == CollectedQuiver.Quiver;
     public bool IsBigQuiverCollected => Quiver == CollectedQuiver.BigQuiver;
     public bool IsLargestQuiverCollected => Quiver == CollectedQuiver.LargestQuiver;
     
     
-    private CollectedBombBag _bombBag = CollectedBombBag.None;
     public CollectedBombBag BombBag
     {
-        get => _bombBag;
+        get => SettingsModelStore.Instance.SettingsModel.QuestStatus.BombBag;
         set
         {
             if (value is > CollectedBombBag.LargestBombBag or < CollectedBombBag.None) return;
             
-            _bombBag = value;
+            SettingsModelStore.Instance.SettingsModel.QuestStatus.BombBag = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsAnyBombBagCollected));
             NotifyPropertyChanged(nameof(IsBombBagCollected));
@@ -336,7 +311,6 @@ public class QuestStatusPageViewmodel : BaseViewModel
             NotifyPropertyChanged(nameof(IsLargestBombBagCollected));
         }
     }
-    
     public bool IsAnyBombBagCollected => BombBag != CollectedBombBag.None;    
     public bool IsBombBagCollected => BombBag == CollectedBombBag.BombBag;
     public bool IsBigBombBagCollected => BombBag == CollectedBombBag.BigBombBag;

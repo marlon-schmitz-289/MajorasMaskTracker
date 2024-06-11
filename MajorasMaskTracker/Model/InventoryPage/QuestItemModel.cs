@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 using BaseClasses;
+using MajorasMaskTracker.Store;
 using MajorasMaskTracker.Util;
 
 namespace MajorasMaskTracker.Model.InventoryPage;
@@ -14,6 +15,7 @@ public class QuestItemModel : BaseModel
     [XmlElement] public bool IsLightArrowCollected { get; set; }
     [XmlElement] public bool IsRoomKeyCollected { get; set; }
 
+    [XmlIgnore]  public bool IsBombBagCollected => SettingsModelStore.Instance.SettingsModel.QuestStatus.BombBag != CollectedBombBag.None;
     [XmlElement] public bool IsBombChusCollected { get; set; }
     [XmlElement] public bool IsDekuStickCollected { get; set; }
     [XmlElement] public bool IsDekuNutCollected { get; set; }

@@ -16,9 +16,10 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
-                   FontFamily="{StaticResource ZeldaFont}"
                    Text="DUNGEON ITEMS"
                    FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="{StaticResource ZeldaFont}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
 
@@ -31,8 +32,6 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />

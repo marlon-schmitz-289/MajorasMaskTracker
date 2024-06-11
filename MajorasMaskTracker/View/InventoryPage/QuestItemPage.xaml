@@ -29,9 +29,10 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0"
-                   FontFamily="{StaticResource ZeldaFont}"
                    Text="QUEST ITEMS"
                    FontSize="40"
+                   FontWeight="Bold"
+                   FontFamily="{StaticResource ZeldaFont}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
 
@@ -102,7 +103,7 @@
 
                 <Image Source="../../Asset/QuestItem/MM_Fire_Arrow_Icon.png"
                        Visibility="{Binding IsFireArrowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Elemental_Arrow_Icon.png"
+                <Image Source="../../Asset/QuestItem/MM_Uncollected_Fire_Arrow_Icon.png"
                        Visibility="{Binding IsFireArrowCollected, Converter={StaticResource Viscon}}" />
             </Grid>
 
@@ -120,7 +121,7 @@
 
                 <Image Source="../../Asset/QuestItem/MM_Ice_Arrow_Icon.png"
                        Visibility="{Binding IsIceArrowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Elemental_Arrow_Icon.png"
+                <Image Source="../../Asset/QuestItem/MM_Uncollected_Ice_Arrow_Icon.png"
                        Visibility="{Binding IsIceArrowCollected, Converter={StaticResource Viscon}}" />
             </Grid>
 
@@ -138,7 +139,7 @@
 
                 <Image Source="../../Asset/QuestItem/MM_Light_Arrow_Icon.png"
                        Visibility="{Binding IsLightArrowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Elemental_Arrow_Icon.png"
+                <Image Source="../../Asset/QuestItem/MM_Uncollected_Light_Arrow_Icon.png"
                        Visibility="{Binding IsLightArrowCollected, Converter={StaticResource Viscon}}" />
             </Grid>
 

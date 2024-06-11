@@ -283,7 +283,6 @@
       <None Remove="Asset\QuestItem\MM_Uncollected_Deku_Stick_Icon.png" />
       <Resource Include="Asset\QuestItem\MM_Uncollected_Deku_Stick_Icon.png" />
       <None Remove="Asset\QuestItem\MM_Uncollected_Elemental_Arrow_Icon.png" />
-      <Resource Include="Asset\QuestItem\MM_Uncollected_Elemental_Arrow_Icon.png" />
       <None Remove="Asset\QuestItem\MM_Uncollected_Great_Fairys_Sword_Icon.png" />
       <Resource Include="Asset\QuestItem\MM_Uncollected_Great_Fairys_Sword_Icon.png" />
       <None Remove="Asset\QuestItem\MM_Uncollected_Heros_Bow_Icon.png" />
@@ -308,6 +307,32 @@
       <Resource Include="Asset\QuestItem\MM_Uncollected_Pendant_of_Memories_Icon.png" />
       <None Remove="Asset\QuestItem\MM_Uncollected_Light_Arrow_Icon.png" />
       <Resource Include="Asset\QuestItem\MM_Uncollected_Light_Arrow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Fire_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Fire_Arrow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Ice_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Ice_Arrow_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Compass_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Compass_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Dungeon_Map_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Dungeon_Map_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Great_Bay_Boss_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Great_Bay_Boss_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Small_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Small_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Snowhead_Boss_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Snowhead_Boss_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Stone_Tower_Boss_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Stone_Tower_Boss_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Boss_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Boss_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Compass_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Compass_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Dungeon_Map_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Dungeon_Map_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Small_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Small_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Woodfall_Boss_Key_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Woodfall_Boss_Key_Icon.png" />
     </ItemGroup>
 
     <ItemGroup>

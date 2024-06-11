@@ -25,21 +25,25 @@
 
         <Frame Grid.Column="0"
                Grid.Row="0"
+               Margin="5 5 35 35"
                Content="{Binding QuestItemPage}"
                NavigationUIVisibility="Hidden" />
         
         <Frame Grid.Column="1"
                Grid.Row="0"
+               Margin="35 5 5 35"
                Content="{Binding MaskPage}"
                NavigationUIVisibility="Hidden" />
         
         <Frame Grid.Column="0"
                Grid.Row="1"
+               Margin="5 35 35 5"
                Content="{Binding DungeonPage}"
                NavigationUIVisibility="Hidden" />
         
         <Frame Grid.Column="1"
                Grid.Row="1"
+               Margin="35 35 5 5"
                Content="{Binding QuestStatusPage}"
                NavigationUIVisibility="Hidden" />
     </Grid>

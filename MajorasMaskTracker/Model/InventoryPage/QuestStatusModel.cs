@@ -17,7 +17,7 @@ public class QuestStatusModel : BaseModel
 
     [XmlElement("HasSongOfTime")] public bool SongOfTimeCollected { get; set; }
     [XmlElement("HasSongOfSoaring")] public bool SongOfHealingCollected { get; set; }
-    [XmlElement("HasEponasSong")] public bool EponaSongCollected { get; set; }
+    [XmlElement("HasEponasSong")] public bool EponasSongCollected { get; set; }
     [XmlElement("HasSongOfSoaring")] public bool SongOfSoaringCollected { get; set; }
     [XmlElement("HasSongOfStorms")] public bool SongOfStormsCollected { get; set; }
     [XmlElement("HasSonataOfAwakening")] public bool SonataOfAwakeningCollected { get; set; }
@@ -30,6 +30,8 @@ public class QuestStatusModel : BaseModel
     [XmlElement("Shield")] public CollectedShield Shield { get; set; } = CollectedShield.None;
     [XmlElement("Quiver")] public CollectedQuiver Quiver { get; set; } = CollectedQuiver.None;
     [XmlElement("BombBag")] public CollectedBombBag BombBag { get; set; } = CollectedBombBag.None;
+    [XmlElement("Wallet")] public CollectedWallet Wallet { get; set; } = CollectedWallet.None;
+    [XmlElement("Magic")] public CollectedMagic Magic { get; set; } = CollectedMagic.None;
 
 
     public string ToXml()
