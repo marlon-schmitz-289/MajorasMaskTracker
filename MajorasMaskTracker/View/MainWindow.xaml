@@ -1,0 +1,27 @@
+﻿<base:BaseWindow x:Class="MajorasMaskTracker.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+                 xmlns:local="clr-namespace:MajorasMaskTracker"
+                 xmlns:base="clr-namespace:WPFBase;assembly=WPFBase"
+                 xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel"
+
+                 mc:Ignorable="d"
+                 WindowStartupLocation="CenterScreen"
+                 WindowTitle="Majora's Mask Tracker"
+                 MinHeight="450"
+                 MinWidth="800">
+    <Window.DataContext>
+        <vm:MainWindowViewmodel x:Name="mwvmodel" />
+    </Window.DataContext>
+    <base:BaseWindow.WindowBackground>
+        <!-- <ImageBrush ImageSource="../../Asset/Background/MM_Quest_Status.png" /> -->
+        <SolidColorBrush Color="Green" />
+    </base:BaseWindow.WindowBackground>
+    <base:BaseWindow.WindowContent>
+        <Frame NavigationUIVisibility="Hidden"
+               Content="{Binding CurrentPage}"/>
+    </base:BaseWindow.WindowContent>
+</base:BaseWindow>

@@ -1,0 +1,318 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <LangVersion>12</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <Version>0.0.1</Version>
+        <Title>Majoras Mask Item Tracker</Title>
+        <Authors />
+        <Company>Marlon</Company>
+        <Product>Majoras Mask Item Tracker</Product>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <FileVersion>0.0.1</FileVersion>
+        <NeutralLanguage>en-US</NeutralLanguage>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\CommonStuff\WPFBase\WPFBase.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Asset\DungeonItem\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="View\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Asset\StatusItems\Color\MM_Big_Bomb_Bag_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Big_Quiver_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Biggest_Bomb_Bag_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Bomb_Bag_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Bombers_Notebook_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Elegy_of_Emptiness_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Gilded_Sword_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Gohts_Remains_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Goron_Lullaby_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Gyorgs_Remains_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Heros_Shield_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Kokiri_Sword_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Largest_Quiver_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Mirror_Shield_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_New_Wave_Bossa_Nova_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Normal_Song_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Oath_to_Order_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Odolwas_Remains_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Piece_of_Heart_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Quiver_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Razor_Sword_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Sonata_of_Awakening_Icon.png" />
+      <None Remove="Asset\StatusItems\Color\MM_Twinmolds_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Largest_Bomb_Bag_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Big_Bomb_Bag_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Big_Quiver_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Bombers_Notebook_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Bomb_Bag_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Elegy_of_Emptiness_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Gilded_Sword_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Gohts_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Goron_Lullaby_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Gyorgs_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Heros_Shield_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Kokiri_Sword_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Largest_Quiver_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Mirror_Shield_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_New_Wave_Bossa_Nova_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Normal_Song_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Oath_to_Order_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Odolwas_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Piece_of_Heart_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Quiver_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Razor_Sword_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Sonata_of_Awakening_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Twinmolds_Remains_Icon.png" />
+      <None Remove="Asset\Background\MM_Quest_Status.png" />
+      <Resource Include="Asset\Background\MM_Quest_Status.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Twinmolds_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Twinmolds_Remains_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Sword_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Sword_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Song_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Song_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Shield_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Shield_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Quiver_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Quiver_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Piece_of_Heart_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Piece_of_Heart_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Odolwas_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Odolwas_Remains_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Gyorgs_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Gyorgs_Remains_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Gohts_Remains_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Gohts_Remains_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Bombers_Notebook_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Bombers_Notebook_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Bomb_Bag_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Bomb_Bag_Icon.png" />
+      <None Remove="Asset\Font\HyliaSerifBeta-Regular.otf" />
+      <Resource Include="Asset\Font\HyliaSerifBeta-Regular.otf" />
+      <None Remove="Asset\StatusItem\MM_Adult_Wallet_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Adult_Wallet_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Child_Wallet_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Child_Wallet_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Giants_Wallet_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Giants_Wallet_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Magic_Jar_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Magic_Jar_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Large_Magic_Jar_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Large_Magic_Jar_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Magic_Jar_Icon.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Magic_Jar_Icon.png" />
+      <None Remove="Asset\StatusItem\MM_Uncollected_Wallet.png" />
+      <Resource Include="Asset\StatusItem\MM_Uncollected_Wallet.png" />
+      <None Remove="Asset\Mask\MM_All-Night_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_All-Night_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Blast_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Blast_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Bremen_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Bremen_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Bunny_Hood_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Bunny_Hood_Icon.png" />
+      <None Remove="Asset\Mask\MM_Captains_Hat_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Captains_Hat_Icon.png" />
+      <None Remove="Asset\Mask\MM_Circus_Leaders_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Circus_Leaders_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Couples_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Couples_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Deku_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Deku_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Don_Geros_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Don_Geros_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Fierce_Deitys_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Fierce_Deitys_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Garos_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Garos_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Giants_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Giants_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Gibdo_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Gibdo_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Goron_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Goron_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Great_Fairys_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Great_Fairys_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Kafeis_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Kafeis_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Kamaros_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Kamaros_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Keaton_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Keaton_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Mask_of_Scents_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Mask_of_Scents_Icon.png" />
+      <None Remove="Asset\Mask\MM_Mask_of_Truth_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Mask_of_Truth_Icon.png" />
+      <None Remove="Asset\Mask\MM_Postmans_Hat_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Postmans_Hat_Icon.png" />
+      <None Remove="Asset\Mask\MM_Romanis_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Romanis_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Stone_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Stone_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Zora_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Zora_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_All-Night_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_All-Night_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Blast_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Blast_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Bremen_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Bremen_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Bunny_Hood_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Bunny_Hood_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Captains_Hat_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Captains_Hat_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Circus_Leaders_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Circus_Leaders_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Couples_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Couples_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Deku_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Deku_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Don_Geros_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Don_Geros_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Fierce_Deitys_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Fierce_Deitys_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Garos_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Garos_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Giants_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Giants_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Gibdo_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Gibdo_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Goron_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Goron_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Great_Fairys_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Great_Fairys_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Kafeis_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Kafeis_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Kamaros_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Kamaros_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Keaton_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Keaton_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Mask_of_Scents_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Mask_of_Scents_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Mask_of_Truth_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Mask_of_Truth_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Postmans_Hat_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Postmans_Hat_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Romanis_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Romanis_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Stone_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Stone_Mask_Icon.png" />
+      <None Remove="Asset\Mask\MM_Uncollected_Zora_Mask_Icon.png" />
+      <Resource Include="Asset\Mask\MM_Uncollected_Zora_Mask_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Bomb_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Bomb_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Bombchu_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Bombchu_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Bottle_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Bottle_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Ice_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Ice_Arrow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Hookshot_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Hookshot_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Heros_Bow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Heros_Bow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Great_Fairys_Sword_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Great_Fairys_Sword_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Fire_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Fire_Arrow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Deku_Stick_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Deku_Stick_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Deku_Nut_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Deku_Nut_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Land_Title_Deed_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Land_Title_Deed_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Lens_of_Truth_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Lens_of_Truth_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Magic_Bean_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Magic_Bean_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Moons_Tear_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Moons_Tear_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Mountain_Title_Deed_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Mountain_Title_Deed_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Letter_to_Kafei_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Letter_to_Kafei_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Express_Mail_to_Mama_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Express_Mail_to_Mama_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Ocarina_of_Time_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Ocarina_of_Time_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Ocean_Title_Deed_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Ocean_Title_Deed_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Pendant_of_Memories_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Pendant_of_Memories_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Picto_Box_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Picto_Box_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Powder_Keg_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Powder_Keg_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Room_Key_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Room_Key_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Swamp_Title_Deed_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Swamp_Title_Deed_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Bomb_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Bomb_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Bombchu_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Bombchu_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Bottle_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Bottle_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Deku_Nut_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Deku_Nut_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Deku_Stick_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Deku_Stick_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Elemental_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Elemental_Arrow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Great_Fairys_Sword_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Great_Fairys_Sword_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Heros_Bow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Heros_Bow_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Hookshot_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Hookshot_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Lens_of_Truth_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Lens_of_Truth_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Magic_Bean_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Magic_Bean_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Moons_Tear_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Moons_Tear_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Ocarina_of_Time_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Ocarina_of_Time_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Picto_Box_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Picto_Box_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Powder_Keg_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Powder_Keg_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Room_Key_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Room_Key_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Pendant_of_Memories_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Pendant_of_Memories_Icon.png" />
+      <None Remove="Asset\QuestItem\MM_Uncollected_Light_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Uncollected_Light_Arrow_Icon.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Asset\QuestItem\MM_Light_Arrow_Icon.png" />
+      <Resource Include="Asset\QuestItem\MM_Light_Arrow_Icon.png" />
+    </ItemGroup>
+
+</Project>

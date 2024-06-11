@@ -1,0 +1,444 @@
+﻿<Page x:Class="MajorasMaskTracker.View.InventoryPage.MaskPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+      xmlns:local="clr-namespace:MajorasMaskTracker.View.InventoryPage"
+      xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel.InventoryViewmodel"
+      
+      xmlns:con="clr-namespace:WPFBase.Converters;assembly=WPFBase"
+      
+      xmlns:behaviors="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+
+      mc:Ignorable="d"
+      Title="MaskPage"
+      Background="Transparent">
+    <Page.DataContext>
+        <vm:MaskPageViewmodel x:Name="mpvmodel" />
+    </Page.DataContext>
+    
+    <Page.Resources>
+        <con:VisibilityConverter x:Key="reviscon" />
+        <con:ReverseVisibilityConverter x:Key="viscon" />
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   FontFamily="{StaticResource ZeldaFont}"
+                   Text="MASKS"
+                   FontSize="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="0">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectPostmanHatCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectPostmanHatCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Postmans_Hat_Icon.png" Visibility="{Binding IsPostmanHatCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Postmans_Hat_Icon.png" Visibility="{Binding IsPostmanHatCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="1">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectAllNightMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectAllNightMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_All-Night_Mask_Icon.png" Visibility="{Binding IsAllNightMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_All-Night_Mask_Icon.png" Visibility="{Binding IsAllNightMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="2">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectBlastMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectBlastMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Blast_Mask_Icon.png" Visibility="{Binding IsBlastMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Blast_Mask_Icon.png" Visibility="{Binding IsBlastMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="3">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectStoneMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectStoneMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Stone_Mask_Icon.png" Visibility="{Binding IsStoneMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Stone_Mask_Icon.png" Visibility="{Binding IsStoneMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="4">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatFairyMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectGreatFairyMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Great_Fairys_Mask_Icon.png" Visibility="{Binding IsGreatFairyMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Great_Fairys_Mask_Icon.png" Visibility="{Binding IsGreatFairyMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="5">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectDekuMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectDekuMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Deku_Mask_Icon.png" Visibility="{Binding IsDekuMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Deku_Mask_Icon.png" Visibility="{Binding IsDekuMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+
+            <Grid Grid.Row="1"
+                  Grid.Column="0">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectKeatonMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectKeatonMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Keaton_Mask_Icon.png" Visibility="{Binding IsKeatonMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Keaton_Mask_Icon.png" Visibility="{Binding IsKeatonMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectBremenMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectBremenMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Bremen_Mask_Icon.png" Visibility="{Binding IsBremenMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Bremen_Mask_Icon.png" Visibility="{Binding IsBremenMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="2">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectBunnyHoodCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectBunnyHoodCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Bunny_Hood_Icon.png" Visibility="{Binding IsBunnyHoodCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Bunny_Hood_Icon.png" Visibility="{Binding IsBunnyHoodCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="3">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectDonGeroMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectDonGeroMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Don_Geros_Mask_Icon.png" Visibility="{Binding IsDonGeroMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Don_Geros_Mask_Icon.png" Visibility="{Binding IsDonGeroMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="4">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectMaskOfScentsCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectMaskOfScentsCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Mask_of_Scents_Icon.png" Visibility="{Binding IsMaskOfScentsCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Mask_of_Scents_Icon.png" Visibility="{Binding IsMaskOfScentsCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Grid.Column="5">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectGoronMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectGoronMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Goron_Mask_Icon.png" Visibility="{Binding IsGoronMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Goron_Mask_Icon.png" Visibility="{Binding IsGoronMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+
+            <Grid Grid.Row="2"
+                  Grid.Column="0">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectRomaniMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectRomaniMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Romanis_Mask_Icon.png" Visibility="{Binding IsRomaniMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Romanis_Mask_Icon.png" Visibility="{Binding IsRomaniMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.Column="1">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectCircusLeadersMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectCircusLeadersMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Circus_Leaders_Mask_Icon.png" Visibility="{Binding IsCircusLeadersMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Circus_Leaders_Mask_Icon.png" Visibility="{Binding IsCircusLeadersMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.Column="2">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectKafeisMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectKafeisMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Kafeis_Mask_Icon.png" Visibility="{Binding IsKafeisMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Kafeis_Mask_Icon.png" Visibility="{Binding IsKafeisMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.Column="3">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectCoupleMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectCoupleMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Couples_Mask_Icon.png" Visibility="{Binding IsCoupleMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Couples_Mask_Icon.png" Visibility="{Binding IsCoupleMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.Column="4">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectMaskOfTruthCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectMaskOfTruthCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Mask_of_Truth_Icon.png" Visibility="{Binding IsMaskOfTruthCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Mask_of_Truth_Icon.png" Visibility="{Binding IsMaskOfTruthCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.Column="5">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectZoraMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectZoraMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Zora_Mask_Icon.png" Visibility="{Binding IsZoraMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Zora_Mask_Icon.png" Visibility="{Binding IsZoraMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+
+            <Grid Grid.Row="3"
+                  Grid.Column="0">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectKamaroMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectKamaroMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Kamaros_Mask_Icon.png" Visibility="{Binding IsKamaroMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Kamaros_Mask_Icon.png" Visibility="{Binding IsKamaroMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Grid.Column="1">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectGibdoMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectGibdoMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Gibdo_Mask_Icon.png" Visibility="{Binding IsGibdoMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Gibdo_Mask_Icon.png" Visibility="{Binding IsGibdoMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Grid.Column="2">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectGaroMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectGaroMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Garos_Mask_Icon.png" Visibility="{Binding IsGaroMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Garos_Mask_Icon.png" Visibility="{Binding IsGaroMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Grid.Column="3">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectCaptainHatCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectCaptainHatCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Captains_Hat_Icon.png" Visibility="{Binding IsCaptainHatCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Captains_Hat_Icon.png" Visibility="{Binding IsCaptainHatCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Grid.Column="4">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectGiantMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectGiantMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Giants_Mask_Icon.png" Visibility="{Binding IsGiantMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Giants_Mask_Icon.png" Visibility="{Binding IsGiantMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Grid.Column="5">
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding CollectFierceDeityMaskCommand}" />
+                    </behaviors:EventTrigger>
+
+                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                        <behaviors:InvokeCommandAction Command="{Binding UncollectFierceDeityMaskCommand}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+
+                <Image Source="../../Asset/Mask/MM_Fierce_Deitys_Mask_Icon.png" Visibility="{Binding IsFierceDeityMaskCollected, Converter={StaticResource reviscon}}" />
+                <Image Source="../../Asset/Mask/MM_Uncollected_Fierce_Deitys_Mask_Icon.png" Visibility="{Binding IsFierceDeityMaskCollected, Converter={StaticResource viscon}}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

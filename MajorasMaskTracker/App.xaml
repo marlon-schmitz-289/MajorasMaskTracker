@@ -1,0 +1,9 @@
+﻿<Application x:Class="MajorasMaskTracker.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MajorasMaskTracker"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+         <FontFamily x:Key="ZeldaFont">pack://application:,,,/Asset/Font/#Hylia Serif Beta</FontFamily>
+    </Application.Resources>
+</Application>
