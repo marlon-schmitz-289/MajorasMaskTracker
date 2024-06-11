@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseClasses", "..\CommonStu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBase", "..\CommonStuff\WPFBase\WPFBase.csproj", "{54BB23F5-5BC5-41EC-8B07-13DAED266FB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MajorasMaskTracker.UnitTest", "MajorasMaskTracker.UnitTest\MajorasMaskTracker.UnitTest.csproj", "{4CD1B0B2-BDF5-40C9-A256-2CDFA10FCBCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{54BB23F5-5BC5-41EC-8B07-13DAED266FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54BB23F5-5BC5-41EC-8B07-13DAED266FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54BB23F5-5BC5-41EC-8B07-13DAED266FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD1B0B2-BDF5-40C9-A256-2CDFA10FCBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD1B0B2-BDF5-40C9-A256-2CDFA10FCBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD1B0B2-BDF5-40C9-A256-2CDFA10FCBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD1B0B2-BDF5-40C9-A256-2CDFA10FCBCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
