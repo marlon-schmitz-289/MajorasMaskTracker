@@ -30,10 +30,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Asset\DungeonItem\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Page Update="View\MainWindow.xaml">
         <Generator>MSBuild:Compile</Generator>
         <XamlRuntime>Wpf</XamlRuntime>
@@ -89,7 +85,6 @@
       <Resource Include="Asset\StatusItem\MM_Sonata_of_Awakening_Icon.png" />
       <Resource Include="Asset\StatusItem\MM_Twinmolds_Remains_Icon.png" />
       <None Remove="Asset\Background\MM_Quest_Status.png" />
-      <Resource Include="Asset\Background\MM_Quest_Status.png" />
       <None Remove="Asset\StatusItem\MM_Uncollected_Twinmolds_Remains_Icon.png" />
       <Resource Include="Asset\StatusItem\MM_Uncollected_Twinmolds_Remains_Icon.png" />
       <None Remove="Asset\StatusItem\MM_Uncollected_Sword_Icon.png" />
@@ -333,6 +328,22 @@
       <Resource Include="Asset\DungeonItem\MM_Uncollected_Small_Key_Icon.png" />
       <None Remove="Asset\DungeonItem\MM_Woodfall_Boss_Key_Icon.png" />
       <Resource Include="Asset\DungeonItem\MM_Woodfall_Boss_Key_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Stray_Fairy_Clock_Town_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Stray_Fairy_Clock_Town_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Stray_Fairy_Great_Bay_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Stray_Fairy_Great_Bay_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Stray_Fairy_Stone_Tower_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Stray_Fairy_Stone_Tower_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Stray_Fairy_Snowhead_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Stray_Fairy_Snowhead_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Stray_Fairy_Woodfall_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Stray_Fairy_Woodfall_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Left_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Left_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Right_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Right_Icon.png" />
+      <None Remove="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png" />
+      <Resource Include="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png" />
     </ItemGroup>
 
     <ItemGroup>

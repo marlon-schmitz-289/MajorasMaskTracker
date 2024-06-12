@@ -6,7 +6,7 @@ using MajorasMaskTracker.Util;
 
 namespace MajorasMaskTracker.Model.InventoryPage;
 
-public class QuestItemModel : BaseModel
+public class QuestItemPageModel : BaseModel
 {
     [XmlElement] public bool IsOcarinaOfTimeCollected { get; set; }
     [XmlElement] public bool IsHeroBowCollected { get; set; }
@@ -15,7 +15,7 @@ public class QuestItemModel : BaseModel
     [XmlElement] public bool IsLightArrowCollected { get; set; }
     [XmlElement] public bool IsRoomKeyCollected { get; set; }
 
-    [XmlIgnore]  public bool IsBombBagCollected => SettingsModelStore.Instance.SettingsModel.QuestStatus.BombBag != CollectedBombBag.None;
+    [XmlIgnore]  public bool IsBombBagCollected => SettingsModelStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedBombBag != CollectedBombBag.None;
     [XmlElement] public bool IsBombChusCollected { get; set; }
     [XmlElement] public bool IsDekuStickCollected { get; set; }
     [XmlElement] public bool IsDekuNutCollected { get; set; }
@@ -40,17 +40,17 @@ public class QuestItemModel : BaseModel
     public string ToXml()
     {
         var stream = new StringWriter();
-        var serializer = new XmlSerializer(typeof(QuestItemModel));
+        var serializer = new XmlSerializer(typeof(QuestItemPageModel));
         serializer.Serialize(stream, this);
         return stream.ToString();
     }
     
     
-    public static QuestItemModel FromXml(string xml)
+    public static QuestItemPageModel FromXml(string xml)
     {
-        var serializer = new XmlSerializer(typeof(QuestItemModel));
-        var ret = (QuestItemModel) serializer.Deserialize(new StringReader(xml));
+        var serializer = new XmlSerializer(typeof(QuestItemPageModel));
+        var ret = (QuestItemPageModel) serializer.Deserialize(new StringReader(xml));
         
-        return ret ?? new QuestItemModel();
+        return ret ?? new QuestItemPageModel();
     }
 }

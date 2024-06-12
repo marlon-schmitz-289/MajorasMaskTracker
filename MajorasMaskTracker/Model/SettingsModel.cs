@@ -7,9 +7,10 @@ namespace MajorasMaskTracker.Model;
 
 public class SettingsModel : BaseModel
 {
-    public MaskModel Masks { get; set; } = new MaskModel();
-    public QuestStatusModel QuestStatus { get; set; } = new QuestStatusModel();
-    public QuestItemModel QuestItems { get; set; } = new QuestItemModel();
+    public DungeonPageModel DungeonPageSettings { get; set; } = new DungeonPageModel();
+    public MaskPageModel MasksPageSettings { get; set; } = new MaskPageModel();
+    public QuestStatusPageModel QuestStatusPageSettings { get; set; } = new QuestStatusPageModel();
+    public QuestItemPageModel QuestItemsPageSettings { get; set; } = new QuestItemPageModel();
     
     
     public string ToXml()
@@ -23,7 +24,7 @@ public class SettingsModel : BaseModel
 
     public static SettingsModel FromXml(string xml)
     {
-        var serializer = new XmlSerializer(typeof(QuestStatusModel));
+        var serializer = new XmlSerializer(typeof(QuestStatusPageModel));
         var ret = (SettingsModel)serializer.Deserialize(new StringReader(xml));
 
         return ret ?? new SettingsModel();

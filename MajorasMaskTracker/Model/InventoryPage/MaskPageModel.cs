@@ -4,7 +4,7 @@ using BaseClasses;
 
 namespace MajorasMaskTracker.Model.InventoryPage;
 
-public class MaskModel : BaseModel
+public class MaskPageModel : BaseModel
 {
     [XmlElement] public bool IsPostmanHatCollected { get; set; }
     [XmlElement] public bool IsAllNightMaskCollected { get; set; }
@@ -38,17 +38,17 @@ public class MaskModel : BaseModel
     public string ToXml()
     {
         var stream = new StringWriter();
-        var serializer = new XmlSerializer(typeof(QuestStatusModel));
+        var serializer = new XmlSerializer(typeof(MaskPageModel));
         serializer.Serialize(stream, this);
         return stream.ToString();
     }
     
     
-    public static MaskModel FromXml(string xml)
+    public static MaskPageModel FromXml(string xml)
     {
-        var serializer = new XmlSerializer(typeof(QuestStatusModel));
-        var ret = (MaskModel) serializer.Deserialize(new StringReader(xml));
+        var serializer = new XmlSerializer(typeof(MaskPageModel));
+        var ret = (MaskPageModel) serializer.Deserialize(new StringReader(xml));
         
-        return ret ?? new MaskModel();
+        return ret ?? new MaskPageModel();
     }
 }
