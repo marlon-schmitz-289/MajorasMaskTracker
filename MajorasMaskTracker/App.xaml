@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:MajorasMaskTracker"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         <FontFamily x:Key="ZeldaFont">pack://application:,,,/Asset/Font/#Hylia Serif Beta</FontFamily>
+        <FontFamily x:Key="ZeldaFont">pack://application:,,,/Asset/Font/#Hylia Serif Beta</FontFamily>
+        <SolidColorBrush x:Key="ForegroundColor" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="BackgroundColor" Color="#FF3F3F3F" />
     </Application.Resources>
 </Application>

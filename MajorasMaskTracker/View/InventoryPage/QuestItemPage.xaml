@@ -22,483 +22,559 @@
         <con:VisibilityConverter x:Key="Reviscon" />
         <con:ReverseVisibilityConverter x:Key="Viscon" />
     </Page.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0"
-                   Text="QUEST ITEMS"
-                   FontSize="40"
-                   FontWeight="Bold"
-                   FontFamily="{StaticResource ZeldaFont}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
-
-        <Grid Grid.Row="1">
+    <Viewbox>
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="0">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectOcarinaCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectOcarinaCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Ocarina_of_Time_Icon.png"
-                       Visibility="{Binding IsOcarinaCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Ocarina_of_Time_Icon.png"
-                       Visibility="{Binding IsOcarinaCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectBowCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectBowCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Heros_Bow_Icon.png"
-                       Visibility="{Binding IsBowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Heros_Bow_Icon.png"
-                       Visibility="{Binding IsBowCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectFireArrowCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectFireArrowCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Fire_Arrow_Icon.png"
-                       Visibility="{Binding IsFireArrowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Fire_Arrow_Icon.png"
-                       Visibility="{Binding IsFireArrowCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectIceArrowCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectIceArrowCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Ice_Arrow_Icon.png"
-                       Visibility="{Binding IsIceArrowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Ice_Arrow_Icon.png"
-                       Visibility="{Binding IsIceArrowCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectLightArrowCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectLightArrowCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Light_Arrow_Icon.png"
-                       Visibility="{Binding IsLightArrowCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Light_Arrow_Icon.png"
-                       Visibility="{Binding IsLightArrowCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="5">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectRoomKeyCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectRoomKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Room_Key_Icon.png"
-                       Visibility="{Binding IsRoomKeyCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Room_Key_Icon.png"
-                       Visibility="{Binding IsRoomKeyCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-
-            <Grid Grid.Row="1"
-                  Grid.Column="0">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectBombBagCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectBombBagCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bomb_Icon.png"
-                       Visibility="{Binding IsBombBagCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bomb_Icon.png"
-                       Visibility="{Binding IsBombBagCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="1"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectBombChusCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectBombChusCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bombchu_Icon.png"
-                       Visibility="{Binding IsBombChusCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bombchu_Icon.png"
-                       Visibility="{Binding IsBombChusCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="1"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectDekuStickCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectDekuStickCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Deku_Stick_Icon.png"
-                       Visibility="{Binding IsDekuStickCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Deku_Stick_Icon.png"
-                       Visibility="{Binding IsDekuStickCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="1"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectDekuNutCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectDekuNutCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Deku_Nut_Icon.png"
-                       Visibility="{Binding IsDekuNutCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Deku_Nut_Icon.png"
-                       Visibility="{Binding IsDekuNutCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="1"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectMagicBeanCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectMagicBeanCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Magic_Bean_Icon.png"
-                       Visibility="{Binding IsMagicBeanCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Magic_Bean_Icon.png"
-                       Visibility="{Binding IsMagicBeanCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="1"
-                  Grid.Column="5">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectScrubTradeItemCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectScrubTradeItemCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Moons_Tear_Icon.png"
-                       Visibility="{Binding IsScrubTradeItemCollected, Converter={StaticResource Viscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Moons_Tear_Icon.png"
-                       Visibility="{Binding IsMoonsTearCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Land_Title_Deed_Icon.png"
-                       Visibility="{Binding IsLandTitleDeedCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Swamp_Title_Deed_Icon.png"
-                       Visibility="{Binding IsSwampTitleDeedCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Mountain_Title_Deed_Icon.png"
-                       Visibility="{Binding IsMountainTitleDeedCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Ocean_Title_Deed_Icon.png"
-                       Visibility="{Binding IsOceanTitleDeedCollected, Converter={StaticResource Reviscon}}" />
-            </Grid>
-
-
-            <Grid Grid.Row="2"
-                  Grid.Column="0">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectPowderKegCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectPowderKegCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Powder_Keg_Icon.png"
-                       Visibility="{Binding IsPowderKegCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Powder_Keg_Icon.png"
-                       Visibility="{Binding IsPowderKegCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="2"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectPictoBoxCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectPictoBoxCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Picto_Box_Icon.png"
-                       Visibility="{Binding IsPictoBoxCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Picto_Box_Icon.png"
-                       Visibility="{Binding IsPictoBoxCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="2"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectLensOfTruthCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectLensOfTruthCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Lens_of_Truth_Icon.png"
-                       Visibility="{Binding IsLensOfTruthCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Lens_of_Truth_Icon.png"
-                       Visibility="{Binding IsLensOfTruthCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="2"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectHookshotCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectHookshotCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Hookshot_Icon.png"
-                       Visibility="{Binding IsHookshotCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Hookshot_Icon.png"
-                       Visibility="{Binding IsHookshotCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="2"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatFairySwordCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectGreatFairySwordCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Great_Fairys_Sword_Icon.png"
-                       Visibility="{Binding IsGreatFairySwordCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Great_Fairys_Sword_Icon.png"
-                       Visibility="{Binding IsGreatFairySwordCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="2"
-                  Grid.Column="5">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectKafeiItemCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectKafeiItemCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Pendant_of_Memories_Icon.png"
-                       Visibility="{Binding IsKafeiItemCollected, Converter={StaticResource Viscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Pendant_of_Memories_Icon.png"
-                       Visibility="{Binding IsPendantOfMemoriesCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Letter_to_Kafei_Icon.png"
-                       Visibility="{Binding IsLetterToKafeiCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Express_Mail_to_Mama_Icon.png"
-                       Visibility="{Binding IsExpressMailToMamaCollected, Converter={StaticResource Reviscon}}" />
-            </Grid>
-
-
-            <Grid Grid.Row="3"
-                  Grid.Column="0">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectFirstBottleCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectFirstBottleCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
-                       Visibility="{Binding IsFirstBottleCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
-                       Visibility="{Binding IsFirstBottleCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="3"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSecondBottleCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectSecondBottleCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
-                       Visibility="{Binding IsSecondBottleCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
-                       Visibility="{Binding IsSecondBottleCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="3"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectThirdBottleCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectThirdBottleCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
-                       Visibility="{Binding IsThirdBottleCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
-                       Visibility="{Binding IsThirdBottleCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="3"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectFourthBottleCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectFourthBottleCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
-                       Visibility="{Binding IsFourthBottleCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
-                       Visibility="{Binding IsFourthBottleCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="3"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectFifthBottleCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectFifthBottleCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
-                       Visibility="{Binding IsFifthBottleCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
-                       Visibility="{Binding IsFifthBottleCollected, Converter={StaticResource Viscon}}" />
-            </Grid>
-
-            <Grid Grid.Row="3"
-                  Grid.Column="5">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSixthBottleCommand}" />
-                    </behaviors:EventTrigger>
-
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UnCollectSixthBottleCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
-
-                <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
-                       Visibility="{Binding IsSixthBottleCollected, Converter={StaticResource Reviscon}}" />
-                <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
-                       Visibility="{Binding IsSixthBottleCollected, Converter={StaticResource Viscon}}" />
+            <TextBlock Grid.Row="0"
+                       Text="QUEST ITEMS"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource ForegroundColor}"
+                       FontFamily="{StaticResource ZeldaFont}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="0"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectOcarinaCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectOcarinaCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Ocarina_of_Time_Icon.png"
+                           Visibility="{Binding IsOcarinaCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Ocarina_of_Time_Icon.png"
+                           Visibility="{Binding IsOcarinaCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectBowCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectBowCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Heros_Bow_Icon.png"
+                           Visibility="{Binding IsBowCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Heros_Bow_Icon.png"
+                           Visibility="{Binding IsBowCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="2"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectFireArrowCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectFireArrowCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Fire_Arrow_Icon.png"
+                           Visibility="{Binding IsFireArrowCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Fire_Arrow_Icon.png"
+                           Visibility="{Binding IsFireArrowCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="3"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectIceArrowCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectIceArrowCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Ice_Arrow_Icon.png"
+                           Visibility="{Binding IsIceArrowCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Ice_Arrow_Icon.png"
+                           Visibility="{Binding IsIceArrowCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="4"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectLightArrowCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectLightArrowCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Light_Arrow_Icon.png"
+                           Visibility="{Binding IsLightArrowCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Light_Arrow_Icon.png"
+                           Visibility="{Binding IsLightArrowCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="0"
+                      Grid.Column="5"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectRoomKeyCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectRoomKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Room_Key_Icon.png"
+                           Visibility="{Binding IsRoomKeyCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Room_Key_Icon.png"
+                           Visibility="{Binding IsRoomKeyCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+
+                <Grid Grid.Row="1"
+                      Grid.Column="0"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectBombBagCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectBombBagCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bomb_Icon.png"
+                           Visibility="{Binding IsBombBagCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bomb_Icon.png"
+                           Visibility="{Binding IsBombBagCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="1"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectBombChusCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectBombChusCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bombchu_Icon.png"
+                           Visibility="{Binding IsBombChusCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bombchu_Icon.png"
+                           Visibility="{Binding IsBombChusCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="2"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectDekuStickCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectDekuStickCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Deku_Stick_Icon.png"
+                           Visibility="{Binding IsDekuStickCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Deku_Stick_Icon.png"
+                           Visibility="{Binding IsDekuStickCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="3"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectDekuNutCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectDekuNutCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Deku_Nut_Icon.png"
+                           Visibility="{Binding IsDekuNutCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Deku_Nut_Icon.png"
+                           Visibility="{Binding IsDekuNutCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="4"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectMagicBeanCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectMagicBeanCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Magic_Bean_Icon.png"
+                           Visibility="{Binding IsMagicBeanCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Magic_Bean_Icon.png"
+                           Visibility="{Binding IsMagicBeanCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="5"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectScrubTradeItemCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectScrubTradeItemCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Moons_Tear_Icon.png"
+                           Visibility="{Binding IsScrubTradeItemCollected, Converter={StaticResource Viscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Moons_Tear_Icon.png"
+                           Visibility="{Binding IsMoonsTearCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Land_Title_Deed_Icon.png"
+                           Visibility="{Binding IsLandTitleDeedCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Swamp_Title_Deed_Icon.png"
+                           Visibility="{Binding IsSwampTitleDeedCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Mountain_Title_Deed_Icon.png"
+                           Visibility="{Binding IsMountainTitleDeedCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Ocean_Title_Deed_Icon.png"
+                           Visibility="{Binding IsOceanTitleDeedCollected, Converter={StaticResource Reviscon}}" />
+                </Grid>
+
+
+                <Grid Grid.Row="2"
+                      Grid.Column="0"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectPowderKegCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectPowderKegCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Powder_Keg_Icon.png"
+                           Visibility="{Binding IsPowderKegCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Powder_Keg_Icon.png"
+                           Visibility="{Binding IsPowderKegCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Grid.Column="1"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectPictoBoxCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectPictoBoxCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Picto_Box_Icon.png"
+                           Visibility="{Binding IsPictoBoxCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Picto_Box_Icon.png"
+                           Visibility="{Binding IsPictoBoxCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Grid.Column="2"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectLensOfTruthCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectLensOfTruthCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Lens_of_Truth_Icon.png"
+                           Visibility="{Binding IsLensOfTruthCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Lens_of_Truth_Icon.png"
+                           Visibility="{Binding IsLensOfTruthCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Grid.Column="3"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectHookshotCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectHookshotCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Hookshot_Icon.png"
+                           Visibility="{Binding IsHookshotCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Hookshot_Icon.png"
+                           Visibility="{Binding IsHookshotCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Grid.Column="4"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectGreatFairySwordCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectGreatFairySwordCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Great_Fairys_Sword_Icon.png"
+                           Visibility="{Binding IsGreatFairySwordCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Great_Fairys_Sword_Icon.png"
+                           Visibility="{Binding IsGreatFairySwordCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      Grid.Column="5"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectKafeiItemCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectKafeiItemCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Pendant_of_Memories_Icon.png"
+                           Visibility="{Binding IsKafeiItemCollected, Converter={StaticResource Viscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Pendant_of_Memories_Icon.png"
+                           Visibility="{Binding IsPendantOfMemoriesCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Letter_to_Kafei_Icon.png"
+                           Visibility="{Binding IsLetterToKafeiCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Express_Mail_to_Mama_Icon.png"
+                           Visibility="{Binding IsExpressMailToMamaCollected, Converter={StaticResource Reviscon}}" />
+                </Grid>
+
+
+                <Grid Grid.Row="3"
+                      Grid.Column="0"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectFirstBottleCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectFirstBottleCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
+                           Visibility="{Binding IsFirstBottleCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
+                           Visibility="{Binding IsFirstBottleCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="3"
+                      Grid.Column="1"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSecondBottleCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectSecondBottleCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
+                           Visibility="{Binding IsSecondBottleCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
+                           Visibility="{Binding IsSecondBottleCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="3"
+                      Grid.Column="2"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectThirdBottleCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectThirdBottleCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
+                           Visibility="{Binding IsThirdBottleCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
+                           Visibility="{Binding IsThirdBottleCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="3"
+                      Grid.Column="3"
+                      Margin="10"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectFourthBottleCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectFourthBottleCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
+                           Visibility="{Binding IsFourthBottleCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
+                           Visibility="{Binding IsFourthBottleCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="3"
+                      Grid.Column="4"
+                      Width="50"
+                      Height="50"
+                      Margin="10">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectFifthBottleCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectFifthBottleCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
+                           Visibility="{Binding IsFifthBottleCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
+                           Visibility="{Binding IsFifthBottleCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
+
+                <Grid Grid.Row="3"
+                      Grid.Column="5"
+                      Width="50"
+                      Height="50"
+                      Margin="10">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSixthBottleCommand}" />
+                        </behaviors:EventTrigger>
+
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UnCollectSixthBottleCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
+
+                    <Image Source="../../Asset/QuestItem/MM_Bottle_Icon.png"
+                           Visibility="{Binding IsSixthBottleCollected, Converter={StaticResource Reviscon}}" />
+                    <Image Source="../../Asset/QuestItem/MM_Uncollected_Bottle_Icon.png"
+                           Visibility="{Binding IsSixthBottleCollected, Converter={StaticResource Viscon}}" />
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

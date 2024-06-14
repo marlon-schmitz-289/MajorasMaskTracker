@@ -7,44 +7,48 @@
       xmlns:local="clr-namespace:MajorasMaskTracker.View"
       xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel"
 
-      mc:Ignorable="d">
+      mc:Ignorable="d"
+      Height="Auto"
+      Width="Auto">
     <Page.DataContext>
         <vm:MainPageViewmodel x:Name="mpvmodel" />
     </Page.DataContext>
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-        <Frame Grid.Column="0"
-               Grid.Row="0"
-               Margin="5 5 35 35"
-               Content="{Binding QuestItemPage}"
-               NavigationUIVisibility="Hidden" />
-        
-        <Frame Grid.Column="1"
-               Grid.Row="0"
-               Margin="35 5 5 35"
-               Content="{Binding MaskPage}"
-               NavigationUIVisibility="Hidden" />
-        
-        <Frame Grid.Column="0"
-               Grid.Row="1"
-               Margin="5 35 35 5"
-               Content="{Binding DungeonPage}"
-               NavigationUIVisibility="Hidden" />
-        
-        <Frame Grid.Column="1"
-               Grid.Row="1"
-               Margin="35 35 5 5"
-               Content="{Binding QuestStatusPage}"
-               NavigationUIVisibility="Hidden" />
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Column="0"
+                   Grid.Row="0"
+                   Margin="5 5 15 15"
+                   Content="{Binding QuestItemPage}"
+                   NavigationUIVisibility="Hidden" />
+
+            <Frame Grid.Column="1"
+                   Grid.Row="0"
+                   Margin="15 5 5 15"
+                   Content="{Binding MaskPage}"
+                   NavigationUIVisibility="Hidden" />
+
+            <Frame Grid.Column="0"
+                   Grid.Row="1"
+                   Margin="5 15 15 5"
+                   Content="{Binding DungeonPage}"
+                   NavigationUIVisibility="Hidden" />
+
+            <Frame Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="15 15 5 5"
+                   Content="{Binding QuestStatusPage}"
+                   NavigationUIVisibility="Hidden" />
+        </Grid>
+    </Viewbox>
 </Page>

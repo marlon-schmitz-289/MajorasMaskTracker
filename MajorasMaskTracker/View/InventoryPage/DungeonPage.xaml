@@ -24,537 +24,581 @@
         <converters:ReverseVisibilityConverter x:Key="viscon" />
     </Page.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <TextBlock Grid.Row="0"
-                   Text="DUNGEON ITEMS"
-                   FontSize="40"
-                   FontWeight="Bold"
-                   FontFamily="{StaticResource ZeldaFont}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
-
-        <Grid Grid.Row="1">
+    <Viewbox>
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="2*" />
-            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0"
+                       Text="DUNGEON ITEMS"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       Margin="0 0 0 10"
+                       FontFamily="{StaticResource ZeldaFont}"
+                       Foreground="{StaticResource ForegroundColor}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
 
-            <!-- #region Woodfall Temple -->
-            <Viewbox Grid.Row="0"
-                     Grid.Column="0">
-                <TextBlock Text="Woodfall Temple"
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- #region Woodfall Temple -->
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Woodfall Temple"
+                           Foreground="{StaticResource ForegroundColor}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="{StaticResource ZeldaFont}" />
-            </Viewbox>
 
-            <Grid Grid.Row="0"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallMapCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallMapCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallMapCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallMapCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="0"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallCompassCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="0"
+                      Grid.Column="2"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallCompassCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallCompassCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallCompassCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                       Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
+                           Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                       Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
+                           Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="0"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallBossKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="0"
+                      Grid.Column="3"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallBossKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallBossKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallBossKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Woodfall_Boss_Key_Icon.png"
-                       Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Woodfall_Boss_Key_Icon.png"
+                           Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                       Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
+                           Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="0"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallFairyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="0"
+                      Grid.Column="4"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallFairyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallFairyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallFairyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Woodfall_Icon.png"
-                       Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Woodfall_Icon.png"
+                           Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Left_Icon.png"
-                       Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Left_Icon.png"
+                           Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="0"
-                     Grid.Column="5">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="0"
+                           Grid.Column="5"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding WoodfallFairyText}" />
-            </Viewbox>
 
-            <Grid Grid.Row="0"
-                  Grid.Column="6">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallSmallKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="0"
+                      Grid.Column="6"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectWoodfallSmallKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallSmallKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectWoodfallSmallKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                       Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
+                           Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                       Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
+                           Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="0"
-                     Grid.Column="7">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="0"
+                           Grid.Column="7"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding WoodfallSmallKeyText}" />
-            </Viewbox>
-            <!-- #endregion -->
+                <!-- #endregion -->
 
 
-            <!-- #region Snowhead Temple -->
-            <Viewbox Grid.Row="1"
-                     Grid.Column="0">
-                <TextBlock Text="Snowhead Temple"
+                <!-- #region Snowhead Temple -->
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Snowhead Temple"
+                           Foreground="{StaticResource ForegroundColor}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="{StaticResource ZeldaFont}" />
-            </Viewbox>
 
-            <Grid Grid.Row="1"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadMapCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="1"
+                      Grid.Column="1"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadMapCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadMapCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadMapCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="1"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadCompassCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="1"
+                      Grid.Column="2"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadCompassCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadCompassCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadCompassCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                       Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
+                           Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                       Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
+                           Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="1"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadBossKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="1"
+                      Grid.Column="3"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadBossKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadBossKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadBossKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Snowhead_Boss_Key_Icon.png"
-                       Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Snowhead_Boss_Key_Icon.png"
+                           Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                       Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
+                           Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="1"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadFairyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="1"
+                      Grid.Column="4"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadFairyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadFairyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadFairyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Snowhead_Icon.png"
-                       Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Snowhead_Icon.png"
+                           Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Right_Icon.png"
-                       Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Right_Icon.png"
+                           Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="1"
-                     Grid.Column="5">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="1"
+                           Grid.Column="5"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding SnowheadFairyText}" />
-            </Viewbox>
 
-            <Grid Grid.Row="1"
-                  Grid.Column="6">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadSmallKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="1"
+                      Grid.Column="6"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectSnowheadSmallKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadSmallKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectSnowheadSmallKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                       Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
+                           Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                       Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
+                           Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="1"
-                     Grid.Column="7">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="1"
+                           Grid.Column="7"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding SnowheadSmallKeyText}" />
-            </Viewbox>
-            <!-- #endregion -->
+                <!-- #endregion -->
 
 
-            <!-- #region Great Bay Temple -->
-            <Viewbox Grid.Row="2"
-                     Grid.Column="0">
-                <TextBlock Text="Great Bay Temple"
+                <!-- #region Great Bay Temple -->
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Great Bay Temple"
+                           Foreground="{StaticResource ForegroundColor}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="{StaticResource ZeldaFont}" />
-            </Viewbox>
 
-            <Grid Grid.Row="2"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayMapCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="2"
+                      Grid.Column="1"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayMapCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayMapCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayMapCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="2"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayCompassCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="2"
+                      Grid.Column="2"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayCompassCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayCompassCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayCompassCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                       Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
+                           Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                       Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
+                           Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="2"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayBossKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="2"
+                      Grid.Column="3"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayBossKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayBossKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayBossKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Great_Bay_Boss_Key_Icon.png"
-                       Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Great_Bay_Boss_Key_Icon.png"
+                           Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                       Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
+                           Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="2"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayFairyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="2"
+                      Grid.Column="4"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectGreatBayFairyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayFairyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBayFairyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Great_Bay_Icon.png"
-                       Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Great_Bay_Icon.png"
+                           Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Right_Icon.png"
-                       Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Right_Icon.png"
+                           Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="2"
-                     Grid.Column="5">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="2"
+                           Grid.Column="5"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding GreatBayFairyText}" />
-            </Viewbox>
 
-            <Grid Grid.Row="2"
-                  Grid.Column="6">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectGreatBaySmallKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="2"
+                      Grid.Column="6"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectGreatBaySmallKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBaySmallKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectGreatBaySmallKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                       Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
+                           Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                       Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
+                           Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="2"
-                     Grid.Column="7">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="2"
+                           Grid.Column="7"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding GreatBaySmallKeyText}" />
-            </Viewbox>
-            <!-- #endregion -->
+                <!-- #endregion -->
 
 
-            <!-- #region Stone Tower Temple -->
-            <Viewbox Grid.Row="3"
-                     Grid.Column="0">
-                <TextBlock Text="Stone Tower Temple"
+                <!-- #region Stone Tower Temple -->
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Stone Tower Temple"
+                           Foreground="{StaticResource ForegroundColor}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="{StaticResource ZeldaFont}" />
-            </Viewbox>
 
-            <Grid Grid.Row="3"
-                  Grid.Column="1">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerMapCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="3"
+                      Grid.Column="1"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerMapCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerMapCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerMapCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                       Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
+                           Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="3"
-                  Grid.Column="2">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerCompassCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="3"
+                      Grid.Column="2"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerCompassCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerCompassCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerCompassCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                       Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
+                           Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                       Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
+                           Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="3"
-                  Grid.Column="3">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerBossKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="3"
+                      Grid.Column="3"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerBossKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerBossKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerBossKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Stone_Tower_Boss_Key_Icon.png"
-                       Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Stone_Tower_Boss_Key_Icon.png"
+                           Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                       Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
+                           Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Grid Grid.Row="3"
-                  Grid.Column="4">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerFairyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="3"
+                      Grid.Column="4"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerFairyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerFairyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerFairyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Stone_Tower_Icon.png"
-                       Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Stone_Tower_Icon.png"
+                           Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png"
-                       Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png"
+                           Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="3"
-                     Grid.Column="5">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="3"
+                           Grid.Column="5"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding StoneTowerFairyText}" />
-            </Viewbox>
 
-            <Grid Grid.Row="3"
-                  Grid.Column="6">
-                <behaviors:Interaction.Triggers>
-                    <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerSmallKeyCommand}" />
-                    </behaviors:EventTrigger>
+                <Grid Grid.Row="3"
+                      Grid.Column="6"
+                      Width="50"
+                      Height="50">
+                    <behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding CollectStoneTowerSmallKeyCommand}" />
+                        </behaviors:EventTrigger>
 
-                    <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                        <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerSmallKeyCommand}" />
-                    </behaviors:EventTrigger>
-                </behaviors:Interaction.Triggers>
+                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                            <behaviors:InvokeCommandAction Command="{Binding UncollectStoneTowerSmallKeyCommand}" />
+                        </behaviors:EventTrigger>
+                    </behaviors:Interaction.Triggers>
 
-                <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                       Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource reviscon}}" />
+                    <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
+                           Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource reviscon}}" />
 
-                <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                       Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource viscon}}" />
-            </Grid>
+                    <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
+                           Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource viscon}}" />
+                </Grid>
 
-            <Viewbox Grid.Row="3"
-                     Grid.Column="7">
-                <TextBlock FontSize="25"
+                <TextBlock Grid.Row="3"
+                           Grid.Column="7"
+                           FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
+                           Foreground="{StaticResource ForegroundColor}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding StoneTowerSmallKeyText}" />
-            </Viewbox>
-            <!-- #endregion -->
+                <!-- #endregion -->
+            </Grid>
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

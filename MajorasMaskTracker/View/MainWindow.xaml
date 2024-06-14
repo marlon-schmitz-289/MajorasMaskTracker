@@ -9,17 +9,17 @@
                  xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel"
 
                  mc:Ignorable="d"
+                 WindowBackground="{StaticResource BackgroundColor}"
                  WindowStartupLocation="CenterScreen"
                  WindowTitle="Majora's Mask Tracker"
-                 MinHeight="450"
-                 MinWidth="800">
+                 Height="540"
+                 Width="960"
+                 MinHeight="400"
+                 MinWidth="500">
     <Window.DataContext>
         <vm:MainWindowViewmodel x:Name="mwvmodel" />
     </Window.DataContext>
-    <base:BaseWindow.WindowBackground>
-        <!-- <ImageBrush ImageSource="../../Asset/Background/MM_Quest_Status.png" /> -->
-        <SolidColorBrush Color="Green" />
-    </base:BaseWindow.WindowBackground>
+    
     <base:BaseWindow.WindowContent>
         <Frame NavigationUIVisibility="Hidden"
                Content="{Binding CurrentPage}"/>

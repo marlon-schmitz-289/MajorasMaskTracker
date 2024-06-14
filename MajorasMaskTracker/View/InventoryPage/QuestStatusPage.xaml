@@ -23,655 +23,694 @@
         <con:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
     </Page.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <!-- Title -->
-        <TextBlock Grid.Column="0"
-                   Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   Text="QUEST STATUS"
-                   FontSize="40"
-                   FontWeight="Bold"
-                   FontFamily="{StaticResource ZeldaFont}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
-
-
-        <!-- Left half -->
-        <Grid Grid.Row="1"
-              Grid.Column="0"
-              Margin="10 0 10 10">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
+            <TextBlock Text="QUEST STATUS"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource ForegroundColor}"
+                       FontFamily="{StaticResource ZeldaFont}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
 
-                <Grid Grid.Column="0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectBombersNotebookCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectBombersNotebookCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedBombersNotebook"
-                           Visibility="{Binding BombersNotebookCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Bombers_Notebook_Icon.png" />
-
-                    <Image x:Name="BombersNotebook"
-                           Visibility="{Binding BombersNotebookCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Bombers_Notebook_Icon.png" />
-                </Grid>
-
-                <Grid Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectHeartPieceCommand}" />
-                            </behaviors:EventTrigger>
-
-                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectHeartPieceCommand}" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
-
-                        <Image x:Name="UncollectedHeartpieces"
-                               Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Piece_of_Heart_Icon.png" />
-
-                        <Image x:Name="Hearpieces"
-                               Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Piece_of_Heart_Icon.png" />
-                    </Grid>
-
-                    <Label Grid.Column="1"
-                           Content="{Binding CollectedHeartPieces}"
-                           HorizontalAlignment="Right"
-                           HorizontalContentAlignment="Right"
-                           VerticalAlignment="Center"
-                           MinWidth="50"
-                           FontSize="30"
-                           FontFamily="{StaticResource ZeldaFont}"/>
-                </Grid>
-            </Grid>
-
-            <!-- Songs -->
             <Grid Grid.Row="1"
-                  Margin="0 10 0 0">
+                  Grid.Column="0"
+                  Margin="10 0 10 10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="2*" />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <!-- Normal Songs -->
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0"
+                          Width="50"
+                          Height="50">
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding CollectBombersNotebookCommand}" />
+                            </behaviors:EventTrigger>
+
+                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectBombersNotebookCommand}" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+
+                        <Image x:Name="UncollectedBombersNotebook"
+                               Visibility="{Binding BombersNotebookCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Bombers_Notebook_Icon.png" />
+
+                        <Image x:Name="BombersNotebook"
+                               Visibility="{Binding BombersNotebookCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Bombers_Notebook_Icon.png" />
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0"
+                              Width="50"
+                              Height="50">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectHeartPieceCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectHeartPieceCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="UncollectedHeartpieces"
+                                   Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Piece_of_Heart_Icon.png" />
+
+                            <Image x:Name="Hearpieces"
+                                   Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Piece_of_Heart_Icon.png" />
+                        </Grid>
+
+                        <Label Grid.Column="1"
+                               Content="{Binding HeartPiecesText}"
+                               HorizontalAlignment="Right"
+                               HorizontalContentAlignment="Right"
+                               VerticalAlignment="Center"
+                               MinWidth="50"
+                               FontSize="30"
+                               Foreground="{StaticResource ForegroundColor}"
+                               FontFamily="{StaticResource ZeldaFont}" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Margin="0 10 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0"
+                              ToolTip="Song of Time"
+                              Width="50"
+                              Height="50">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectSongOfTimeCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfTimeCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image Grid.Column="0"
+                                   x:Name="SongOfTime"
+                                   Visibility="{Binding SongOfTimeCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image Grid.Column="0"
+                                   x:Name="SongOfTimeCollected"
+                                   Visibility="{Binding SongOfTimeCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="1"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Song of Healing">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectSongOfHealingCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfHealingCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="SongOfHealing"
+                                   Visibility="{Binding SongOfHealingCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="SongOfHealingCollected"
+                                   Visibility="{Binding SongOfHealingCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="2"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Eponas Song">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectEponaSongCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectEponaSongCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="EponasSong"
+                                   Visibility="{Binding EponasSongCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="EponasSongCollected"
+                                   Visibility="{Binding EponasSongCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="3"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Song of Soaring">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectSongOfSoaringCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfSoaringCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="SongOfSoaring"
+                                   Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="SongOfSoaringCollected"
+                                   Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="4"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Song of Storms">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectSongOfStormsCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfStormsCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="SongOfStorms"
+                                   Visibility="{Binding SongOfStormsCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="SongOfStormsCollected"
+                                   Visibility="{Binding SongOfStormsCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Sonata of Awakening">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectSonataOfAwakeningCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction
+                                        Command="{Binding UncollectSonataOfAwakeningCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="SonataOfAwakening"
+                                   Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="SonataOfAwakeningCollected"
+                                   Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Sonata_of_Awakening_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="1"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Goron Lullaby">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectGoronLullabyCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectGoronLullabyCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="GoronLullaby"
+                                   Visibility="{Binding GoronLullabyCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="GoronLullabyCollected"
+                                   Visibility="{Binding GoronLullabyCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Goron_Lullaby_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="2"
+                              Width="50"
+                              Height="50"
+                              ToolTip="New Wave Bossa Nova">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectNewWaveBossanovaCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectNewWaveBossanovaCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="NewWaveBossaNova"
+                                   Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="NewWaveBossaNovaCollected"
+                                   Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_New_Wave_Bossa_Nova_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="3"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Elegy of Emptiness">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectElegyOfEmptinessCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectElegyOfEmptinessCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="ElegyOfEmptiness"
+                                   Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="ElegyOfEmptinessCollected"
+                                   Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Elegy_of_Emptiness_Icon.png" />
+                        </Grid>
+
+
+                        <Grid Grid.Column="4"
+                              Width="50"
+                              Height="50"
+                              ToolTip="Oath to Order">
+                            <behaviors:Interaction.Triggers>
+                                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding CollectOathToOrderCommand}" />
+                                </behaviors:EventTrigger>
+
+                                <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                    <behaviors:InvokeCommandAction Command="{Binding UncollectOathToOrderCommand}" />
+                                </behaviors:EventTrigger>
+                            </behaviors:Interaction.Triggers>
+
+                            <Image x:Name="OathToOrder"
+                                   Visibility="{Binding OathToOrderCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+
+                            <Image x:Name="OathToOrderCollected"
+                                   Visibility="{Binding OathToOrderCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Source="../../Asset/StatusItem/MM_Oath_to_Order_Icon.png" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0"
-                          ToolTip="Song of Time">
+                          Width="50"
+                          Height="50">
                         <behaviors:Interaction.Triggers>
                             <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectSongOfTimeCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding CollectMagicCommand}" />
                             </behaviors:EventTrigger>
 
                             <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfTimeCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectMagicCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
 
-                        <Image Grid.Column="0"
-                               x:Name="SongOfTime"
-                               Visibility="{Binding SongOfTimeCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+                        <Image x:Name="UncollectedMagicJar"
+                               Visibility="{Binding IsAnyMagicCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Magic_Jar_Icon.png" />
 
-                        <Image Grid.Column="0"
-                               x:Name="SongOfTimeCollected"
-                               Visibility="{Binding SongOfTimeCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        <Image x:Name="MagicJar"
+                               Visibility="{Binding IsMagicCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Magic_Jar_Icon.png" />
+
+                        <Image x:Name="LargeMagicJar"
+                               Visibility="{Binding IsDoubleMagicCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Large_Magic_Jar_Icon.png" />
                     </Grid>
-
 
                     <Grid Grid.Column="1"
-                          ToolTip="Song of Healing">
+                          Width="50"
+                          Height="50">
                         <behaviors:Interaction.Triggers>
                             <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectSongOfHealingCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding CollectWalletCommand}" />
                             </behaviors:EventTrigger>
 
                             <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfHealingCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectWalletCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
 
-                        <Image x:Name="SongOfHealing"
-                               Visibility="{Binding SongOfHealingCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+                        <Image x:Name="UncollectedWallet"
+                               Visibility="{Binding IsAnyWalletCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Wallet.png" />
 
-                        <Image x:Name="SongOfHealingCollected"
-                               Visibility="{Binding SongOfHealingCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
-                    </Grid>
+                        <Image x:Name="ChildWallet"
+                               Visibility="{Binding IsChildWalletCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Child_Wallet_Icon.png" />
 
+                        <Image x:Name="AdultWallet"
+                               Visibility="{Binding IsAdultWalletCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Adult_Wallet_Icon.png" />
 
-                    <Grid Grid.Column="2"
-                          ToolTip="Eponas Song">
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectEponaSongCommand}" />
-                            </behaviors:EventTrigger>
-
-                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectEponaSongCommand}" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
-
-                        <Image x:Name="EponasSong"
-                               Visibility="{Binding EponasSongCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
-
-                        <Image x:Name="EponasSongCollected"
-                               Visibility="{Binding EponasSongCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
-                    </Grid>
-
-
-                    <Grid Grid.Column="3"
-                          ToolTip="Song of Soaring">
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectSongOfSoaringCommand}" />
-                            </behaviors:EventTrigger>
-
-                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfSoaringCommand}" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
-
-                        <Image x:Name="SongOfSoaring"
-                               Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
-
-                        <Image x:Name="SongOfSoaringCollected"
-                               Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
-                    </Grid>
-
-
-                    <Grid Grid.Column="4"
-                          ToolTip="Song of Storms">
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectSongOfStormsCommand}" />
-                            </behaviors:EventTrigger>
-
-                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectSongOfStormsCommand}" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
-
-                        <Image x:Name="SongOfStorms"
-                               Visibility="{Binding SongOfStormsCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
-
-                        <Image x:Name="SongOfStormsCollected"
-                               Visibility="{Binding SongOfStormsCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
+                        <Image x:Name="GiantsWallet"
+                               Visibility="{Binding IsGiantWalletCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Giants_Wallet_Icon.png" />
                     </Grid>
                 </Grid>
+            </Grid>
 
-                <!-- Special Songs -->
-                <Grid Grid.Row="1">
+            <Grid Grid.Row="1"
+                  Grid.Column="1"
+                  Margin="10 0 10 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0"
+                          Grid.Column="1"
+                          Width="50"
+                          Height="50">
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding CollectOdolwaCommand}" />
+                            </behaviors:EventTrigger>
+
+                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectOdolwaCommand}" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+
+                        <Image x:Name="UncollectedOdolwasRemains"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Odolwas_Remains_Icon.png"
+                               Visibility="{Binding OdolwaCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+
+                        <Image x:Name="OdolwasRemains"
+                               Source="../../Asset/StatusItem/MM_Odolwas_Remains_Icon.png"
+                               Visibility="{Binding OdolwaCollected, Converter={StaticResource VisibilityConverter}}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1"
+                          Grid.Column="2"
+                          Width="50"
+                          Height="50">
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding CollectGohtCommand}" />
+                            </behaviors:EventTrigger>
+
+                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectGohtCommand}" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+
+                        <Image x:Name="UncollectedGohtsRemains"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Gohts_Remains_Icon.png"
+                               Visibility="{Binding GohtCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+
+                        <Image x:Name="GohtsRemains"
+                               Source="../../Asset/StatusItem/MM_Gohts_Remains_Icon.png"
+                               Visibility="{Binding GohtCollected, Converter={StaticResource VisibilityConverter}}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1"
+                          Grid.Column="0"
+                          Width="50"
+                          Height="50">
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding CollectGyorgCommand}" />
+                            </behaviors:EventTrigger>
+
+                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectGyorgCommand}" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+
+                        <Image x:Name="UncollectedGyorgsRemains"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Gyorgs_Remains_Icon.png"
+                               Visibility="{Binding GyorgCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+
+                        <Image x:Name="GyorgsRemains"
+                               Source="../../Asset/StatusItem/MM_Gyorgs_Remains_Icon.png"
+                               Visibility="{Binding GyorgCollected, Converter={StaticResource VisibilityConverter}}" />
+                    </Grid>
+
+                    <Grid Grid.Row="2"
+                          Grid.Column="1"
+                          Width="50"
+                          Height="50">
+                        <behaviors:Interaction.Triggers>
+                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding CollectTwinmoldCommand}" />
+                            </behaviors:EventTrigger>
+
+                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectTwinmoldCommand}" />
+                            </behaviors:EventTrigger>
+                        </behaviors:Interaction.Triggers>
+
+                        <Image x:Name="UncollectedTwinmoldsRemains"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Twinmolds_Remains_Icon.png"
+                               Visibility="{Binding TwinmoldCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+
+                        <Image x:Name="TwinmoldsRemains"
+                               Source="../../Asset/StatusItem/MM_Twinmolds_Remains_Icon.png"
+                               Visibility="{Binding TwinmoldCollected, Converter={StaticResource VisibilityConverter}}" />
+                    </Grid>
+                </Grid>
+
+                <!-- Sword, Shield, Quiver, Bomb Bag -->
+                <Grid Grid.Row="1"
+                      Margin=" 0 10 0 0">
+                    <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
                     <Grid Grid.Column="0"
-                          ToolTip="Sonata of Awakening">
+                          Grid.Row="0"
+                          Width="50"
+                          Height="50"
+                          Margin="10 0 0 0">
                         <behaviors:Interaction.Triggers>
                             <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectSonataOfAwakeningCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding CollectSwordCommand}" />
                             </behaviors:EventTrigger>
 
                             <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectSonataOfAwakeningCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectSwordCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
 
-                        <Image x:Name="SonataOfAwakening"
-                               Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+                        <Image x:Name="UncollectedSword"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Sword_Icon.png"
+                               Visibility="{Binding IsAnySwordCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
 
-                        <Image x:Name="SonataOfAwakeningCollected"
-                               Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Sonata_of_Awakening_Icon.png" />
+                        <Image x:Name="KokiriSword"
+                               Visibility="{Binding IsKokiriSwordCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Kokiri_Sword_Icon.png" />
+
+                        <Image x:Name="RazorSword"
+                               Visibility="{Binding IsRazorSwordCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Razor_Sword_Icon.png" />
+
+                        <Image x:Name="GildedSword"
+                               Visibility="{Binding IsGildedSwordCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Gilded_Sword_Icon.png" />
                     </Grid>
-
 
                     <Grid Grid.Column="1"
-                          ToolTip="Goron Lullaby">
+                          Grid.Row="0"
+                          Width="50"
+                          Height="50"
+                          Margin="0 0 10 0">
                         <behaviors:Interaction.Triggers>
                             <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectGoronLullabyCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding CollectShieldCommand}" />
                             </behaviors:EventTrigger>
 
                             <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectGoronLullabyCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectShieldCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
 
-                        <Image x:Name="GoronLullaby"
-                               Visibility="{Binding GoronLullabyCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
-                        <Image x:Name="GoronLullabyCollected"
-                               Visibility="{Binding GoronLullabyCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Goron_Lullaby_Icon.png" />
+                        <Image x:Name="UncollectedShield"
+                               Visibility="{Binding IsAnyShieldCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Shield_Icon.png" />
+
+                        <Image x:Name="HeroesShield"
+                               Visibility="{Binding IsHeroShieldCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Heros_Shield_Icon.png" />
+
+                        <Image x:Name="MirrorShield"
+                               Visibility="{Binding IsMirrorShieldCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Mirror_Shield_Icon.png" />
                     </Grid>
 
-
-                    <Grid Grid.Column="2"
-                          ToolTip="New Wave Bossa Nova">
+                    <Grid Grid.Column="0"
+                          Grid.Row="1"
+                          Width="50"
+                          Height="50"
+                          Margin="10 0 0 0">
                         <behaviors:Interaction.Triggers>
                             <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectNewWaveBossanovaCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding CollectQuiverCommand}" />
                             </behaviors:EventTrigger>
 
                             <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectNewWaveBossanovaCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectQuiverCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
 
-                        <Image x:Name="NewWaveBossaNova"
-                               Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
-                        <Image x:Name="NewWaveBossaNovaCollected"
-                               Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_New_Wave_Bossa_Nova_Icon.png" />
+                        <Image x:Name="UncollectedQuiver"
+                               Visibility="{Binding IsAnyQuiverCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Quiver_Icon.png" />
+
+                        <Image x:Name="Quiver"
+                               Visibility="{Binding IsQuiverCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Quiver_Icon.png" />
+
+                        <Image x:Name="BigQuiver"
+                               Visibility="{Binding IsBigQuiverCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Big_Quiver_Icon.png" />
+
+                        <Image x:Name="LargestQuiver"
+                               Visibility="{Binding IsLargestQuiverCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Largest_Quiver_Icon.png" />
                     </Grid>
 
-
-                    <Grid Grid.Column="3"
-                          ToolTip="Elegy of Emptiness">
+                    <Grid Grid.Column="1"
+                          Grid.Row="1"
+                          Width="50"
+                          Height="50"
+                          Margin="0 0 10 0">
                         <behaviors:Interaction.Triggers>
                             <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectElegyOfEmptinessCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding CollectBombBagCommand}" />
                             </behaviors:EventTrigger>
 
                             <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectElegyOfEmptinessCommand}" />
+                                <behaviors:InvokeCommandAction Command="{Binding UncollectBombBagCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
 
-                        <Image x:Name="ElegyOfEmptiness"
-                               Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
+                        <Image x:Name="UncollectedBombBag"
+                               Visibility="{Binding IsAnyBombBagCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Uncollected_Bomb_Bag_Icon.png" />
 
-                        <Image x:Name="ElegyOfEmptinessCollected"
-                               Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Elegy_of_Emptiness_Icon.png" />
+                        <Image x:Name="BombBag"
+                               Visibility="{Binding IsBombBagCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Bomb_Bag_Icon.png" />
+
+                        <Image x:Name="BigBombBag"
+                               Visibility="{Binding IsBigBombBagCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Big_Bomb_Bag_Icon.png" />
+
+                        <Image x:Name="LargestBombBag"
+                               Visibility="{Binding IsLargestBombBagCollected, Converter={StaticResource VisibilityConverter}}"
+                               Source="../../Asset/StatusItem/MM_Largest_Bomb_Bag_Icon.png" />
                     </Grid>
-
-
-                    <Grid Grid.Column="4"
-                          ToolTip="Oath to Order">
-                        <behaviors:Interaction.Triggers>
-                            <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding CollectOathToOrderCommand}" />
-                            </behaviors:EventTrigger>
-
-                            <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                                <behaviors:InvokeCommandAction Command="{Binding UncollectOathToOrderCommand}" />
-                            </behaviors:EventTrigger>
-                        </behaviors:Interaction.Triggers>
-
-                        <Image x:Name="OathToOrder"
-                               Visibility="{Binding OathToOrderCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
-
-                        <Image x:Name="OathToOrderCollected"
-                               Visibility="{Binding OathToOrderCollected, Converter={StaticResource VisibilityConverter}}"
-                               Source="../../Asset/StatusItem/MM_Oath_to_Order_Icon.png" />
-                    </Grid>
-                </Grid>
-            </Grid>
-
-
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <!-- Magic Jar -->
-                <Grid Grid.Column="0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectMagicCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectMagicCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedMagicJar"
-                           Visibility="{Binding IsAnyMagicCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Magic_Jar_Icon.png" />
-
-                    <Image x:Name="MagicJar"
-                           Visibility="{Binding IsMagicCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Magic_Jar_Icon.png" />
-
-                    <Image x:Name="LargeMagicJar"
-                           Visibility="{Binding IsDoubleMagicCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Large_Magic_Jar_Icon.png" />
-                </Grid>
-
-                <!-- Wallet -->
-                <Grid Grid.Column="1">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectWalletCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectWalletCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedWallet"
-                           Visibility="{Binding IsAnyWalletCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Wallet.png" />
-
-                    <Image x:Name="ChildWallet"
-                           Visibility="{Binding IsChildWalletCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Child_Wallet_Icon.png" />
-
-                    <Image x:Name="AdultWallet"
-                            Visibility="{Binding IsAdultWalletCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Adult_Wallet_Icon.png" />
-
-                    <Image x:Name="GiantsWallet"
-                            Visibility="{Binding IsGiantWalletCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Giants_Wallet_Icon.png" />
                 </Grid>
             </Grid>
         </Grid>
-
-
-        <!-- Right half -->
-        <Grid Grid.Row="1"
-              Grid.Column="1"
-              Margin="10 0 10 10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="3*" />
-            </Grid.RowDefinitions>
-
-            <!-- Remains -->
-            <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Row="0"
-                      Grid.Column="1">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectOdolwaCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectOdolwaCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedOdolwasRemains"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Odolwas_Remains_Icon.png"
-                           Visibility="{Binding OdolwaCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
-
-                    <Image x:Name="OdolwasRemains"
-                           Source="../../Asset/StatusItem/MM_Odolwas_Remains_Icon.png"
-                           Visibility="{Binding OdolwaCollected, Converter={StaticResource VisibilityConverter}}" />
-                </Grid>
-
-                <Grid Grid.Row="1"
-                      Grid.Column="2">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectGohtCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectGohtCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedGohtsRemains"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Gohts_Remains_Icon.png"
-                           Visibility="{Binding GohtCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
-
-                    <Image x:Name="GohtsRemains"
-                           Source="../../Asset/StatusItem/MM_Gohts_Remains_Icon.png"
-                           Visibility="{Binding GohtCollected, Converter={StaticResource VisibilityConverter}}" />
-                </Grid>
-
-                <Grid Grid.Row="1"
-                      Grid.Column="0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectGyorgCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectGyorgCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedGyorgsRemains"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Gyorgs_Remains_Icon.png"
-                           Visibility="{Binding GyorgCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
-
-                    <Image x:Name="GyorgsRemains"
-                           Source="../../Asset/StatusItem/MM_Gyorgs_Remains_Icon.png"
-                           Visibility="{Binding GyorgCollected, Converter={StaticResource VisibilityConverter}}" />
-                </Grid>
-
-                <Grid Grid.Row="2"
-                      Grid.Column="1">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectTwinmoldCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectTwinmoldCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedTwinmoldsRemains"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Twinmolds_Remains_Icon.png"
-                           Visibility="{Binding TwinmoldCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
-
-                    <Image x:Name="TwinmoldsRemains"
-                           Source="../../Asset/StatusItem/MM_Twinmolds_Remains_Icon.png"
-                           Visibility="{Binding TwinmoldCollected, Converter={StaticResource VisibilityConverter}}" />
-                </Grid>
-            </Grid>
-
-            <!-- Sword, Shield, Quiver, Bomb Bag -->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Column="0"
-                      Grid.Row="0"
-                      Margin="10 0 0 0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectSwordCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectSwordCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedSword"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Sword_Icon.png"
-                           Visibility="{Binding IsAnySwordCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
-
-                    <Image x:Name="KokiriSword"
-                           Visibility="{Binding IsKokiriSwordCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Kokiri_Sword_Icon.png" />
-
-                    <Image x:Name="RazorSword"
-                           Visibility="{Binding IsRazorSwordCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Razor_Sword_Icon.png" />
-
-                    <Image x:Name="GildedSword"
-                           Visibility="{Binding IsGildedSwordCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Gilded_Sword_Icon.png" />
-                </Grid>
-
-                <Grid Grid.Column="1"
-                      Grid.Row="0"
-                      Margin="0 0 10 0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectShieldCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectShieldCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-
-                    <Image x:Name="UncollectedShield"
-                           Visibility="{Binding IsAnyShieldCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Shield_Icon.png" />
-
-                    <Image x:Name="HeroesShield"
-                           Visibility="{Binding IsHeroShieldCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Heros_Shield_Icon.png" />
-
-                    <Image x:Name="MirrorShield"
-                           Visibility="{Binding IsMirrorShieldCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Mirror_Shield_Icon.png" />
-                </Grid>
-
-                <Grid Grid.Column="0"
-                      Grid.Row="1"
-                      Margin="10 0 0 0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectQuiverCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectQuiverCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-
-                    <Image x:Name="UncollectedQuiver"
-                           Visibility="{Binding IsAnyQuiverCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Quiver_Icon.png" />
-
-                    <Image x:Name="Quiver"
-                           Visibility="{Binding IsQuiverCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Quiver_Icon.png" />
-
-                    <Image x:Name="BigQuiver"
-                           Visibility="{Binding IsBigQuiverCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Big_Quiver_Icon.png" />
-
-                    <Image x:Name="LargestQuiver"
-                           Visibility="{Binding IsLargestQuiverCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Largest_Quiver_Icon.png" />
-                </Grid>
-
-                <Grid Grid.Column="1"
-                      Grid.Row="1"
-                      Margin="0 0 10 0">
-                    <behaviors:Interaction.Triggers>
-                        <behaviors:EventTrigger EventName="MouseLeftButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding CollectBombBagCommand}" />
-                        </behaviors:EventTrigger>
-
-                        <behaviors:EventTrigger EventName="MouseRightButtonDown">
-                            <behaviors:InvokeCommandAction Command="{Binding UncollectBombBagCommand}" />
-                        </behaviors:EventTrigger>
-                    </behaviors:Interaction.Triggers>
-
-                    <Image x:Name="UncollectedBombBag"
-                           Visibility="{Binding IsAnyBombBagCollected, Converter={StaticResource ReverseVisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Uncollected_Bomb_Bag_Icon.png" />
-
-                    <Image x:Name="BombBag"
-                           Visibility="{Binding IsBombBagCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Bomb_Bag_Icon.png" />
-
-                    <Image x:Name="BigBombBag"
-                           Visibility="{Binding IsBigBombBagCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Big_Bomb_Bag_Icon.png" />
-
-                    <Image x:Name="LargestBombBag"
-                           Visibility="{Binding IsLargestBombBagCollected, Converter={StaticResource VisibilityConverter}}"
-                           Source="../../Asset/StatusItem/MM_Largest_Bomb_Bag_Icon.png" />
-                </Grid>
-            </Grid>
-        </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

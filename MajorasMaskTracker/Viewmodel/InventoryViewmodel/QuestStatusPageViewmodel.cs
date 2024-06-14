@@ -58,21 +58,24 @@ public class QuestStatusPageViewmodel : BaseViewModel
     
     #region Important Items
 
+    public int MaxHeartPieces => 52;
     public int CollectedHeartPieces
     {
         get => SettingsModelStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedHeartPieces;
         set
         {
-            if (value <= 52 && value >= 0)
+            if (value <= MaxHeartPieces && value >= 0)
             {
                 SettingsModelStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedHeartPieces = value;
             }
             
             NotifyPropertyChanged();
+            NotifyPropertyChanged(nameof(HeartPiecesText));
             NotifyPropertyChanged(nameof(IsHeartPieceCollected));
         }
     }
     public bool IsHeartPieceCollected => CollectedHeartPieces > 0;
+    public string HeartPiecesText => $"{CollectedHeartPieces}/{MaxHeartPieces}";
 
     
     public bool BombersNotebookCollected
