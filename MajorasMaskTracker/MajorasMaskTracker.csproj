@@ -7,14 +7,15 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
-        <Version>0.0.1</Version>
+        <Version>0.2</Version>
         <Title>Majoras Mask Item Tracker</Title>
         <Authors />
         <Company>Marlon</Company>
         <Product>Majoras Mask Item Tracker</Product>
-        <AssemblyVersion>0.0.1</AssemblyVersion>
-        <FileVersion>0.0.1</FileVersion>
+        <AssemblyVersion>0.2</AssemblyVersion>
+        <FileVersion>0.2</FileVersion>
         <NeutralLanguage>en-US</NeutralLanguage>
+        <ApplicationIcon>Asset\Other\Application_Icon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -344,6 +345,10 @@
       <Resource Include="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Right_Icon.png" />
       <None Remove="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png" />
       <Resource Include="Asset\DungeonItem\MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png" />
+      <None Remove="Asset\Other\Application_Icon.png" />
+      <Resource Include="Asset\Other\Application_Icon.png" />
+      <None Remove="Asset\Other\Application_Icon.ico" />
+      <Resource Include="Asset\Other\Application_Icon.ico" />
     </ItemGroup>
 
     <ItemGroup>

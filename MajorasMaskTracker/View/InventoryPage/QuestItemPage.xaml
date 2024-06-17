@@ -72,9 +72,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/QuestItem/MM_Ocarina_of_Time_Icon.png"
-                           Visibility="{Binding IsOcarinaCollected, Converter={StaticResource Reviscon}}" />
+                           Visibility="{Binding IsOcarinaOfTimeCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/QuestItem/MM_Uncollected_Ocarina_of_Time_Icon.png"
-                           Visibility="{Binding IsOcarinaCollected, Converter={StaticResource Viscon}}" />
+                           Visibility="{Binding IsOcarinaOfTimeCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -93,9 +93,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/QuestItem/MM_Heros_Bow_Icon.png"
-                           Visibility="{Binding IsBowCollected, Converter={StaticResource Reviscon}}" />
+                           Visibility="{Binding IsHeroBowCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/QuestItem/MM_Uncollected_Heros_Bow_Icon.png"
-                           Visibility="{Binding IsBowCollected, Converter={StaticResource Viscon}}" />
+                           Visibility="{Binding IsHeroBowCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"

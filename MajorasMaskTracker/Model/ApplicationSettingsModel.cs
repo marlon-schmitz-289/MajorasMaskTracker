@@ -1,30 +1,78 @@
 ﻿using System.IO;
+using System.Windows.Media;
 using System.Xml.Serialization;
 using BaseClasses;
-using MajorasMaskTracker.Model.InventoryPage;
 
 namespace MajorasMaskTracker.Model;
 
-public class SettingsModel : BaseModel
+public class ApplicationSettingsModel : BaseModel
 {
     private static readonly string SettingsPath =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MajorasMaskTracker");
 
-    private static readonly string SettingsFilePath = Path.Combine(SettingsPath, "Settings.xml");
+    private static readonly string SettingsFilePath = Path.Combine(SettingsPath, "AppSettings.xml");
 
-    public DungeonPageModel DungeonPageSettings { get; set; } = new();
-    public MaskPageModel MasksPageSettings { get; set; } = new();
-    public QuestStatusPageModel QuestStatusPageSettings { get; set; } = new();
-    public QuestItemPageModel QuestItemsPageSettings { get; set; } = new();
+
+    public event Action OnBackgroundColorChanged;
+    private Color _backgroundColor = Color.FromArgb(255, 63, 63, 63);
+    private SolidColorBrush _backgroundBrush;
+
+    [XmlElement]
+    public Color BackgroundColor
+    {
+        get => _backgroundColor;
+        set
+        {
+            _backgroundColor = value;
+            OnBackgroundColorChanged?.Invoke();
+        }
+    }
+
+    [XmlIgnore]
+    public SolidColorBrush BackgroundBrush
+    {
+        get => _backgroundBrush;
+        set => _backgroundBrush = value;
+    }
+
+    
+    public event Action OnForegroundColorChanged;
+    private SolidColorBrush _foregroundBrush;
+    private Color _foregroundColor = Color.FromArgb(255, 221, 221, 221);
+
+    [XmlElement]
+    public Color ForegroundColor
+    {
+        get => _foregroundColor;
+        set
+        {
+            _foregroundColor = value;
+            OnForegroundColorChanged?.Invoke();
+        }
+    }
+
+    [XmlIgnore]
+    public SolidColorBrush ForegroundBrush
+    {
+        get => _foregroundBrush;
+        set => _foregroundBrush = value;
+    }
+
+
+    public ApplicationSettingsModel()
+    {
+        BackgroundBrush = new SolidColorBrush(BackgroundColor);
+        ForegroundBrush = new SolidColorBrush(ForegroundColor);
+    }
 
 
     private string ToXml()
     {
         var stream = new StringWriter();
-        
+
         var nameSpace = new XmlSerializerNamespaces();
         nameSpace.Add("", "");
-        
+
         var serializer = new XmlSerializer(typeof(SettingsModel));
         serializer.Serialize(stream, this, nameSpace);
         return stream.ToString();
@@ -46,7 +94,7 @@ public class SettingsModel : BaseModel
         {
             Directory.CreateDirectory(SettingsPath);
         }
-        
+
         var xml = ToXml();
         File.WriteAllText(SettingsFilePath, xml);
     }

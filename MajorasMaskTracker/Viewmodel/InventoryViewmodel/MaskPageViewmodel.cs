@@ -1,4 +1,5 @@
-﻿using WPFBase.Utils;
+﻿using MajorasMaskTracker.Store;
+using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
 
@@ -8,68 +9,62 @@ public class MaskPageViewmodel : BaseViewModel
     
     #region First row
     
-    private bool _isPostmanHatCollected = false;
     public bool IsPostmanHatCollected
     {
-        get => _isPostmanHatCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsPostmanHatCollected;
         set
         {
-            _isPostmanHatCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsPostmanHatCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isAllNightMaskCollected = false;
     public bool IsAllNightMaskCollected
     {
-        get => _isAllNightMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsAllNightMaskCollected;
         set
         {
-            _isAllNightMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsAllNightMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isBlastMaskCollected = false;
     public bool IsBlastMaskCollected
     {
-        get => _isBlastMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsBlastMaskCollected;
         set
         {
-            _isBlastMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsBlastMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isStoneMaskCollected = false;
     public bool IsStoneMaskCollected
     {
-        get => _isStoneMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsStoneMaskCollected;
         set
         {
-            _isStoneMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsStoneMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isGreatFairyMaskCollected = false;
     public bool IsGreatFairyMaskCollected
     {
-        get => _isGreatFairyMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGreatFairyMaskCollected;
         set
         {
-            _isGreatFairyMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGreatFairyMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isDekuMaskCollected = false;
     public bool IsDekuMaskCollected
     {
-        get => _isDekuMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsDekuMaskCollected;
         set
         {
-            _isDekuMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsDekuMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -79,68 +74,62 @@ public class MaskPageViewmodel : BaseViewModel
     
     #region Second row
     
-    private bool _isKeatonMaskCollected = false;
     public bool IsKeatonMaskCollected
     {
-        get => _isKeatonMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsKeatonMaskCollected;
         set
         {
-            _isKeatonMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsKeatonMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isBremenMaskCollected = false;
     public bool IsBremenMaskCollected
     {
-        get => _isBremenMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsBremenMaskCollected;
         set
         {
-            _isBremenMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsBremenMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isBunnyHoodCollected = false;
     public bool IsBunnyHoodCollected
     {
-        get => _isBunnyHoodCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsBunnyHoodCollected;
         set
         {
-            _isBunnyHoodCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsBunnyHoodCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isDonGeroMaskCollected = false;
     public bool IsDonGeroMaskCollected
     {
-        get => _isDonGeroMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsDonGeroMaskCollected;
         set
         {
-            _isDonGeroMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsDonGeroMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isMaskOfScentsCollected = false;
     public bool IsMaskOfScentsCollected
     {
-        get => _isMaskOfScentsCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsMaskOfScentsCollected;
         set
         {
-            _isMaskOfScentsCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsMaskOfScentsCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isGoronMaskCollected = false;
     public bool IsGoronMaskCollected
     {
-        get => _isGoronMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGoronMaskCollected;
         set
         {
-            _isGoronMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGoronMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -150,68 +139,62 @@ public class MaskPageViewmodel : BaseViewModel
     
     #region Third row
     
-    private bool _isRomaniMaskCollected = false;
     public bool IsRomaniMaskCollected
     {
-        get => _isRomaniMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsRomaniMaskCollected;
         set
         {
-            _isRomaniMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsRomaniMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isCircusLeadersMaskCollected = false;
     public bool IsCircusLeadersMaskCollected
     {
-        get => _isCircusLeadersMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsCircusLeadersMaskCollected;
         set
         {
-            _isCircusLeadersMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsCircusLeadersMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isKafeisMaskCollected = false;
     public bool IsKafeisMaskCollected
     {
-        get => _isKafeisMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsKafeisMaskCollected;
         set
         {
-            _isKafeisMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsKafeisMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isCoupleMaskCollected = false;
     public bool IsCoupleMaskCollected
     {
-        get => _isCoupleMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsCoupleMaskCollected;
         set
         {
-            _isCoupleMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsCoupleMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isMaskOfTruthCollected = false;
     public bool IsMaskOfTruthCollected
     {
-        get => _isMaskOfTruthCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsMaskOfTruthCollected;
         set
         {
-            _isMaskOfTruthCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsMaskOfTruthCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isZoraMaskCollected = false;
     public bool IsZoraMaskCollected
     {
-        get => _isZoraMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsZoraMaskCollected;
         set
         {
-            _isZoraMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsZoraMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -221,68 +204,62 @@ public class MaskPageViewmodel : BaseViewModel
     
     #region Fourth row
     
-    private bool _isKamaroMaskCollected = false;
     public bool IsKamaroMaskCollected
     {
-        get => _isKamaroMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsKamaroMaskCollected;
         set
         {
-            _isKamaroMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsKamaroMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isGibdoMaskCollected = false;
     public bool IsGibdoMaskCollected
     {
-        get => _isGibdoMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGibdoMaskCollected;
         set
         {
-            _isGibdoMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGibdoMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isGaroMaskCollected = false;
     public bool IsGaroMaskCollected
     {
-        get => _isGaroMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGaroMaskCollected;
         set
         {
-            _isGaroMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGaroMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isCaptainHatCollected = false;
     public bool IsCaptainHatCollected
     {
-        get => _isCaptainHatCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsCaptainHatCollected;
         set
         {
-            _isCaptainHatCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsCaptainHatCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isGiantMaskCollected = false;
     public bool IsGiantMaskCollected
     {
-        get => _isGiantMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGiantMaskCollected;
         set
         {
-            _isGiantMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsGiantMaskCollected = value;
             NotifyPropertyChanged();
         }
     }
     
-    private bool _isFierceDeityMaskCollected = false;
     public bool IsFierceDeityMaskCollected
     {
-        get => _isFierceDeityMaskCollected;
+        get => SettingsStore.Instance.SettingsModel.MasksPageSettings.IsFierceDeityMaskCollected;
         set
         {
-            _isFierceDeityMaskCollected = value;
+            SettingsStore.Instance.SettingsModel.MasksPageSettings.IsFierceDeityMaskCollected = value;
             NotifyPropertyChanged();
         }
     }

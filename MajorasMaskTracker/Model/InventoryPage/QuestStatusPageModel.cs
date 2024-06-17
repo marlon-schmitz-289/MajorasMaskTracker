@@ -28,10 +28,38 @@ public class QuestStatusPageModel : BaseModel
 
     [XmlElement] public CollectedSword CollectedSword { get; set; } = CollectedSword.None;
     [XmlElement] public CollectedShield CollectedShield { get; set; } = CollectedShield.None;
-    [XmlElement] public CollectedQuiver CollectedQuiver { get; set; } = CollectedQuiver.None;
-    [XmlElement] public CollectedBombBag CollectedBombBag { get; set; } = CollectedBombBag.None;
+
+    private CollectedQuiver _collectedQuiver = CollectedQuiver.None;
+
+    [XmlElement]
+    public CollectedQuiver CollectedQuiver
+    {
+        get => _collectedQuiver;
+        set
+        {
+            _collectedQuiver = value;
+            OnCollectedQuiverChanged?.Invoke();
+        }
+    }
+
+    private CollectedBombBag _collectedBombBag = CollectedBombBag.None;
+
+    [XmlElement]
+    public CollectedBombBag CollectedBombBag
+    {
+        get => _collectedBombBag;
+        set
+        {
+            _collectedBombBag = value;
+            OnCollectedBombBagChanged?.Invoke();
+        }
+    }
+
     [XmlElement] public CollectedWallet CollectedWallet { get; set; } = CollectedWallet.None;
     [XmlElement] public CollectedMagic CollectedMagic { get; set; } = CollectedMagic.None;
+
+    public event Action OnCollectedQuiverChanged;
+    public event Action OnCollectedBombBagChanged;
 
 
     public string ToXml()
@@ -41,13 +69,13 @@ public class QuestStatusPageModel : BaseModel
         serializer.Serialize(stream, this);
         return stream.ToString();
     }
-    
-    
+
+
     public static QuestStatusPageModel FromXml(string xml)
     {
         var serializer = new XmlSerializer(typeof(QuestStatusPageModel));
-        var ret = (QuestStatusPageModel) serializer.Deserialize(new StringReader(xml));
-        
+        var ret = (QuestStatusPageModel)serializer.Deserialize(new StringReader(xml));
+
         return ret ?? new QuestStatusPageModel();
     }
 }
