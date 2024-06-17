@@ -21,10 +21,10 @@ public class SettingsModel : BaseModel
     private string ToXml()
     {
         var stream = new StringWriter();
-        
+
         var nameSpace = new XmlSerializerNamespaces();
         nameSpace.Add("", "");
-        
+
         var serializer = new XmlSerializer(typeof(SettingsModel));
         serializer.Serialize(stream, this, nameSpace);
         return stream.ToString();
@@ -46,7 +46,7 @@ public class SettingsModel : BaseModel
         {
             Directory.CreateDirectory(SettingsPath);
         }
-        
+
         var xml = ToXml();
         File.WriteAllText(SettingsFilePath, xml);
     }

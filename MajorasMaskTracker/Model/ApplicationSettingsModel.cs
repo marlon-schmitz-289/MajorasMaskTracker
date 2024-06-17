@@ -14,7 +14,7 @@ public class ApplicationSettingsModel : BaseModel
 
 
     public event Action OnBackgroundColorChanged;
-    private Color _backgroundColor = Color.FromArgb(255, 63, 63, 63);
+    private Color _backgroundColor;
     private SolidColorBrush _backgroundBrush;
 
     [XmlElement]
@@ -32,13 +32,17 @@ public class ApplicationSettingsModel : BaseModel
     public SolidColorBrush BackgroundBrush
     {
         get => _backgroundBrush;
-        set => _backgroundBrush = value;
+        set
+        {
+            _backgroundBrush = value;
+            OnBackgroundColorChanged?.Invoke();
+        }
     }
 
-    
+
     public event Action OnForegroundColorChanged;
+    private Color _foregroundColor;
     private SolidColorBrush _foregroundBrush;
-    private Color _foregroundColor = Color.FromArgb(255, 221, 221, 221);
 
     [XmlElement]
     public Color ForegroundColor
@@ -55,12 +59,19 @@ public class ApplicationSettingsModel : BaseModel
     public SolidColorBrush ForegroundBrush
     {
         get => _foregroundBrush;
-        set => _foregroundBrush = value;
+        set
+        {
+            _foregroundBrush = value;
+            OnForegroundColorChanged?.Invoke();
+        }
     }
 
 
     public ApplicationSettingsModel()
     {
+        BackgroundColor = Color.FromArgb(255, 63, 63, 63);
+        ForegroundColor = Color.FromArgb(255, 221, 221, 221);
+
         BackgroundBrush = new SolidColorBrush(BackgroundColor);
         ForegroundBrush = new SolidColorBrush(ForegroundColor);
     }
@@ -73,18 +84,18 @@ public class ApplicationSettingsModel : BaseModel
         var nameSpace = new XmlSerializerNamespaces();
         nameSpace.Add("", "");
 
-        var serializer = new XmlSerializer(typeof(SettingsModel));
+        var serializer = new XmlSerializer(typeof(ApplicationSettingsModel));
         serializer.Serialize(stream, this, nameSpace);
         return stream.ToString();
     }
 
 
-    private static SettingsModel FromXml(string xml)
+    private static ApplicationSettingsModel FromXml(string xml)
     {
-        var serializer = new XmlSerializer(typeof(SettingsModel));
-        var ret = (SettingsModel)serializer.Deserialize(new StringReader(xml));
+        var serializer = new XmlSerializer(typeof(ApplicationSettingsModel));
+        var ret = (ApplicationSettingsModel)serializer.Deserialize(new StringReader(xml));
 
-        return ret ?? new SettingsModel();
+        return ret ?? new ApplicationSettingsModel();
     }
 
 
@@ -100,7 +111,7 @@ public class ApplicationSettingsModel : BaseModel
     }
 
 
-    public static SettingsModel LoadSettings()
+    public static ApplicationSettingsModel LoadSettings()
     {
         if (!Directory.Exists(SettingsPath))
         {
@@ -109,7 +120,7 @@ public class ApplicationSettingsModel : BaseModel
 
         if (!File.Exists(SettingsFilePath))
         {
-            return new SettingsModel();
+            return new ApplicationSettingsModel();
         }
 
         var xml = File.ReadAllText(SettingsFilePath);

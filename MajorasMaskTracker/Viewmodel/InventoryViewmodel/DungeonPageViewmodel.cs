@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.Pkcs;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using MajorasMaskTracker.Store;
 using WPFBase.Utils;
 
@@ -13,30 +12,30 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public bool IsWoodfallMapCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsWoodfallMapCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsWoodfallMapCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsWoodfallMapCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsWoodfallMapCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsWoodfallCompassCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsWoodfallCompassCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsWoodfallCompassCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsWoodfallCompassCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsWoodfallCompassCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsWoodfallBossKeyCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsWoodfallBossKeyCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsWoodfallBossKeyCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsWoodfallBossKeyCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsWoodfallBossKeyCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -45,12 +44,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedWoodfallFairies
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedWoodfallFairies;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedWoodfallFairies;
         set
         {
             if (value > MaxStrayFairies || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedWoodfallFairies = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedWoodfallFairies = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsWoodfallFairyCollected));
             NotifyPropertyChanged(nameof(WoodfallFairyText));
@@ -61,12 +60,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedWoodfallSmallKeys
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedWoodfallSmallKeys;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedWoodfallSmallKeys;
         set
         {
             if (value > MaxWoodfallSmallKeys || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedWoodfallSmallKeys = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedWoodfallSmallKeys = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsWoodfallSmallKeyCollected));
             NotifyPropertyChanged(nameof(WoodfallSmallKeyText));
@@ -80,30 +79,30 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public bool IsSnowheadMapCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsSnowheadMapCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsSnowheadMapCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsSnowheadMapCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsSnowheadMapCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsSnowheadCompassCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsSnowheadCompassCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsSnowheadCompassCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsSnowheadCompassCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsSnowheadCompassCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsSnowheadBossKeyCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsSnowheadBossKeyCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsSnowheadBossKeyCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsSnowheadBossKeyCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsSnowheadBossKeyCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -112,12 +111,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedSnowheadFairies
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedSnowheadFairies;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedSnowheadFairies;
         set
         {
             if (value > MaxStrayFairies || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedSnowheadFairies = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedSnowheadFairies = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsSnowheadFairyCollected));
             NotifyPropertyChanged(nameof(SnowheadFairyText));
@@ -128,12 +127,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedSnowheadSmallKeys
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedSnowheadSmallKeys;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedSnowheadSmallKeys;
         set
         {
             if (value > MaxSnowheadSmallKeys || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedSnowheadSmallKeys = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedSnowheadSmallKeys = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsSnowheadSmallKeyCollected));
             NotifyPropertyChanged(nameof(SnowheadSmallKeyText));
@@ -147,30 +146,30 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public bool IsGreatBayMapCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsGreatBayMapCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsGreatBayMapCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsGreatBayMapCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsGreatBayMapCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsGreatBayCompassCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsGreatBayCompassCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsGreatBayCompassCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsGreatBayCompassCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsGreatBayCompassCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsGreatBayBossKeyCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsGreatBayBossKeyCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsGreatBayBossKeyCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsGreatBayBossKeyCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsGreatBayBossKeyCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -179,12 +178,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedGreatBayFairies
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedGreatBayFairies;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedGreatBayFairies;
         set
         {
             if (value > MaxStrayFairies || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedGreatBayFairies = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedGreatBayFairies = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsGreatBayFairyCollected));
             NotifyPropertyChanged(nameof(GreatBayFairyText));
@@ -195,12 +194,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedGreatBaySmallKeys
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedGreatBaySmallKeys;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedGreatBaySmallKeys;
         set
         {
             if (value > MaxGreatBaySmallKeys || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedGreatBaySmallKeys = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedGreatBaySmallKeys = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsGreatBaySmallKeyCollected));
             NotifyPropertyChanged(nameof(GreatBaySmallKeyText));
@@ -214,30 +213,30 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public bool IsStoneTowerMapCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsStoneTowerMapCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsStoneTowerMapCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsStoneTowerMapCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsStoneTowerMapCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsStoneTowerCompassCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsStoneTowerCompassCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsStoneTowerCompassCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsStoneTowerCompassCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsStoneTowerCompassCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsStoneTowerBossKeyCollected
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsStoneTowerBossKeyCollected;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.IsStoneTowerBossKeyCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.IsStoneTowerBossKeyCollected = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.IsStoneTowerBossKeyCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -246,12 +245,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedStoneTowerFairies
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedStoneTowerFairies;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedStoneTowerFairies;
         set
         {
             if (value > MaxStrayFairies || value < 0) return;
-            
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedStoneTowerFairies = value;
+
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedStoneTowerFairies = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsStoneTowerFairyCollected));
             NotifyPropertyChanged(nameof(StoneTowerFairyText));
@@ -262,12 +261,12 @@ public class DungeonPageViewmodel : BaseViewModel
 
     public int CollectedStoneTowerSmallKeys
     {
-        get => SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedStoneTowerSmallKeys;
+        get => SettingsStore.Instance.Settings.DungeonPageSettings.CollectedStoneTowerSmallKeys;
         set
         {
             if (value > MaxStoneTowerSmallKeys || value < 0) return;
 
-            SettingsStore.Instance.SettingsModel.DungeonPageSettings.CollectedStoneTowerSmallKeys = value;
+            SettingsStore.Instance.Settings.DungeonPageSettings.CollectedStoneTowerSmallKeys = value;
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsStoneTowerSmallKeyCollected));
             NotifyPropertyChanged(nameof(StoneTowerSmallKeyText));
@@ -384,13 +383,15 @@ public class DungeonPageViewmodel : BaseViewModel
     public string SnowheadSmallKeyText => $"{CollectedSnowheadSmallKeys}/{MaxSnowheadSmallKeys}";
     public string GreatBaySmallKeyText => $"{CollectedGreatBaySmallKeys}/{MaxGreatBaySmallKeys}";
     public string StoneTowerSmallKeyText => $"{CollectedStoneTowerSmallKeys}/{MaxStoneTowerSmallKeys}";
-    
-    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettingsModel.ForegroundBrush;
+
+    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
 
     #endregion
 
 
     public DungeonPageViewmodel()
     {
+        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
+            () => NotifyPropertyChanged(nameof(ForegroundBrush));
     }
 }

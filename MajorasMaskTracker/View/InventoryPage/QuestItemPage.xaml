@@ -4,11 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
-      xmlns:local="clr-namespace:MajorasMaskTracker.View.InventoryPage"
       xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel.InventoryViewmodel"
-
       xmlns:con="clr-namespace:WPFBase.Converters;assembly=WPFBase"
-
       xmlns:behaviors="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
 
       mc:Ignorable="d"
@@ -34,7 +31,7 @@
                        Text="QUEST ITEMS"
                        FontSize="40"
                        FontWeight="Bold"
-                       Foreground="{StaticResource ForegroundColor}"
+                       Foreground="{Binding ForegroundBrush}"
                        FontFamily="{StaticResource ZeldaFont}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />

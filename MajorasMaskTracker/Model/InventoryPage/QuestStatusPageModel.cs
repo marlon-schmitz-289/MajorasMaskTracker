@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 using BaseClasses;
-using MajorasMaskTracker.Util;
+using MajorasMaskTracker.Util.Enum;
 
 namespace MajorasMaskTracker.Model.InventoryPage;
 
@@ -37,6 +37,8 @@ public class QuestStatusPageModel : BaseModel
         get => _collectedQuiver;
         set
         {
+            if (value is < CollectedQuiver.None or > CollectedQuiver.LargestQuiver) return;
+            
             _collectedQuiver = value;
             OnCollectedQuiverChanged?.Invoke();
         }
@@ -50,6 +52,8 @@ public class QuestStatusPageModel : BaseModel
         get => _collectedBombBag;
         set
         {
+            if (value is < CollectedBombBag.None or > CollectedBombBag.LargestBombBag) return;
+            
             _collectedBombBag = value;
             OnCollectedBombBagChanged?.Invoke();
         }

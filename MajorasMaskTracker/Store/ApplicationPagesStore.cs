@@ -5,12 +5,11 @@ namespace MajorasMaskTracker.Store;
 
 public class ApplicationPagesStore
 {
-    public Page[] ApplicationPages { get; } = new Page[]
+    public Page[] ApplicationPages { get; } =
     {
-        new MainPage(),
-        new SettingsPage()
+        new MainPage()
     };
-    
-    
-    public static ApplicationPagesStore Instance { get; } = new ApplicationPagesStore();
+
+
+    public static ApplicationPagesStore Instance { get; } = new();
 }

@@ -4,23 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
-      xmlns:local="clr-namespace:MajorasMaskTracker.View.InventoryPage"
       xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel.InventoryViewmodel"
-
       xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
-
       xmlns:con="clr-namespace:WPFBase.Converters;assembly=WPFBase"
 
       mc:Ignorable="d"
       Title="QuestStatusPage"
       Background="Transparent">
     <Page.DataContext>
-        <vm:QuestStatusPageViewmodel x:Name="qspvmodel" />
+        <vm:QuestStatusPageViewmodel x:Name="Qspvmodel" />
     </Page.DataContext>
 
     <Page.Resources>
-        <con:VisibilityConverter x:Key="VisibilityConverter" />
-        <con:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
+        <con:VisibilityConverter x:Key="Reviscon" />
+        <con:ReverseVisibilityConverter x:Key="Viscon" />
     </Page.Resources>
 
     <Viewbox>
@@ -41,7 +38,7 @@
                        Grid.ColumnSpan="2"
                        FontSize="40"
                        FontWeight="Bold"
-                       Foreground="{StaticResource ForegroundColor}"
+                       Foreground="{Binding ForegroundBrush}"
                        FontFamily="{StaticResource ZeldaFont}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
@@ -75,11 +72,11 @@
                         </behaviors:Interaction.Triggers>
 
                         <Image x:Name="UncollectedBombersNotebook"
-                               Visibility="{Binding BombersNotebookCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Visibility="{Binding BombersNotebookCollected, Converter={StaticResource Viscon}}"
                                Source="../../Asset/StatusItem/MM_Uncollected_Bombers_Notebook_Icon.png" />
 
                         <Image x:Name="BombersNotebook"
-                               Visibility="{Binding BombersNotebookCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding BombersNotebookCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Bombers_Notebook_Icon.png" />
                     </Grid>
 
@@ -103,11 +100,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="UncollectedHeartpieces"
-                                   Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Piece_of_Heart_Icon.png" />
 
                             <Image x:Name="Hearpieces"
-                                   Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Piece_of_Heart_Icon.png" />
                         </Grid>
 
@@ -118,7 +115,7 @@
                                VerticalAlignment="Center"
                                MinWidth="50"
                                FontSize="30"
-                               Foreground="{StaticResource ForegroundColor}"
+                               Foreground="{Binding ForegroundBrush}"
                                FontFamily="{StaticResource ZeldaFont}" />
                     </Grid>
                 </Grid>
@@ -155,12 +152,12 @@
 
                             <Image Grid.Column="0"
                                    x:Name="SongOfTime"
-                                   Visibility="{Binding SongOfTimeCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding SongOfTimeCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image Grid.Column="0"
                                    x:Name="SongOfTimeCollected"
-                                   Visibility="{Binding SongOfTimeCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding SongOfTimeCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
                         </Grid>
 
@@ -180,11 +177,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="SongOfHealing"
-                                   Visibility="{Binding SongOfHealingCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding SongOfHealingCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="SongOfHealingCollected"
-                                   Visibility="{Binding SongOfHealingCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding SongOfHealingCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
                         </Grid>
 
@@ -204,11 +201,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="EponasSong"
-                                   Visibility="{Binding EponasSongCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding EponasSongCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="EponasSongCollected"
-                                   Visibility="{Binding EponasSongCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding EponasSongCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
                         </Grid>
 
@@ -228,11 +225,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="SongOfSoaring"
-                                   Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="SongOfSoaringCollected"
-                                   Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding SongOfSoaringCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
                         </Grid>
 
@@ -252,11 +249,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="SongOfStorms"
-                                   Visibility="{Binding SongOfStormsCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding SongOfStormsCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="SongOfStormsCollected"
-                                   Visibility="{Binding SongOfStormsCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding SongOfStormsCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Normal_Song_Icon.png" />
                         </Grid>
                     </Grid>
@@ -286,11 +283,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="SonataOfAwakening"
-                                   Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="SonataOfAwakeningCollected"
-                                   Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding SonataOfAwakeningCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Sonata_of_Awakening_Icon.png" />
                         </Grid>
 
@@ -310,11 +307,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="GoronLullaby"
-                                   Visibility="{Binding GoronLullabyCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding GoronLullabyCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="GoronLullabyCollected"
-                                   Visibility="{Binding GoronLullabyCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding GoronLullabyCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Goron_Lullaby_Icon.png" />
                         </Grid>
 
@@ -334,11 +331,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="NewWaveBossaNova"
-                                   Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="NewWaveBossaNovaCollected"
-                                   Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding NewWaveBossaNovaCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_New_Wave_Bossa_Nova_Icon.png" />
                         </Grid>
 
@@ -358,11 +355,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="ElegyOfEmptiness"
-                                   Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="ElegyOfEmptinessCollected"
-                                   Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding ElegyOfEmptinessCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Elegy_of_Emptiness_Icon.png" />
                         </Grid>
 
@@ -382,11 +379,11 @@
                             </behaviors:Interaction.Triggers>
 
                             <Image x:Name="OathToOrder"
-                                   Visibility="{Binding OathToOrderCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                                   Visibility="{Binding OathToOrderCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Song_Icon.png" />
 
                             <Image x:Name="OathToOrderCollected"
-                                   Visibility="{Binding OathToOrderCollected, Converter={StaticResource VisibilityConverter}}"
+                                   Visibility="{Binding OathToOrderCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Oath_to_Order_Icon.png" />
                         </Grid>
                     </Grid>
@@ -413,15 +410,15 @@
                         </behaviors:Interaction.Triggers>
 
                         <Image x:Name="UncollectedMagicJar"
-                               Visibility="{Binding IsAnyMagicCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Visibility="{Binding IsAnyMagicCollected, Converter={StaticResource Viscon}}"
                                Source="../../Asset/StatusItem/MM_Uncollected_Magic_Jar_Icon.png" />
 
                         <Image x:Name="MagicJar"
-                               Visibility="{Binding IsMagicCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsMagicCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Magic_Jar_Icon.png" />
 
                         <Image x:Name="LargeMagicJar"
-                               Visibility="{Binding IsDoubleMagicCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsDoubleMagicCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Large_Magic_Jar_Icon.png" />
                     </Grid>
 
@@ -439,19 +436,19 @@
                         </behaviors:Interaction.Triggers>
 
                         <Image x:Name="UncollectedWallet"
-                               Visibility="{Binding IsAnyWalletCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Visibility="{Binding IsAnyWalletCollected, Converter={StaticResource Viscon}}"
                                Source="../../Asset/StatusItem/MM_Uncollected_Wallet.png" />
 
                         <Image x:Name="ChildWallet"
-                               Visibility="{Binding IsChildWalletCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsChildWalletCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Child_Wallet_Icon.png" />
 
                         <Image x:Name="AdultWallet"
-                               Visibility="{Binding IsAdultWalletCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsAdultWalletCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Adult_Wallet_Icon.png" />
 
                         <Image x:Name="GiantsWallet"
-                               Visibility="{Binding IsGiantWalletCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsGiantWalletCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Giants_Wallet_Icon.png" />
                     </Grid>
                 </Grid>
@@ -494,11 +491,11 @@
 
                         <Image x:Name="UncollectedOdolwasRemains"
                                Source="../../Asset/StatusItem/MM_Uncollected_Odolwas_Remains_Icon.png"
-                               Visibility="{Binding OdolwaCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+                               Visibility="{Binding OdolwaCollected, Converter={StaticResource Viscon}}" />
 
                         <Image x:Name="OdolwasRemains"
                                Source="../../Asset/StatusItem/MM_Odolwas_Remains_Icon.png"
-                               Visibility="{Binding OdolwaCollected, Converter={StaticResource VisibilityConverter}}" />
+                               Visibility="{Binding OdolwaCollected, Converter={StaticResource Reviscon}}" />
                     </Grid>
 
                     <Grid Grid.Row="1"
@@ -517,11 +514,11 @@
 
                         <Image x:Name="UncollectedGohtsRemains"
                                Source="../../Asset/StatusItem/MM_Uncollected_Gohts_Remains_Icon.png"
-                               Visibility="{Binding GohtCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+                               Visibility="{Binding GohtCollected, Converter={StaticResource Viscon}}" />
 
                         <Image x:Name="GohtsRemains"
                                Source="../../Asset/StatusItem/MM_Gohts_Remains_Icon.png"
-                               Visibility="{Binding GohtCollected, Converter={StaticResource VisibilityConverter}}" />
+                               Visibility="{Binding GohtCollected, Converter={StaticResource Reviscon}}" />
                     </Grid>
 
                     <Grid Grid.Row="1"
@@ -540,11 +537,11 @@
 
                         <Image x:Name="UncollectedGyorgsRemains"
                                Source="../../Asset/StatusItem/MM_Uncollected_Gyorgs_Remains_Icon.png"
-                               Visibility="{Binding GyorgCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+                               Visibility="{Binding GyorgCollected, Converter={StaticResource Viscon}}" />
 
                         <Image x:Name="GyorgsRemains"
                                Source="../../Asset/StatusItem/MM_Gyorgs_Remains_Icon.png"
-                               Visibility="{Binding GyorgCollected, Converter={StaticResource VisibilityConverter}}" />
+                               Visibility="{Binding GyorgCollected, Converter={StaticResource Reviscon}}" />
                     </Grid>
 
                     <Grid Grid.Row="2"
@@ -563,11 +560,11 @@
 
                         <Image x:Name="UncollectedTwinmoldsRemains"
                                Source="../../Asset/StatusItem/MM_Uncollected_Twinmolds_Remains_Icon.png"
-                               Visibility="{Binding TwinmoldCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+                               Visibility="{Binding TwinmoldCollected, Converter={StaticResource Viscon}}" />
 
                         <Image x:Name="TwinmoldsRemains"
                                Source="../../Asset/StatusItem/MM_Twinmolds_Remains_Icon.png"
-                               Visibility="{Binding TwinmoldCollected, Converter={StaticResource VisibilityConverter}}" />
+                               Visibility="{Binding TwinmoldCollected, Converter={StaticResource Reviscon}}" />
                     </Grid>
                 </Grid>
 
@@ -601,18 +598,18 @@
 
                         <Image x:Name="UncollectedSword"
                                Source="../../Asset/StatusItem/MM_Uncollected_Sword_Icon.png"
-                               Visibility="{Binding IsAnySwordCollected, Converter={StaticResource ReverseVisibilityConverter}}" />
+                               Visibility="{Binding IsAnySwordCollected, Converter={StaticResource Viscon}}" />
 
                         <Image x:Name="KokiriSword"
-                               Visibility="{Binding IsKokiriSwordCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsKokiriSwordCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Kokiri_Sword_Icon.png" />
 
                         <Image x:Name="RazorSword"
-                               Visibility="{Binding IsRazorSwordCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsRazorSwordCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Razor_Sword_Icon.png" />
 
                         <Image x:Name="GildedSword"
-                               Visibility="{Binding IsGildedSwordCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsGildedSwordCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Gilded_Sword_Icon.png" />
                     </Grid>
 
@@ -633,15 +630,15 @@
 
 
                         <Image x:Name="UncollectedShield"
-                               Visibility="{Binding IsAnyShieldCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Visibility="{Binding IsAnyShieldCollected, Converter={StaticResource Viscon}}"
                                Source="../../Asset/StatusItem/MM_Uncollected_Shield_Icon.png" />
 
                         <Image x:Name="HeroesShield"
-                               Visibility="{Binding IsHeroShieldCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsHeroShieldCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Heros_Shield_Icon.png" />
 
                         <Image x:Name="MirrorShield"
-                               Visibility="{Binding IsMirrorShieldCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsMirrorShieldCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Mirror_Shield_Icon.png" />
                     </Grid>
 
@@ -662,19 +659,19 @@
 
 
                         <Image x:Name="UncollectedQuiver"
-                               Visibility="{Binding IsAnyQuiverCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Visibility="{Binding IsAnyQuiverCollected, Converter={StaticResource Viscon}}"
                                Source="../../Asset/StatusItem/MM_Uncollected_Quiver_Icon.png" />
 
                         <Image x:Name="Quiver"
-                               Visibility="{Binding IsQuiverCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsQuiverCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Quiver_Icon.png" />
 
                         <Image x:Name="BigQuiver"
-                               Visibility="{Binding IsBigQuiverCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsBigQuiverCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Big_Quiver_Icon.png" />
 
                         <Image x:Name="LargestQuiver"
-                               Visibility="{Binding IsLargestQuiverCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsLargestQuiverCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Largest_Quiver_Icon.png" />
                     </Grid>
 
@@ -694,19 +691,19 @@
                         </behaviors:Interaction.Triggers>
 
                         <Image x:Name="UncollectedBombBag"
-                               Visibility="{Binding IsAnyBombBagCollected, Converter={StaticResource ReverseVisibilityConverter}}"
+                               Visibility="{Binding IsAnyBombBagCollected, Converter={StaticResource Viscon}}"
                                Source="../../Asset/StatusItem/MM_Uncollected_Bomb_Bag_Icon.png" />
 
                         <Image x:Name="BombBag"
-                               Visibility="{Binding IsBombBagCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsBombBagCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Bomb_Bag_Icon.png" />
 
                         <Image x:Name="BigBombBag"
-                               Visibility="{Binding IsBigBombBagCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsBigBombBagCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Big_Bomb_Bag_Icon.png" />
 
                         <Image x:Name="LargestBombBag"
-                               Visibility="{Binding IsLargestBombBagCollected, Converter={StaticResource VisibilityConverter}}"
+                               Visibility="{Binding IsLargestBombBagCollected, Converter={StaticResource Reviscon}}"
                                Source="../../Asset/StatusItem/MM_Largest_Bomb_Bag_Icon.png" />
                     </Grid>
                 </Grid>

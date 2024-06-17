@@ -4,23 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
-      xmlns:local="clr-namespace:MajorasMaskTracker.View.InventoryPage"
       xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel.InventoryViewmodel"
-
       xmlns:con="clr-namespace:WPFBase.Converters;assembly=WPFBase"
-
       xmlns:behaviors="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
 
       mc:Ignorable="d"
       Title="MaskPage"
       Background="Transparent">
     <Page.DataContext>
-        <vm:MaskPageViewmodel x:Name="mpvmodel" />
+        <vm:MaskPageViewmodel x:Name="Mpvmodel" />
     </Page.DataContext>
 
     <Page.Resources>
-        <con:VisibilityConverter x:Key="reviscon" />
-        <con:ReverseVisibilityConverter x:Key="viscon" />
+        <con:VisibilityConverter x:Key="Reviscon" />
+        <con:ReverseVisibilityConverter x:Key="Viscon" />
     </Page.Resources>
 
     <Viewbox>
@@ -34,7 +31,7 @@
                        Text="MASKS"
                        FontSize="40"
                        FontWeight="Bold"
-                       Foreground="{StaticResource ForegroundColor}"
+                       Foreground="{Binding ForegroundBrush}"
                        FontFamily="{StaticResource ZeldaFont}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
@@ -72,9 +69,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Postmans_Hat_Icon.png"
-                           Visibility="{Binding IsPostmanHatCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsPostmanHatCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Postmans_Hat_Icon.png"
-                           Visibility="{Binding IsPostmanHatCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsPostmanHatCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -93,9 +90,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_All-Night_Mask_Icon.png"
-                           Visibility="{Binding IsAllNightMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsAllNightMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_All-Night_Mask_Icon.png"
-                           Visibility="{Binding IsAllNightMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsAllNightMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -114,9 +111,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Blast_Mask_Icon.png"
-                           Visibility="{Binding IsBlastMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsBlastMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Blast_Mask_Icon.png"
-                           Visibility="{Binding IsBlastMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsBlastMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -135,9 +132,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Stone_Mask_Icon.png"
-                           Visibility="{Binding IsStoneMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsStoneMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Stone_Mask_Icon.png"
-                           Visibility="{Binding IsStoneMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsStoneMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -156,9 +153,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Great_Fairys_Mask_Icon.png"
-                           Visibility="{Binding IsGreatFairyMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGreatFairyMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Great_Fairys_Mask_Icon.png"
-                           Visibility="{Binding IsGreatFairyMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGreatFairyMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -177,9 +174,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Deku_Mask_Icon.png"
-                           Visibility="{Binding IsDekuMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsDekuMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Deku_Mask_Icon.png"
-                           Visibility="{Binding IsDekuMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsDekuMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
 
@@ -199,9 +196,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Keaton_Mask_Icon.png"
-                           Visibility="{Binding IsKeatonMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsKeatonMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Keaton_Mask_Icon.png"
-                           Visibility="{Binding IsKeatonMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsKeatonMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -220,9 +217,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Bremen_Mask_Icon.png"
-                           Visibility="{Binding IsBremenMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsBremenMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Bremen_Mask_Icon.png"
-                           Visibility="{Binding IsBremenMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsBremenMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -241,9 +238,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Bunny_Hood_Icon.png"
-                           Visibility="{Binding IsBunnyHoodCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsBunnyHoodCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Bunny_Hood_Icon.png"
-                           Visibility="{Binding IsBunnyHoodCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsBunnyHoodCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -262,9 +259,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Don_Geros_Mask_Icon.png"
-                           Visibility="{Binding IsDonGeroMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsDonGeroMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Don_Geros_Mask_Icon.png"
-                           Visibility="{Binding IsDonGeroMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsDonGeroMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -283,9 +280,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Mask_of_Scents_Icon.png"
-                           Visibility="{Binding IsMaskOfScentsCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsMaskOfScentsCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Mask_of_Scents_Icon.png"
-                           Visibility="{Binding IsMaskOfScentsCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsMaskOfScentsCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -304,9 +301,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Goron_Mask_Icon.png"
-                           Visibility="{Binding IsGoronMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGoronMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Goron_Mask_Icon.png"
-                           Visibility="{Binding IsGoronMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGoronMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
 
@@ -326,9 +323,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Romanis_Mask_Icon.png"
-                           Visibility="{Binding IsRomaniMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsRomaniMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Romanis_Mask_Icon.png"
-                           Visibility="{Binding IsRomaniMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsRomaniMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -347,9 +344,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Circus_Leaders_Mask_Icon.png"
-                           Visibility="{Binding IsCircusLeadersMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsCircusLeadersMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Circus_Leaders_Mask_Icon.png"
-                           Visibility="{Binding IsCircusLeadersMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsCircusLeadersMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -368,9 +365,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Kafeis_Mask_Icon.png"
-                           Visibility="{Binding IsKafeisMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsKafeisMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Kafeis_Mask_Icon.png"
-                           Visibility="{Binding IsKafeisMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsKafeisMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -389,9 +386,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Couples_Mask_Icon.png"
-                           Visibility="{Binding IsCoupleMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsCoupleMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Couples_Mask_Icon.png"
-                           Visibility="{Binding IsCoupleMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsCoupleMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -410,9 +407,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Mask_of_Truth_Icon.png"
-                           Visibility="{Binding IsMaskOfTruthCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsMaskOfTruthCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Mask_of_Truth_Icon.png"
-                           Visibility="{Binding IsMaskOfTruthCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsMaskOfTruthCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -431,9 +428,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Zora_Mask_Icon.png"
-                           Visibility="{Binding IsZoraMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsZoraMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Zora_Mask_Icon.png"
-                           Visibility="{Binding IsZoraMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsZoraMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
 
@@ -453,9 +450,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Kamaros_Mask_Icon.png"
-                           Visibility="{Binding IsKamaroMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsKamaroMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Kamaros_Mask_Icon.png"
-                           Visibility="{Binding IsKamaroMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsKamaroMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -474,9 +471,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Gibdo_Mask_Icon.png"
-                           Visibility="{Binding IsGibdoMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGibdoMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Gibdo_Mask_Icon.png"
-                           Visibility="{Binding IsGibdoMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGibdoMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -495,9 +492,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Garos_Mask_Icon.png"
-                           Visibility="{Binding IsGaroMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGaroMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Garos_Mask_Icon.png"
-                           Visibility="{Binding IsGaroMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGaroMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -516,9 +513,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Captains_Hat_Icon.png"
-                           Visibility="{Binding IsCaptainHatCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsCaptainHatCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Captains_Hat_Icon.png"
-                           Visibility="{Binding IsCaptainHatCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsCaptainHatCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -537,9 +534,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Giants_Mask_Icon.png"
-                           Visibility="{Binding IsGiantMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGiantMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Giants_Mask_Icon.png"
-                           Visibility="{Binding IsGiantMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGiantMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -558,9 +555,9 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/Mask/MM_Fierce_Deitys_Mask_Icon.png"
-                           Visibility="{Binding IsFierceDeityMaskCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsFierceDeityMaskCollected, Converter={StaticResource Reviscon}}" />
                     <Image Source="../../Asset/Mask/MM_Uncollected_Fierce_Deitys_Mask_Icon.png"
-                           Visibility="{Binding IsFierceDeityMaskCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsFierceDeityMaskCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
             </Grid>
         </Grid>

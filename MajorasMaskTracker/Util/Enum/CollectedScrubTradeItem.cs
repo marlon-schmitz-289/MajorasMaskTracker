@@ -1,4 +1,4 @@
-﻿namespace MajorasMaskTracker.Util;
+﻿namespace MajorasMaskTracker.Util.Enum;
 
 public enum CollectedScrubTradeItem
 {

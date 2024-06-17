@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 using MajorasMaskTracker.Model;
 using MajorasMaskTracker.Store;
 
@@ -11,12 +9,14 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-        SettingsStore.Instance.SettingsModel = SettingsModel.LoadSettings();
+        SettingsStore.Instance.Settings = SettingsModel.LoadSettings();
+        SettingsStore.Instance.ApplicationSettings = ApplicationSettingsModel.LoadSettings();
     }
 
     protected override void OnExit(ExitEventArgs e)
     {
         base.OnExit(e);
-        SettingsStore.Instance.SettingsModel.SaveSettings();
+        SettingsStore.Instance.Settings.SaveSettings();
+        SettingsStore.Instance.ApplicationSettings.SaveSettings();
     }
 }

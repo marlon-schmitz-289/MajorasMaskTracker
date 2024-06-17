@@ -4,20 +4,24 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
-                 xmlns:local="clr-namespace:MajorasMaskTracker"
                  xmlns:base="clr-namespace:WPFBase;assembly=WPFBase"
                  xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel"
 
                  mc:Ignorable="d"
-                 WindowBackground="{StaticResource BackgroundColor}"
+                 
+                 WindowBackground="{Binding BackgroundBrush}"
+                 TitleBarBackground="#FF35438B"
+                 TitleBarForeground="#FFD8D8D8"
+                 
                  WindowStartupLocation="CenterScreen"
                  WindowTitle="Majora's Mask Tracker"
+                 
                  Height="540"
                  Width="960"
                  MinHeight="400"
                  MinWidth="500">
     <Window.DataContext>
-        <vm:MainWindowViewmodel x:Name="mwvmodel" />
+        <vm:MainWindowViewmodel x:Name="Mwvmodel" />
     </Window.DataContext>
     
     <base:BaseWindow.WindowContent>

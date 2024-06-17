@@ -4,13 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 
-      xmlns:local="clr-namespace:MajorasMaskTracker.View.InventoryPage"
       xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel.InventoryViewmodel"
-
       xmlns:converters="clr-namespace:WPFBase.Converters;assembly=WPFBase"
       xmlns:behaviors="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
-
-      xmlns:interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
 
       mc:Ignorable="d"
       Title="DungeonPage"
@@ -20,8 +16,8 @@
     </Page.DataContext>
 
     <Page.Resources>
-        <converters:VisibilityConverter x:Key="reviscon" />
-        <converters:ReverseVisibilityConverter x:Key="viscon" />
+        <converters:VisibilityConverter x:Key="Reviscon" />
+        <converters:ReverseVisibilityConverter x:Key="Viscon" />
     </Page.Resources>
 
     <Viewbox>
@@ -37,7 +33,7 @@
                        FontWeight="Bold"
                        Margin="0 0 0 10"
                        FontFamily="{StaticResource ZeldaFont}"
-                       Foreground="{Binding ForegroundColor}"
+                       Foreground="{Binding ForegroundBrush}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
 
@@ -64,7 +60,7 @@
                 <TextBlock Grid.Row="0"
                            Grid.Column="0"
                            Text="Woodfall Temple"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -85,10 +81,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsWoodfallMapCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -106,10 +102,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                           Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                           Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsWoodfallCompassCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -127,10 +123,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Woodfall_Boss_Key_Icon.png"
-                           Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                           Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsWoodfallBossKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="0"
@@ -148,17 +144,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Woodfall_Icon.png"
-                           Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Left_Icon.png"
-                           Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsWoodfallFairyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="0"
                            Grid.Column="5"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding WoodfallFairyText}" />
@@ -178,17 +174,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                           Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                           Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsWoodfallSmallKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="0"
                            Grid.Column="7"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding WoodfallSmallKeyText}" />
@@ -199,7 +195,7 @@
                 <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="Snowhead Temple"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -220,10 +216,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsSnowheadMapCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -241,10 +237,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                           Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                           Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsSnowheadCompassCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -262,10 +258,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Snowhead_Boss_Key_Icon.png"
-                           Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                           Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsSnowheadBossKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="1"
@@ -283,17 +279,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Snowhead_Icon.png"
-                           Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Right_Icon.png"
-                           Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsSnowheadFairyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="1"
                            Grid.Column="5"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding SnowheadFairyText}" />
@@ -313,17 +309,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                           Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                           Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsSnowheadSmallKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="1"
                            Grid.Column="7"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding SnowheadSmallKeyText}" />
@@ -334,7 +330,7 @@
                 <TextBlock Grid.Row="2"
                            Grid.Column="0"
                            Text="Great Bay Temple"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -355,10 +351,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGreatBayMapCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -376,10 +372,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                           Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                           Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGreatBayCompassCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -397,10 +393,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Great_Bay_Boss_Key_Icon.png"
-                           Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                           Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGreatBayBossKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="2"
@@ -418,17 +414,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Great_Bay_Icon.png"
-                           Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Right_Icon.png"
-                           Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGreatBayFairyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="2"
                            Grid.Column="5"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding GreatBayFairyText}" />
@@ -448,17 +444,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                           Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                           Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsGreatBaySmallKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="2"
                            Grid.Column="7"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding GreatBaySmallKeyText}" />
@@ -469,7 +465,7 @@
                 <TextBlock Grid.Row="3"
                            Grid.Column="0"
                            Text="Stone Tower Temple"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            FontSize="25"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
@@ -490,10 +486,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Dungeon_Map_Icon.png"
-                           Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsStoneTowerMapCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -511,10 +507,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Compass_Icon.png"
-                           Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Compass_Icon.png"
-                           Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsStoneTowerCompassCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -532,10 +528,10 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Stone_Tower_Boss_Key_Icon.png"
-                           Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Boss_Key_Icon.png"
-                           Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsStoneTowerBossKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <Grid Grid.Row="3"
@@ -553,17 +549,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Stray_Fairy_Stone_Tower_Icon.png"
-                           Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Stray_Fairy_Stone_Tower_Icon.png"
-                           Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsStoneTowerFairyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="3"
                            Grid.Column="5"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding StoneTowerFairyText}" />
@@ -583,17 +579,17 @@
                     </behaviors:Interaction.Triggers>
 
                     <Image Source="../../Asset/DungeonItem/MM_Small_Key_Icon.png"
-                           Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource reviscon}}" />
+                           Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource Reviscon}}" />
 
                     <Image Source="../../Asset/DungeonItem/MM_Uncollected_Small_Key_Icon.png"
-                           Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource viscon}}" />
+                           Visibility="{Binding IsStoneTowerSmallKeyCollected, Converter={StaticResource Viscon}}" />
                 </Grid>
 
                 <TextBlock Grid.Row="3"
                            Grid.Column="7"
                            FontSize="25"
                            FontFamily="{StaticResource ZeldaFont}"
-                           Foreground="{StaticResource ForegroundColor}"
+                           Foreground="{Binding ForegroundBrush}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Text="{Binding StoneTowerSmallKeyText}" />

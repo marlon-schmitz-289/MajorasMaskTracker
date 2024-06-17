@@ -1,5 +1,6 @@
-﻿using MajorasMaskTracker.Store;
-using MajorasMaskTracker.Util;
+﻿using System.Windows.Media;
+using MajorasMaskTracker.Store;
+using MajorasMaskTracker.Util.Enum;
 using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
@@ -8,108 +9,108 @@ public class QuestItemPageViewmodel : BaseViewModel
 {
     public bool IsOcarinaOfTimeCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsOcarinaOfTimeCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsOcarinaOfTimeCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsOcarinaOfTimeCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsOcarinaOfTimeCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsHeroBowCollected =>
-        SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedQuiver != CollectedQuiver.None;
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedQuiver != CollectedQuiver.None;
 
     public bool IsFireArrowCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFireArrowCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFireArrowCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFireArrowCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFireArrowCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsIceArrowCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsIceArrowCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsIceArrowCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsIceArrowCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsIceArrowCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsLightArrowCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsLightArrowCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsLightArrowCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsLightArrowCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsLightArrowCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsRoomKeyCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsRoomKeyCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsRoomKeyCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsRoomKeyCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsRoomKeyCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsBombBagCollected =>
-        SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsBombBagCollected;
+        SettingsStore.Instance.Settings.QuestItemsPageSettings.IsBombBagCollected;
 
     public bool IsBombChusCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsBombChusCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsBombChusCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsBombChusCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsBombChusCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsDekuStickCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsDekuStickCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsDekuStickCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsDekuStickCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsDekuStickCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsDekuNutCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsDekuNutCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsDekuNutCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsDekuNutCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsDekuNutCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsMagicBeanCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsMagicBeanCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsMagicBeanCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsMagicBeanCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsMagicBeanCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public CollectedScrubTradeItem CollectedScrubTradeItem
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.CollectedScrubTradeItem;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.CollectedScrubTradeItem;
         set
         {
             if (value is < 0 or > CollectedScrubTradeItem.OceanTitleDeed) return;
 
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.CollectedScrubTradeItem = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.CollectedScrubTradeItem = value;
 
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsScrubTradeItemCollected));
@@ -131,62 +132,62 @@ public class QuestItemPageViewmodel : BaseViewModel
 
     public bool IsPowderKegCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsPowderKegCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsPowderKegCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsPowderKegCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsPowderKegCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsPictoBoxCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsPictoBoxCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsPictoBoxCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsPictoBoxCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsPictoBoxCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsLensOfTruthCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsLensOfTruthCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsLensOfTruthCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsLensOfTruthCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsLensOfTruthCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsHookshotCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsHookshotCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsHookshotCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsHookshotCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsHookshotCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsGreatFairySwordCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsGreatFairySwordCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsGreatFairySwordCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsGreatFairySwordCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsGreatFairySwordCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public CollectedKafeiItem CollectedKafeiItem
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.CollectedKafeiItem;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.CollectedKafeiItem;
         set
         {
             if (value is < 0 or > CollectedKafeiItem.ExpressMailToMama) return;
 
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.CollectedKafeiItem = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.CollectedKafeiItem = value;
 
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(IsKafeiItemCollected));
@@ -204,60 +205,60 @@ public class QuestItemPageViewmodel : BaseViewModel
 
     public bool IsFirstBottleCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFirstBottleCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFirstBottleCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFirstBottleCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFirstBottleCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsSecondBottleCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsSecondBottleCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsSecondBottleCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsSecondBottleCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsSecondBottleCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsThirdBottleCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsThirdBottleCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsThirdBottleCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsThirdBottleCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsThirdBottleCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsFourthBottleCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFourthBottleCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFourthBottleCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFourthBottleCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFourthBottleCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsFifthBottleCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFifthBottleCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFifthBottleCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsFifthBottleCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsFifthBottleCollected = value;
             NotifyPropertyChanged();
         }
     }
 
     public bool IsSixthBottleCollected
     {
-        get => SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsSixthBottleCollected;
+        get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsSixthBottleCollected;
         set
         {
-            SettingsStore.Instance.SettingsModel.QuestItemsPageSettings.IsSixthBottleCollected = value;
+            SettingsStore.Instance.Settings.QuestItemsPageSettings.IsSixthBottleCollected = value;
             NotifyPropertyChanged();
         }
     }
@@ -336,19 +337,25 @@ public class QuestItemPageViewmodel : BaseViewModel
     public BaseCommand UnCollectSixthBottleCommand { get; set; }
 
 
+    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
+
+
     public QuestItemPageViewmodel()
     {
         InitializeCommands();
 
-        SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.OnCollectedQuiverChanged += () =>
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedQuiverChanged += () =>
         {
             NotifyPropertyChanged(nameof(IsHeroBowCollected));
         };
 
-        SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.OnCollectedBombBagChanged += () =>
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedBombBagChanged += () =>
         {
             NotifyPropertyChanged(nameof(IsBombBagCollected));
         };
+
+        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
+            () => NotifyPropertyChanged(nameof(ForegroundBrush));
     }
 
 
@@ -357,8 +364,10 @@ public class QuestItemPageViewmodel : BaseViewModel
         CollectOcarinaCommand = new BaseCommand((o) => IsOcarinaOfTimeCollected = true);
         UnCollectOcarinaCommand = new BaseCommand((o) => IsOcarinaOfTimeCollected = false);
 
-        CollectBowCommand = new BaseCommand((o) => SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedQuiver++);
-        UnCollectBowCommand = new BaseCommand((o) => SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedQuiver--);
+        CollectBowCommand = new BaseCommand((o) =>
+            SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedQuiver++);
+        UnCollectBowCommand = new BaseCommand((o) =>
+            SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedQuiver--);
 
         CollectFireArrowCommand = new BaseCommand((o) => IsFireArrowCollected = true);
         UnCollectFireArrowCommand = new BaseCommand((o) => IsFireArrowCollected = false);
@@ -372,8 +381,10 @@ public class QuestItemPageViewmodel : BaseViewModel
         CollectRoomKeyCommand = new BaseCommand((o) => IsRoomKeyCollected = true);
         UnCollectRoomKeyCommand = new BaseCommand((o) => IsRoomKeyCollected = false);
 
-        CollectBombBagCommand = new BaseCommand((o) => SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedBombBag++);
-        UnCollectBombBagCommand = new BaseCommand((o) => SettingsStore.Instance.SettingsModel.QuestStatusPageSettings.CollectedBombBag--);
+        CollectBombBagCommand = new BaseCommand((o) =>
+            SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedBombBag++);
+        UnCollectBombBagCommand = new BaseCommand((o) =>
+            SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedBombBag--);
 
         CollectBombChusCommand = new BaseCommand((o) => IsBombChusCollected = true);
         UnCollectBombChusCommand = new BaseCommand((o) => IsBombChusCollected = false);

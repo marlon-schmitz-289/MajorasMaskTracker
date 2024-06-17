@@ -7,6 +7,7 @@ public class CurrentPageStore
 {
     public event Action? CurrentPageChanged;
     private Page? _currentPage;
+
     public Page CurrentPage
     {
         get => _currentPage ??= new MainPage();
@@ -16,7 +17,7 @@ public class CurrentPageStore
             CurrentPageChanged?.Invoke();
         }
     }
-    
-    
+
+
     public static CurrentPageStore Instance { get; } = new();
 }
