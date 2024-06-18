@@ -8,14 +8,15 @@
                  xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel"
 
                  mc:Ignorable="d"
-                 
-                 WindowBackground="{Binding BackgroundBrush}"
+
+                 WindowBackground="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
+
                  TitleBarBackground="#FF35438B"
                  TitleBarForeground="#FFD8D8D8"
-                 
+
                  WindowStartupLocation="CenterScreen"
                  WindowTitle="Majora's Mask Tracker"
-                 
+
                  Height="540"
                  Width="960"
                  MinHeight="400"
@@ -23,9 +24,9 @@
     <Window.DataContext>
         <vm:MainWindowViewmodel x:Name="Mwvmodel" />
     </Window.DataContext>
-    
+
     <base:BaseWindow.WindowContent>
         <Frame NavigationUIVisibility="Hidden"
-               Content="{Binding CurrentPage}"/>
+               Content="{Binding CurrentPage}" />
     </base:BaseWindow.WindowContent>
 </base:BaseWindow>

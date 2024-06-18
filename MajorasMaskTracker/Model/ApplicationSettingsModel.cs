@@ -17,7 +17,7 @@ public class ApplicationSettingsModel : BaseModel
     private Color _backgroundColor;
     private SolidColorBrush _backgroundBrush;
 
-    [XmlElement]
+    [XmlIgnore]
     public Color BackgroundColor
     {
         get => _backgroundColor;
@@ -38,13 +38,17 @@ public class ApplicationSettingsModel : BaseModel
             OnBackgroundColorChanged?.Invoke();
         }
     }
+    
+    [XmlElement] private byte BackgroundColorRed { get; set; }
+    [XmlElement] private byte BackgroundColorGreen { get; set; }
+    [XmlElement] private byte BackgroundColorBlue { get; set; }
 
 
     public event Action OnForegroundColorChanged;
     private Color _foregroundColor;
     private SolidColorBrush _foregroundBrush;
 
-    [XmlElement]
+    [XmlIgnore]
     public Color ForegroundColor
     {
         get => _foregroundColor;
@@ -65,16 +69,13 @@ public class ApplicationSettingsModel : BaseModel
             OnForegroundColorChanged?.Invoke();
         }
     }
-
-
-    public ApplicationSettingsModel()
-    {
-        BackgroundColor = Color.FromArgb(255, 63, 63, 63);
-        ForegroundColor = Color.FromArgb(255, 221, 221, 221);
-
-        BackgroundBrush = new SolidColorBrush(BackgroundColor);
-        ForegroundBrush = new SolidColorBrush(ForegroundColor);
-    }
+    
+    [XmlElement] private byte ForegroundColorRed { get; set; }
+    [XmlElement] private byte ForegroundColorGreen { get; set; }
+    [XmlElement] private byte ForegroundColorBlue { get; set; }
+    
+    
+    [XmlIgnore] public bool ReadFromSettings { get; private set; }
 
 
     private string ToXml()
@@ -95,7 +96,24 @@ public class ApplicationSettingsModel : BaseModel
         var serializer = new XmlSerializer(typeof(ApplicationSettingsModel));
         var ret = (ApplicationSettingsModel)serializer.Deserialize(new StringReader(xml));
 
-        return ret ?? new ApplicationSettingsModel();
+        if (ret is null)
+        {
+            var empty = new ApplicationSettingsModel();
+            
+            empty.InitializeBrushes();
+            
+            return empty;
+        }
+        
+        ret.ReadFromSettings = true;
+        
+        ret.BackgroundColor = Color.FromRgb(ret.BackgroundColorRed, ret.BackgroundColorGreen, ret.BackgroundColorBlue);
+        ret.BackgroundBrush = new SolidColorBrush(ret.BackgroundColor);
+        
+        ret.ForegroundColor = Color.FromRgb(ret.ForegroundColorRed, ret.ForegroundColorGreen, ret.ForegroundColorBlue);
+        ret.ForegroundBrush = new SolidColorBrush(ret.ForegroundColor);
+        
+        return ret;
     }
 
 
@@ -125,5 +143,28 @@ public class ApplicationSettingsModel : BaseModel
 
         var xml = File.ReadAllText(SettingsFilePath);
         return FromXml(xml);
+    }
+    
+    
+    public void InitializeBrushes()
+    {
+        InitializeColors();
+        
+        BackgroundBrush = new SolidColorBrush(BackgroundColor);
+        ForegroundBrush = new SolidColorBrush(ForegroundColor);
+    }
+
+
+    private void InitializeColors()
+    {
+        BackgroundColorRed = 63;
+        BackgroundColorGreen = 63;
+        BackgroundColorBlue = 63;
+        BackgroundColor = Color.FromRgb(63, 63, 63);
+        
+        ForegroundColorRed = 221;
+        ForegroundColorGreen = 221;
+        ForegroundColorBlue = 221;
+        ForegroundColor = Color.FromRgb(221, 221, 221);
     }
 }

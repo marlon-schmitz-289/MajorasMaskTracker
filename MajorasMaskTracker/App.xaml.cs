@@ -11,6 +11,9 @@ public partial class App : Application
         base.OnStartup(e);
         SettingsStore.Instance.Settings = SettingsModel.LoadSettings();
         SettingsStore.Instance.ApplicationSettings = ApplicationSettingsModel.LoadSettings();
+
+        if (!SettingsStore.Instance.ApplicationSettings.ReadFromSettings)
+            SettingsStore.Instance.ApplicationSettings.InitializeBrushes();
     }
 
     protected override void OnExit(ExitEventArgs e)
