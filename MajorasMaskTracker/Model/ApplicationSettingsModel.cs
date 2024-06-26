@@ -7,13 +7,13 @@ namespace MajorasMaskTracker.Model;
 
 public class ApplicationSettingsModel : BaseModel
 {
-    private static readonly string SettingsPath =
+    private static readonly string _SETTINGS_PATH =
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MajorasMaskTracker");
 
-    private static readonly string SettingsFilePath = Path.Combine(SettingsPath, "AppSettings.xml");
+    private static readonly string _SETTINGS_FILE_PATH = Path.Combine(_SETTINGS_PATH, "AppSettings.xml");
 
 
-    public event Action OnBackgroundColorChanged;
+    public event Action? OnBackgroundColorChanged;
     private Color _backgroundColor;
     private SolidColorBrush _backgroundBrush;
 
@@ -24,6 +24,7 @@ public class ApplicationSettingsModel : BaseModel
         set
         {
             _backgroundColor = value;
+            BackgroundBrush = new SolidColorBrush(BackgroundColor);
             OnBackgroundColorChanged?.Invoke();
         }
     }
@@ -38,10 +39,10 @@ public class ApplicationSettingsModel : BaseModel
             OnBackgroundColorChanged?.Invoke();
         }
     }
-    
-    [XmlElement] private byte BackgroundColorRed { get; set; }
-    [XmlElement] private byte BackgroundColorGreen { get; set; }
-    [XmlElement] private byte BackgroundColorBlue { get; set; }
+
+    [XmlElement] public byte BackgroundColorRed { get; set; }
+    [XmlElement] public byte BackgroundColorGreen { get; set; }
+    [XmlElement] public byte BackgroundColorBlue { get; set; }
 
 
     public event Action OnForegroundColorChanged;
@@ -55,6 +56,7 @@ public class ApplicationSettingsModel : BaseModel
         set
         {
             _foregroundColor = value;
+            ForegroundBrush = new SolidColorBrush(ForegroundColor);
             OnForegroundColorChanged?.Invoke();
         }
     }
@@ -69,17 +71,31 @@ public class ApplicationSettingsModel : BaseModel
             OnForegroundColorChanged?.Invoke();
         }
     }
-    
-    [XmlElement] private byte ForegroundColorRed { get; set; }
-    [XmlElement] private byte ForegroundColorGreen { get; set; }
-    [XmlElement] private byte ForegroundColorBlue { get; set; }
-    
-    
+
+    [XmlElement] public byte ForegroundColorRed { get; set; }
+    [XmlElement] public byte ForegroundColorGreen { get; set; }
+    [XmlElement] public byte ForegroundColorBlue { get; set; }
+
+
     [XmlIgnore] public bool ReadFromSettings { get; private set; }
+
+
+    public void ChangedBackgroundColor()
+    {
+        OnBackgroundColorChanged?.Invoke();
+    }
 
 
     private string ToXml()
     {
+        BackgroundColorRed = BackgroundColor.R;
+        BackgroundColorGreen = BackgroundColor.G;
+        BackgroundColorBlue = BackgroundColor.B;
+
+        ForegroundColorRed = ForegroundColor.R;
+        ForegroundColorGreen = ForegroundColor.G;
+        ForegroundColorBlue = ForegroundColor.B;
+
         var stream = new StringWriter();
 
         var nameSpace = new XmlSerializerNamespaces();
@@ -98,58 +114,51 @@ public class ApplicationSettingsModel : BaseModel
 
         if (ret is null)
         {
-            var empty = new ApplicationSettingsModel();
-            
-            empty.InitializeBrushes();
-            
-            return empty;
+            ret = new ApplicationSettingsModel();
+        }
+        else
+        {
+            ret.ReadFromSettings = true;
         }
         
-        ret.ReadFromSettings = true;
-        
-        ret.BackgroundColor = Color.FromRgb(ret.BackgroundColorRed, ret.BackgroundColorGreen, ret.BackgroundColorBlue);
-        ret.BackgroundBrush = new SolidColorBrush(ret.BackgroundColor);
-        
-        ret.ForegroundColor = Color.FromRgb(ret.ForegroundColorRed, ret.ForegroundColorGreen, ret.ForegroundColorBlue);
-        ret.ForegroundBrush = new SolidColorBrush(ret.ForegroundColor);
-        
+        ret.InitializeBrushes();
         return ret;
     }
 
 
     public void SaveSettings()
     {
-        if (!Directory.Exists(SettingsPath))
+        if (!Directory.Exists(_SETTINGS_PATH))
         {
-            Directory.CreateDirectory(SettingsPath);
+            Directory.CreateDirectory(_SETTINGS_PATH);
         }
 
         var xml = ToXml();
-        File.WriteAllText(SettingsFilePath, xml);
+        File.WriteAllText(_SETTINGS_FILE_PATH, xml);
     }
 
 
     public static ApplicationSettingsModel LoadSettings()
     {
-        if (!Directory.Exists(SettingsPath))
+        if (!Directory.Exists(_SETTINGS_PATH))
         {
-            Directory.CreateDirectory(SettingsPath);
+            Directory.CreateDirectory(_SETTINGS_PATH);
         }
 
-        if (!File.Exists(SettingsFilePath))
+        if (!File.Exists(_SETTINGS_FILE_PATH))
         {
             return new ApplicationSettingsModel();
         }
 
-        var xml = File.ReadAllText(SettingsFilePath);
+        var xml = File.ReadAllText(_SETTINGS_FILE_PATH);
         return FromXml(xml);
     }
-    
-    
+
+
     public void InitializeBrushes()
     {
         InitializeColors();
-        
+
         BackgroundBrush = new SolidColorBrush(BackgroundColor);
         ForegroundBrush = new SolidColorBrush(ForegroundColor);
     }
@@ -157,14 +166,18 @@ public class ApplicationSettingsModel : BaseModel
 
     private void InitializeColors()
     {
-        BackgroundColorRed = 63;
-        BackgroundColorGreen = 63;
-        BackgroundColorBlue = 63;
-        BackgroundColor = Color.FromRgb(63, 63, 63);
+        if (!ReadFromSettings)
+        {
+            BackgroundColorRed = 63;
+            BackgroundColorGreen = 63;
+            BackgroundColorBlue = 63;
+
+            ForegroundColorRed = 221;
+            ForegroundColorGreen = 221;
+            ForegroundColorBlue = 221;
+        }
         
-        ForegroundColorRed = 221;
-        ForegroundColorGreen = 221;
-        ForegroundColorBlue = 221;
-        ForegroundColor = Color.FromRgb(221, 221, 221);
+        BackgroundColor = Color.FromRgb(BackgroundColorRed, BackgroundColorGreen, BackgroundColorBlue);
+        ForegroundColor = Color.FromRgb(ForegroundColorRed, ForegroundColorGreen, ForegroundColorBlue);
     }
 }

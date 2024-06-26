@@ -123,7 +123,6 @@
       <None Remove="Asset\StatusItem\MM_Uncollected_Magic_Jar_Icon.png" />
       <Resource Include="Asset\StatusItem\MM_Uncollected_Magic_Jar_Icon.png" />
       <None Remove="Asset\StatusItem\MM_Uncollected_Wallet.png" />
-      <Resource Include="Asset\StatusItem\MM_Uncollected_Wallet.png" />
       <None Remove="Asset\Mask\MM_All-Night_Mask_Icon.png" />
       <Resource Include="Asset\Mask\MM_All-Night_Mask_Icon.png" />
       <None Remove="Asset\Mask\MM_Blast_Mask_Icon.png" />

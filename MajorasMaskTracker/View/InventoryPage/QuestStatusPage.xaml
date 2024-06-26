@@ -99,11 +99,11 @@
                                 </behaviors:EventTrigger>
                             </behaviors:Interaction.Triggers>
 
-                            <Image x:Name="UncollectedHeartpieces"
+                            <Image x:Name="Heartpiece"
                                    Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource Viscon}}"
                                    Source="../../Asset/StatusItem/MM_Uncollected_Piece_of_Heart_Icon.png" />
 
-                            <Image x:Name="Hearpieces"
+                            <Image x:Name="HeartpieceCollected"
                                    Visibility="{Binding IsHeartPieceCollected, Converter={StaticResource Reviscon}}"
                                    Source="../../Asset/StatusItem/MM_Piece_of_Heart_Icon.png" />
                         </Grid>
@@ -434,10 +434,6 @@
                                 <behaviors:InvokeCommandAction Command="{Binding UncollectWalletCommand}" />
                             </behaviors:EventTrigger>
                         </behaviors:Interaction.Triggers>
-
-                        <Image x:Name="UncollectedWallet"
-                               Visibility="{Binding IsAnyWalletCollected, Converter={StaticResource Viscon}}"
-                               Source="../../Asset/StatusItem/MM_Uncollected_Wallet.png" />
 
                         <Image x:Name="ChildWallet"
                                Visibility="{Binding IsChildWalletCollected, Converter={StaticResource Reviscon}}"

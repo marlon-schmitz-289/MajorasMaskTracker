@@ -59,7 +59,7 @@ public class QuestStatusPageModel : BaseModel
         }
     }
 
-    [XmlElement] public CollectedWallet CollectedWallet { get; set; } = CollectedWallet.None;
+    [XmlElement] public CollectedWallet CollectedWallet { get; set; } = CollectedWallet.ChildWallet;
     [XmlElement] public CollectedMagic CollectedMagic { get; set; } = CollectedMagic.None;
 
     public event Action OnCollectedQuiverChanged;

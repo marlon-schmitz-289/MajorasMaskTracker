@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using MajorasMaskTracker.Store;
 using MajorasMaskTracker.Util.Enum;
@@ -20,8 +21,12 @@ public class MainWindowViewmodel : BaseViewModel
             ApplicationPagesStore.Instance.ApplicationPages[(int)ApplicationPages.MainPage];
         
         SettingsStore.Instance.ApplicationSettings.OnBackgroundColorChanged +=
-            () => NotifyPropertyChanged(nameof(BackgroundBrush));
+            () =>
+            {
+                NotifyPropertyChanged(nameof(BackgroundBrush));
+                // MessageBox.Show("");
+            };
 
-        NotifyPropertyChanged(nameof(BackgroundBrush));
+        SettingsStore.Instance.ApplicationSettings.ChangedBackgroundColor();
     }
 }

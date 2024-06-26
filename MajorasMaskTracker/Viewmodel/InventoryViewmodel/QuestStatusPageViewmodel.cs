@@ -97,18 +97,16 @@ public class QuestStatusPageViewmodel : BaseViewModel
         get => SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedWallet;
         set
         {
-            if (value is > CollectedWallet.GiantsWallet or < CollectedWallet.None) return;
+            if (value is > CollectedWallet.GiantsWallet or < CollectedWallet.ChildWallet) return;
 
             SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedWallet = value;
             NotifyPropertyChanged();
-            NotifyPropertyChanged(nameof(IsAnyWalletCollected));
             NotifyPropertyChanged(nameof(IsChildWalletCollected));
             NotifyPropertyChanged(nameof(IsAdultWalletCollected));
             NotifyPropertyChanged(nameof(IsGiantWalletCollected));
         }
     }
 
-    public bool IsAnyWalletCollected => Wallet != CollectedWallet.None;
     public bool IsChildWalletCollected => Wallet == CollectedWallet.ChildWallet;
     public bool IsAdultWalletCollected => Wallet == CollectedWallet.AdultWallet;
     public bool IsGiantWalletCollected => Wallet == CollectedWallet.GiantsWallet;

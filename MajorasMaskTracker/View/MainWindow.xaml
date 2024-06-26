@@ -9,7 +9,7 @@
 
                  mc:Ignorable="d"
 
-                 WindowBackground="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
+                 Background="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
 
                  TitleBarBackground="#FF35438B"
                  TitleBarForeground="#FFD8D8D8"
