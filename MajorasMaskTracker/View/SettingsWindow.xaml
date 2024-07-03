@@ -1,0 +1,102 @@
+﻿<base:BaseWindow x:Class="MajorasMaskTracker.View.SettingsWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+                 xmlns:vm="clr-namespace:MajorasMaskTracker.Viewmodel"
+                 xmlns:base="clr-namespace:WPFBase;assembly=WPFBase"
+                 xmlns:baseControls="clr-namespace:WPFBase.CustomControls;assembly=WPFBase"
+                 xmlns:color="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+                 mc:Ignorable="d"
+
+                 WindowTitle="Settings"
+                 WindowStartupLocation="CenterOwner"
+
+                 TitleBarBackground="#FF35438B"
+                 TitleBarForeground="#FFD8D8D8"
+
+                 Background="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
+                 BorderBrush="#FF35438B"
+                 BorderThickness="3"
+                 
+                 Width="500"
+                 Height="450">
+    <Window.DataContext>
+        <vm:SettingsWindowViewmodel x:Name="Swvmodel" />
+    </Window.DataContext>
+    
+    <base:BaseWindow.WindowContent>
+        <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <baseControls:SeparatorText Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        Text="Background"
+                                        FontWeight="Bold"
+                                        FontSize="30"
+                                        FontFamily="{StaticResource ZeldaFont}"
+                                        Foreground="{Binding ForegroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
+
+            <color:ColorPicker Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
+                               Margin="10"
+                               Color="{Binding BackgroundColor}"/>
+
+            <TextBox Grid.Row="2"
+                     Grid.Column="0"
+                     
+                     Text="{Binding BackgroundColor.R}"
+                     FontFamily="{StaticResource ZeldaFont}"
+                     FontWeight="Bold"
+                     FontSize="20"
+                     
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     
+                     IsReadOnly="True"
+                     Margin="10" />
+
+            <TextBox Grid.Row="2"
+                     Grid.Column="1"
+                     
+                     Text="{Binding BackgroundColor.G}"
+                     FontFamily="{StaticResource ZeldaFont}"
+                     FontWeight="Bold"
+                     FontSize="20"
+                     
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     
+                     IsReadOnly="True"
+                     Margin="10" />
+
+            <TextBox Grid.Row="2"
+                     Grid.Column="2"
+                     
+                     Text="{Binding BackgroundColor.B}"
+                     FontFamily="{StaticResource ZeldaFont}"
+                     FontWeight="Bold"
+                     FontSize="20"
+                     
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     
+                     IsReadOnly="True"
+                     Margin="10" />
+        </Grid>
+    </base:BaseWindow.WindowContent>
+</base:BaseWindow>

@@ -84,6 +84,11 @@ public class ApplicationSettingsModel : BaseModel
     {
         OnBackgroundColorChanged?.Invoke();
     }
+    
+    public void ChangedForegroundColor()
+    {
+        OnForegroundColorChanged?.Invoke();
+    }
 
 
     private string ToXml()

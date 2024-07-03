@@ -16,6 +16,8 @@
         <FileVersion>0.2</FileVersion>
         <NeutralLanguage>en-US</NeutralLanguage>
         <ApplicationIcon>Asset\Other\Application_Icon.ico</ApplicationIcon>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>keyfile.snk</AssemblyOriginatorKeyFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -353,6 +355,13 @@
     <ItemGroup>
       <None Remove="Asset\QuestItem\MM_Light_Arrow_Icon.png" />
       <Resource Include="Asset\QuestItem\MM_Light_Arrow_Icon.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ColorPickerU8" Version="2.0.0" />
+      <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+      <PackageReference Include="MahApps.Metro.IconPacks" Version="5.0.0" />
+      <PackageReference Include="MahApps.Metro.Resources" Version="0.6.1" />
     </ItemGroup>
 
 </Project>
