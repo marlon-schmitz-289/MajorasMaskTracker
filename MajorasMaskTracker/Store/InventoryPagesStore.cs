@@ -1,19 +1,30 @@
 ﻿using System.Windows.Controls;
-using MajorasMaskTracker.View.InventoryPage;
+using MajorasMaskTracker.View.Inventory;
+using DungeonPage = MajorasMaskTracker.View.Inventory.DungeonPage;
+using MaskPage = MajorasMaskTracker.View.Inventory.MaskPage;
+using QuestItemPage = MajorasMaskTracker.View.Inventory.QuestItemPage;
 
 namespace MajorasMaskTracker.Store;
 
 public class InventoryPagesStore
 {
-    public Page[] Pages { get; } =
-    {
+    private static InventoryPagesStore? _instance;
+
+    public Page[] HorizontalPages { get; } =
+    [
         new QuestItemPage(),
         new MaskPage(),
         new DungeonPage(),
-        new QuestStatusPage(),
-    };
+        new QuestStatusPage()
+    ];
 
+    public Page[] VerticalPages { get; } =
+    [
+        new QuestItemPage(),
+        new MaskPage(),
+        new DungeonPage(),
+        new QuestStatusPage()
+    ];
 
-    private static InventoryPagesStore? _instance;
     public static InventoryPagesStore Instance => _instance ??= new InventoryPagesStore();
 }

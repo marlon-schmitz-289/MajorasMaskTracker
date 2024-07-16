@@ -1,9 +1,10 @@
 ﻿<Application x:Class="MajorasMaskTracker.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MajorasMaskTracker"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <FontFamily x:Key="ZeldaFont">pack://application:,,,/Asset/Font/#Hylia Serif Beta</FontFamily>
+        <SolidColorBrush x:Key="TitleBarBackground">#FF35438B</SolidColorBrush>
+        <SolidColorBrush x:Key="TitleBarForeground">#FFD8D8D8</SolidColorBrush>
     </Application.Resources>
 </Application>

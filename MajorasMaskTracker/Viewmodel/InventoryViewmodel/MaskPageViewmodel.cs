@@ -4,8 +4,98 @@ using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
 
-public class MaskPageViewmodel : BaseViewModel
+public class MaskPageViewmodel : BaseViewmodel
 {
+    public MaskPageViewmodel()
+    {
+        InitializeCommands();
+
+        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
+            () => NotifyPropertyChanged(nameof(ForegroundBrush));
+    }
+
+
+    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
+
+
+    private void InitializeCommands()
+    {
+        CollectPostmanHatCommand = new BaseCommand(sender => IsPostmanHatCollected = true);
+        UncollectPostmanHatCommand = new BaseCommand(sender => IsPostmanHatCollected = false);
+
+        CollectAllNightMaskCommand = new BaseCommand(sender => IsAllNightMaskCollected = true);
+        UncollectAllNightMaskCommand = new BaseCommand(sender => IsAllNightMaskCollected = false);
+
+        CollectBlastMaskCommand = new BaseCommand(sender => IsBlastMaskCollected = true);
+        UncollectBlastMaskCommand = new BaseCommand(sender => IsBlastMaskCollected = false);
+
+        CollectStoneMaskCommand = new BaseCommand(sender => IsStoneMaskCollected = true);
+        UncollectStoneMaskCommand = new BaseCommand(sender => IsStoneMaskCollected = false);
+
+        CollectGreatFairyMaskCommand = new BaseCommand(sender => IsGreatFairyMaskCollected = true);
+        UncollectGreatFairyMaskCommand = new BaseCommand(sender => IsGreatFairyMaskCollected = false);
+
+        CollectDekuMaskCommand = new BaseCommand(sender => IsDekuMaskCollected = true);
+        UncollectDekuMaskCommand = new BaseCommand(sender => IsDekuMaskCollected = false);
+
+
+        CollectKeatonMaskCommand = new BaseCommand(sender => IsKeatonMaskCollected = true);
+        UncollectKeatonMaskCommand = new BaseCommand(sender => IsKeatonMaskCollected = false);
+
+        CollectBremenMaskCommand = new BaseCommand(sender => IsBremenMaskCollected = true);
+        UncollectBremenMaskCommand = new BaseCommand(sender => IsBremenMaskCollected = false);
+
+        CollectBunnyHoodCommand = new BaseCommand(sender => IsBunnyHoodCollected = true);
+        UncollectBunnyHoodCommand = new BaseCommand(sender => IsBunnyHoodCollected = false);
+
+        CollectDonGeroMaskCommand = new BaseCommand(sender => IsDonGeroMaskCollected = true);
+        UncollectDonGeroMaskCommand = new BaseCommand(sender => IsDonGeroMaskCollected = false);
+
+        CollectMaskOfScentsCommand = new BaseCommand(sender => IsMaskOfScentsCollected = true);
+        UncollectMaskOfScentsCommand = new BaseCommand(sender => IsMaskOfScentsCollected = false);
+
+        CollectGoronMaskCommand = new BaseCommand(sender => IsGoronMaskCollected = true);
+        UncollectGoronMaskCommand = new BaseCommand(sender => IsGoronMaskCollected = false);
+
+
+        CollectRomaniMaskCommand = new BaseCommand(sender => IsRomaniMaskCollected = true);
+        UncollectRomaniMaskCommand = new BaseCommand(sender => IsRomaniMaskCollected = false);
+
+        CollectCircusLeadersMaskCommand = new BaseCommand(sender => IsCircusLeadersMaskCollected = true);
+        UncollectCircusLeadersMaskCommand = new BaseCommand(sender => IsCircusLeadersMaskCollected = false);
+
+        CollectKafeisMaskCommand = new BaseCommand(sender => IsKafeisMaskCollected = true);
+        UncollectKafeisMaskCommand = new BaseCommand(sender => IsKafeisMaskCollected = false);
+
+        CollectCoupleMaskCommand = new BaseCommand(sender => IsCoupleMaskCollected = true);
+        UncollectCoupleMaskCommand = new BaseCommand(sender => IsCoupleMaskCollected = false);
+
+        CollectMaskOfTruthCommand = new BaseCommand(sender => IsMaskOfTruthCollected = true);
+        UncollectMaskOfTruthCommand = new BaseCommand(sender => IsMaskOfTruthCollected = false);
+
+        CollectZoraMaskCommand = new BaseCommand(sender => IsZoraMaskCollected = true);
+        UncollectZoraMaskCommand = new BaseCommand(sender => IsZoraMaskCollected = false);
+
+
+        CollectKamaroMaskCommand = new BaseCommand(sender => IsKamaroMaskCollected = true);
+        UncollectKamaroMaskCommand = new BaseCommand(sender => IsKamaroMaskCollected = false);
+
+        CollectGibdoMaskCommand = new BaseCommand(sender => IsGibdoMaskCollected = true);
+        UncollectGibdoMaskCommand = new BaseCommand(sender => IsGibdoMaskCollected = false);
+
+        CollectGaroMaskCommand = new BaseCommand(sender => IsGaroMaskCollected = true);
+        UncollectGaroMaskCommand = new BaseCommand(sender => IsGaroMaskCollected = false);
+
+        CollectCaptainHatCommand = new BaseCommand(sender => IsCaptainHatCollected = true);
+        UncollectCaptainHatCommand = new BaseCommand(sender => IsCaptainHatCollected = false);
+
+        CollectGiantMaskCommand = new BaseCommand(sender => IsGiantMaskCollected = true);
+        UncollectGiantMaskCommand = new BaseCommand(sender => IsGiantMaskCollected = false);
+
+        CollectFierceDeityMaskCommand = new BaseCommand(sender => IsFierceDeityMaskCollected = true);
+        UncollectFierceDeityMaskCommand = new BaseCommand(sender => IsFierceDeityMaskCollected = false);
+    }
+
     #region Properties
 
     #region First row
@@ -348,95 +438,4 @@ public class MaskPageViewmodel : BaseViewModel
     public BaseCommand UncollectFierceDeityMaskCommand { get; set; }
 
     #endregion
-
-
-    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
-
-
-    public MaskPageViewmodel()
-    {
-        InitializeCommands();
-
-        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
-            () => NotifyPropertyChanged(nameof(ForegroundBrush));
-    }
-
-
-    private void InitializeCommands()
-    {
-        CollectPostmanHatCommand = new BaseCommand((sender) => IsPostmanHatCollected = true);
-        UncollectPostmanHatCommand = new BaseCommand((sender) => IsPostmanHatCollected = false);
-
-        CollectAllNightMaskCommand = new BaseCommand((sender) => IsAllNightMaskCollected = true);
-        UncollectAllNightMaskCommand = new BaseCommand((sender) => IsAllNightMaskCollected = false);
-
-        CollectBlastMaskCommand = new BaseCommand((sender) => IsBlastMaskCollected = true);
-        UncollectBlastMaskCommand = new BaseCommand((sender) => IsBlastMaskCollected = false);
-
-        CollectStoneMaskCommand = new BaseCommand((sender) => IsStoneMaskCollected = true);
-        UncollectStoneMaskCommand = new BaseCommand((sender) => IsStoneMaskCollected = false);
-
-        CollectGreatFairyMaskCommand = new BaseCommand((sender) => IsGreatFairyMaskCollected = true);
-        UncollectGreatFairyMaskCommand = new BaseCommand((sender) => IsGreatFairyMaskCollected = false);
-
-        CollectDekuMaskCommand = new BaseCommand((sender) => IsDekuMaskCollected = true);
-        UncollectDekuMaskCommand = new BaseCommand((sender) => IsDekuMaskCollected = false);
-
-
-        CollectKeatonMaskCommand = new BaseCommand((sender) => IsKeatonMaskCollected = true);
-        UncollectKeatonMaskCommand = new BaseCommand((sender) => IsKeatonMaskCollected = false);
-
-        CollectBremenMaskCommand = new BaseCommand((sender) => IsBremenMaskCollected = true);
-        UncollectBremenMaskCommand = new BaseCommand((sender) => IsBremenMaskCollected = false);
-
-        CollectBunnyHoodCommand = new BaseCommand((sender) => IsBunnyHoodCollected = true);
-        UncollectBunnyHoodCommand = new BaseCommand((sender) => IsBunnyHoodCollected = false);
-
-        CollectDonGeroMaskCommand = new BaseCommand((sender) => IsDonGeroMaskCollected = true);
-        UncollectDonGeroMaskCommand = new BaseCommand((sender) => IsDonGeroMaskCollected = false);
-
-        CollectMaskOfScentsCommand = new BaseCommand((sender) => IsMaskOfScentsCollected = true);
-        UncollectMaskOfScentsCommand = new BaseCommand((sender) => IsMaskOfScentsCollected = false);
-
-        CollectGoronMaskCommand = new BaseCommand((sender) => IsGoronMaskCollected = true);
-        UncollectGoronMaskCommand = new BaseCommand((sender) => IsGoronMaskCollected = false);
-
-
-        CollectRomaniMaskCommand = new BaseCommand((sender) => IsRomaniMaskCollected = true);
-        UncollectRomaniMaskCommand = new BaseCommand((sender) => IsRomaniMaskCollected = false);
-
-        CollectCircusLeadersMaskCommand = new BaseCommand((sender) => IsCircusLeadersMaskCollected = true);
-        UncollectCircusLeadersMaskCommand = new BaseCommand((sender) => IsCircusLeadersMaskCollected = false);
-
-        CollectKafeisMaskCommand = new BaseCommand((sender) => IsKafeisMaskCollected = true);
-        UncollectKafeisMaskCommand = new BaseCommand((sender) => IsKafeisMaskCollected = false);
-
-        CollectCoupleMaskCommand = new BaseCommand((sender) => IsCoupleMaskCollected = true);
-        UncollectCoupleMaskCommand = new BaseCommand((sender) => IsCoupleMaskCollected = false);
-
-        CollectMaskOfTruthCommand = new BaseCommand((sender) => IsMaskOfTruthCollected = true);
-        UncollectMaskOfTruthCommand = new BaseCommand((sender) => IsMaskOfTruthCollected = false);
-
-        CollectZoraMaskCommand = new BaseCommand((sender) => IsZoraMaskCollected = true);
-        UncollectZoraMaskCommand = new BaseCommand((sender) => IsZoraMaskCollected = false);
-
-
-        CollectKamaroMaskCommand = new BaseCommand((sender) => IsKamaroMaskCollected = true);
-        UncollectKamaroMaskCommand = new BaseCommand((sender) => IsKamaroMaskCollected = false);
-
-        CollectGibdoMaskCommand = new BaseCommand((sender) => IsGibdoMaskCollected = true);
-        UncollectGibdoMaskCommand = new BaseCommand((sender) => IsGibdoMaskCollected = false);
-
-        CollectGaroMaskCommand = new BaseCommand((sender) => IsGaroMaskCollected = true);
-        UncollectGaroMaskCommand = new BaseCommand((sender) => IsGaroMaskCollected = false);
-
-        CollectCaptainHatCommand = new BaseCommand((sender) => IsCaptainHatCollected = true);
-        UncollectCaptainHatCommand = new BaseCommand((sender) => IsCaptainHatCollected = false);
-
-        CollectGiantMaskCommand = new BaseCommand((sender) => IsGiantMaskCollected = true);
-        UncollectGiantMaskCommand = new BaseCommand((sender) => IsGiantMaskCollected = false);
-
-        CollectFierceDeityMaskCommand = new BaseCommand((sender) => IsFierceDeityMaskCollected = true);
-        UncollectFierceDeityMaskCommand = new BaseCommand((sender) => IsFierceDeityMaskCollected = false);
-    }
 }

@@ -10,44 +10,10 @@
       Height="Auto"
       Width="Auto">
     <Page.DataContext>
-        <vm:MainPageViewmodel x:Name="Mpvmodel" />
+        <vm:MainPageViewmodel x:Name="MainPageViewmodel" />
     </Page.DataContext>
 
     <Viewbox>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <Frame Grid.Column="0"
-                   Grid.Row="0"
-                   Margin="5 5 15 15"
-                   Content="{Binding QuestItemPage}"
-                   NavigationUIVisibility="Hidden" />
-
-            <Frame Grid.Column="1"
-                   Grid.Row="0"
-                   Margin="15 5 5 15"
-                   Content="{Binding MaskPage}"
-                   NavigationUIVisibility="Hidden" />
-
-            <Frame Grid.Column="0"
-                   Grid.Row="1"
-                   Margin="5 15 15 5"
-                   Content="{Binding DungeonPage}"
-                   NavigationUIVisibility="Hidden" />
-
-            <Frame Grid.Column="1"
-                   Grid.Row="1"
-                   Margin="15 15 5 5"
-                   Content="{Binding QuestStatusPage}"
-                   NavigationUIVisibility="Hidden" />
-        </Grid>
+        <Frame Content="{Binding CurrMainPage}" />
     </Viewbox>
 </Page>

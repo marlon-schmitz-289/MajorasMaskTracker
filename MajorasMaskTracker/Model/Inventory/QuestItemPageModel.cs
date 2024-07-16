@@ -4,7 +4,7 @@ using BaseClasses;
 using MajorasMaskTracker.Store;
 using MajorasMaskTracker.Util.Enum;
 
-namespace MajorasMaskTracker.Model.InventoryPage;
+namespace MajorasMaskTracker.Model.Inventory;
 
 public class QuestItemPageModel : BaseModel
 {

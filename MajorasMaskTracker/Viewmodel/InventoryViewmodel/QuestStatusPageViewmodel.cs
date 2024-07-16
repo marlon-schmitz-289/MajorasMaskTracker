@@ -5,9 +5,105 @@ using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
 
-public class QuestStatusPageViewmodel : BaseViewModel
+public class QuestStatusPageViewmodel : BaseViewmodel
 {
+    public QuestStatusPageViewmodel()
+    {
+        InitializeCommands();
+        OnInitialize?.Invoke();
+
+
+        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
+            () => NotifyPropertyChanged(nameof(ForegroundBrush));
+
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedQuiverChanged += () =>
+        {
+            NotifyPropertyChanged(nameof(IsAnyQuiverCollected));
+            NotifyPropertyChanged(nameof(IsQuiverCollected));
+            NotifyPropertyChanged(nameof(IsBigQuiverCollected));
+            NotifyPropertyChanged(nameof(IsLargestQuiverCollected));
+        };
+
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedBombBagChanged += () =>
+        {
+            NotifyPropertyChanged(nameof(IsAnyBombBagCollected));
+            NotifyPropertyChanged(nameof(IsBombBagCollected));
+            NotifyPropertyChanged(nameof(IsBigBombBagCollected));
+            NotifyPropertyChanged(nameof(IsLargestBombBagCollected));
+        };
+    }
+
     public event Action OnInitialize;
+
+
+    private void InitializeCommands()
+    {
+        CollectBombersNotebookCommand = new BaseCommand(sender => BombersNotebookCollected = true);
+        UncollectBombersNotebookCommand = new BaseCommand(sender => BombersNotebookCollected = false);
+
+        CollectHeartPieceCommand = new BaseCommand(sender => CollectedHeartPieces++);
+        UncollectHeartPieceCommand = new BaseCommand(sender => CollectedHeartPieces--);
+
+        CollectOdolwaCommand = new BaseCommand(sender => OdolwaCollected = true);
+        UncollectOdolwaCommand = new BaseCommand(sender => OdolwaCollected = false);
+
+        CollectGohtCommand = new BaseCommand(sender => GohtCollected = true);
+        UncollectGohtCommand = new BaseCommand(sender => GohtCollected = false);
+
+        CollectGyorgCommand = new BaseCommand(sender => GyorgCollected = true);
+        UncollectGyorgCommand = new BaseCommand(sender => GyorgCollected = false);
+
+        CollectTwinmoldCommand = new BaseCommand(sender => TwinmoldCollected = true);
+        UncollectTwinmoldCommand = new BaseCommand(sender => TwinmoldCollected = false);
+
+        CollectSongOfTimeCommand = new BaseCommand(sender => SongOfTimeCollected = true);
+        UncollectSongOfTimeCommand = new BaseCommand(sender => SongOfTimeCollected = false);
+
+        CollectSongOfHealingCommand = new BaseCommand(sender => SongOfHealingCollected = true);
+        UncollectSongOfHealingCommand = new BaseCommand(sender => SongOfHealingCollected = false);
+
+        CollectEponaSongCommand = new BaseCommand(sender => EponasSongCollected = true);
+        UncollectEponaSongCommand = new BaseCommand(sender => EponasSongCollected = false);
+
+        CollectSongOfSoaringCommand = new BaseCommand(sender => SongOfSoaringCollected = true);
+        UncollectSongOfSoaringCommand = new BaseCommand(sender => SongOfSoaringCollected = false);
+
+        CollectSongOfStormsCommand = new BaseCommand(sender => SongOfStormsCollected = true);
+        UncollectSongOfStormsCommand = new BaseCommand(sender => SongOfStormsCollected = false);
+
+        CollectSonataOfAwakeningCommand = new BaseCommand(sender => SonataOfAwakeningCollected = true);
+        UncollectSonataOfAwakeningCommand = new BaseCommand(sender => SonataOfAwakeningCollected = false);
+
+        CollectGoronLullabyCommand = new BaseCommand(sender => GoronLullabyCollected = true);
+        UncollectGoronLullabyCommand = new BaseCommand(sender => GoronLullabyCollected = false);
+
+        CollectNewWaveBossanovaCommand = new BaseCommand(sender => NewWaveBossaNovaCollected = true);
+        UncollectNewWaveBossanovaCommand = new BaseCommand(sender => NewWaveBossaNovaCollected = false);
+
+        CollectElegyOfEmptinessCommand = new BaseCommand(sender => ElegyOfEmptinessCollected = true);
+        UncollectElegyOfEmptinessCommand = new BaseCommand(sender => ElegyOfEmptinessCollected = false);
+
+        CollectOathToOrderCommand = new BaseCommand(sender => OathToOrderCollected = true);
+        UncollectOathToOrderCommand = new BaseCommand(sender => OathToOrderCollected = false);
+
+        CollectSwordCommand = new BaseCommand(sender => Sword++);
+        UncollectSwordCommand = new BaseCommand(sender => Sword--);
+
+        CollectShieldCommand = new BaseCommand(sender => Shield++);
+        UncollectShieldCommand = new BaseCommand(sender => Shield--);
+
+        CollectQuiverCommand = new BaseCommand(sender => Quiver++);
+        UncollectQuiverCommand = new BaseCommand(sender => Quiver--);
+
+        CollectBombBagCommand = new BaseCommand(sender => BombBag++);
+        UncollectBombBagCommand = new BaseCommand(sender => BombBag--);
+
+        CollectMagicCommand = new BaseCommand(sender => Magic++);
+        UncollectMagicCommand = new BaseCommand(sender => Magic--);
+
+        CollectWalletCommand = new BaseCommand(sender => Wallet++);
+        UncollectWalletCommand = new BaseCommand(sender => Wallet--);
+    }
 
 
     #region Values
@@ -67,9 +163,7 @@ public class QuestStatusPageViewmodel : BaseViewModel
         set
         {
             if (value <= MaxHeartPieces && value >= 0)
-            {
                 SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedHeartPieces = value;
-            }
 
             NotifyPropertyChanged();
             NotifyPropertyChanged(nameof(HeartPiecesText));
@@ -402,101 +496,4 @@ public class QuestStatusPageViewmodel : BaseViewModel
     #endregion
 
     #endregion
-
-
-    public QuestStatusPageViewmodel()
-    {
-        InitializeCommands();
-        OnInitialize?.Invoke();
-
-
-        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
-            () => NotifyPropertyChanged(nameof(ForegroundBrush));
-
-        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedQuiverChanged += () =>
-        {
-            NotifyPropertyChanged(nameof(IsAnyQuiverCollected));
-            NotifyPropertyChanged(nameof(IsQuiverCollected));
-            NotifyPropertyChanged(nameof(IsBigQuiverCollected));
-            NotifyPropertyChanged(nameof(IsLargestQuiverCollected));
-        };
-
-        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedBombBagChanged += () =>
-        {
-            NotifyPropertyChanged(nameof(IsAnyBombBagCollected));
-            NotifyPropertyChanged(nameof(IsBombBagCollected));
-            NotifyPropertyChanged(nameof(IsBigBombBagCollected));
-            NotifyPropertyChanged(nameof(IsLargestBombBagCollected));
-        };
-    }
-
-
-    private void InitializeCommands()
-    {
-        CollectBombersNotebookCommand = new BaseCommand((sender) => BombersNotebookCollected = true);
-        UncollectBombersNotebookCommand = new BaseCommand((sender) => BombersNotebookCollected = false);
-
-        CollectHeartPieceCommand = new BaseCommand((sender) => CollectedHeartPieces++);
-        UncollectHeartPieceCommand = new BaseCommand((sender) => CollectedHeartPieces--);
-
-        CollectOdolwaCommand = new BaseCommand((sender) => OdolwaCollected = true);
-        UncollectOdolwaCommand = new BaseCommand((sender) => OdolwaCollected = false);
-
-        CollectGohtCommand = new BaseCommand((sender) => GohtCollected = true);
-        UncollectGohtCommand = new BaseCommand((sender) => GohtCollected = false);
-
-        CollectGyorgCommand = new BaseCommand((sender) => GyorgCollected = true);
-        UncollectGyorgCommand = new BaseCommand((sender) => GyorgCollected = false);
-
-        CollectTwinmoldCommand = new BaseCommand((sender) => TwinmoldCollected = true);
-        UncollectTwinmoldCommand = new BaseCommand((sender) => TwinmoldCollected = false);
-
-        CollectSongOfTimeCommand = new BaseCommand((sender) => SongOfTimeCollected = true);
-        UncollectSongOfTimeCommand = new BaseCommand((sender) => SongOfTimeCollected = false);
-
-        CollectSongOfHealingCommand = new BaseCommand((sender) => SongOfHealingCollected = true);
-        UncollectSongOfHealingCommand = new BaseCommand((sender) => SongOfHealingCollected = false);
-
-        CollectEponaSongCommand = new BaseCommand((sender) => EponasSongCollected = true);
-        UncollectEponaSongCommand = new BaseCommand((sender) => EponasSongCollected = false);
-
-        CollectSongOfSoaringCommand = new BaseCommand((sender) => SongOfSoaringCollected = true);
-        UncollectSongOfSoaringCommand = new BaseCommand((sender) => SongOfSoaringCollected = false);
-
-        CollectSongOfStormsCommand = new BaseCommand((sender) => SongOfStormsCollected = true);
-        UncollectSongOfStormsCommand = new BaseCommand((sender) => SongOfStormsCollected = false);
-
-        CollectSonataOfAwakeningCommand = new BaseCommand((sender) => SonataOfAwakeningCollected = true);
-        UncollectSonataOfAwakeningCommand = new BaseCommand((sender) => SonataOfAwakeningCollected = false);
-
-        CollectGoronLullabyCommand = new BaseCommand((sender) => GoronLullabyCollected = true);
-        UncollectGoronLullabyCommand = new BaseCommand((sender) => GoronLullabyCollected = false);
-
-        CollectNewWaveBossanovaCommand = new BaseCommand((sender) => NewWaveBossaNovaCollected = true);
-        UncollectNewWaveBossanovaCommand = new BaseCommand((sender) => NewWaveBossaNovaCollected = false);
-
-        CollectElegyOfEmptinessCommand = new BaseCommand((sender) => ElegyOfEmptinessCollected = true);
-        UncollectElegyOfEmptinessCommand = new BaseCommand((sender) => ElegyOfEmptinessCollected = false);
-
-        CollectOathToOrderCommand = new BaseCommand((sender) => OathToOrderCollected = true);
-        UncollectOathToOrderCommand = new BaseCommand((sender) => OathToOrderCollected = false);
-
-        CollectSwordCommand = new BaseCommand((sender) => Sword++);
-        UncollectSwordCommand = new BaseCommand((sender) => Sword--);
-
-        CollectShieldCommand = new BaseCommand((sender) => Shield++);
-        UncollectShieldCommand = new BaseCommand((sender) => Shield--);
-
-        CollectQuiverCommand = new BaseCommand((sender) => Quiver++);
-        UncollectQuiverCommand = new BaseCommand((sender) => Quiver--);
-
-        CollectBombBagCommand = new BaseCommand((sender) => BombBag++);
-        UncollectBombBagCommand = new BaseCommand((sender) => BombBag--);
-
-        CollectMagicCommand = new BaseCommand((sender) => Magic++);
-        UncollectMagicCommand = new BaseCommand((sender) => Magic--);
-
-        CollectWalletCommand = new BaseCommand((sender) => Wallet++);
-        UncollectWalletCommand = new BaseCommand((sender) => Wallet--);
-    }
 }

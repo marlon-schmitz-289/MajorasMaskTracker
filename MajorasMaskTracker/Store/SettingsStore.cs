@@ -5,7 +5,15 @@ namespace MajorasMaskTracker.Store;
 
 public class SettingsStore : BaseModel
 {
+    private ApplicationSettingsModel _applicationSettings;
     private SettingsModel _settings;
+
+
+    private SettingsStore()
+    {
+        Settings = new SettingsModel();
+        ApplicationSettings = new ApplicationSettingsModel();
+    }
 
     public SettingsModel Settings
     {
@@ -17,9 +25,6 @@ public class SettingsStore : BaseModel
         }
     }
 
-
-    private ApplicationSettingsModel _applicationSettings;
-
     public ApplicationSettingsModel ApplicationSettings
     {
         get => _applicationSettings;
@@ -28,13 +33,6 @@ public class SettingsStore : BaseModel
             _applicationSettings = value;
             NotifyPropertyChanged();
         }
-    }
-
-
-    private SettingsStore()
-    {
-        Settings = new SettingsModel();
-        ApplicationSettings = new ApplicationSettingsModel();
     }
 
 

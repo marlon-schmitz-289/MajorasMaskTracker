@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using BaseClasses;
 
-namespace MajorasMaskTracker.Model.InventoryPage;
+namespace MajorasMaskTracker.Model.Inventory;
 
 public class DungeonPageModel : BaseModel
 {

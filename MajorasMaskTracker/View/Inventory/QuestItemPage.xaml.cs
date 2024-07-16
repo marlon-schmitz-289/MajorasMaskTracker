@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace MajorasMaskTracker.View.InventoryPage;
+namespace MajorasMaskTracker.View.Inventory;
 
 public partial class QuestItemPage : Page
 {

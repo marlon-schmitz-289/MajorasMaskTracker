@@ -5,7 +5,6 @@ namespace MajorasMaskTracker.Store;
 
 public class CurrentPageStore
 {
-    public event Action? CurrentPageChanged;
     private Page? _currentPage;
 
     public Page CurrentPage
@@ -20,4 +19,5 @@ public class CurrentPageStore
 
 
     public static CurrentPageStore Instance { get; } = new();
+    public event Action? CurrentPageChanged;
 }

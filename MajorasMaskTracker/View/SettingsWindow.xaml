@@ -14,89 +14,156 @@
                  WindowTitle="Settings"
                  WindowStartupLocation="CenterOwner"
 
-                 TitleBarBackground="#FF35438B"
-                 TitleBarForeground="#FFD8D8D8"
+                 TitleBarBackground="{StaticResource TitleBarBackground}"
+                 TitleBarForeground="{StaticResource TitleBarForeground}"
 
                  Background="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
-                 BorderBrush="#FF35438B"
+                 BorderBrush="{StaticResource TitleBarBackground}"
                  BorderThickness="3"
-                 
+
                  Width="500"
-                 Height="450">
+                 Height="600">
     <Window.DataContext>
-        <vm:SettingsWindowViewmodel x:Name="Swvmodel" />
+        <vm:SettingsWindowViewmodel x:Name="SettingsWindowViewmodel" />
     </Window.DataContext>
-    
+
     <base:BaseWindow.WindowContent>
-        <Grid Margin="25">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource TitleBarBackground}"
+                BorderThickness="3">
+            <ScrollViewer CanContentScroll="True"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Hidden">
+                <Grid Margin="25">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="400" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            
-            <baseControls:SeparatorText Grid.Row="0"
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="3"
-                                        Text="Background"
-                                        FontWeight="Bold"
-                                        FontSize="30"
-                                        FontFamily="{StaticResource ZeldaFont}"
-                                        Foreground="{Binding ForegroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-            <color:ColorPicker Grid.Row="1"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Margin="10"
-                               Color="{Binding BackgroundColor}"/>
+                    <baseControls:SeparatorText Grid.Row="0"
+                                                Grid.Column="0"
+                                                Grid.ColumnSpan="3"
+                                                Text="Background"
+                                                FontWeight="Bold"
+                                                FontSize="30"
+                                                FontFamily="{StaticResource ZeldaFont}"
+                                                Foreground="{Binding ForegroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
 
-            <TextBox Grid.Row="2"
-                     Grid.Column="0"
-                     
-                     Text="{Binding BackgroundColor.R}"
-                     FontFamily="{StaticResource ZeldaFont}"
-                     FontWeight="Bold"
-                     FontSize="20"
-                     
-                     HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"
-                     
-                     IsReadOnly="True"
-                     Margin="10" />
+                    <color:ColorPicker Grid.Row="1"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="3"
+                                       Margin="10"
+                                       Color="{Binding BackgroundColor}" />
 
-            <TextBox Grid.Row="2"
-                     Grid.Column="1"
-                     
-                     Text="{Binding BackgroundColor.G}"
-                     FontFamily="{StaticResource ZeldaFont}"
-                     FontWeight="Bold"
-                     FontSize="20"
-                     
-                     HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"
-                     
-                     IsReadOnly="True"
-                     Margin="10" />
+                    <TextBox Grid.Row="2"
+                             Grid.Column="0"
 
-            <TextBox Grid.Row="2"
-                     Grid.Column="2"
-                     
-                     Text="{Binding BackgroundColor.B}"
-                     FontFamily="{StaticResource ZeldaFont}"
-                     FontWeight="Bold"
-                     FontSize="20"
-                     
-                     HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"
-                     
-                     IsReadOnly="True"
-                     Margin="10" />
-        </Grid>
+                             Text="{Binding BackgroundColor.R}"
+                             FontFamily="{StaticResource ZeldaFont}"
+                             FontWeight="Bold"
+                             FontSize="20"
+
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+
+                             IsReadOnly="True"
+                             Margin="10" />
+
+                    <TextBox Grid.Row="2"
+                             Grid.Column="1"
+
+                             Text="{Binding BackgroundColor.G}"
+                             FontFamily="{StaticResource ZeldaFont}"
+                             FontWeight="Bold"
+                             FontSize="20"
+
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+
+                             IsReadOnly="True"
+                             Margin="10" />
+
+                    <TextBox Grid.Row="2"
+                             Grid.Column="2"
+
+                             Text="{Binding BackgroundColor.B}"
+                             FontFamily="{StaticResource ZeldaFont}"
+                             FontWeight="Bold"
+                             FontSize="20"
+
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+
+                             IsReadOnly="True"
+                             Margin="10" />
+
+                    <baseControls:SeparatorText Grid.Row="3"
+                                                Grid.Column="0"
+                                                Grid.ColumnSpan="3"
+
+                                                Text="Layout"
+                                                FontSize="30"
+                                                FontWeight="Bold"
+                                                FontFamily="{StaticResource ZeldaFont}"
+                                                Foreground="{Binding ForegroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
+
+                    <RadioButton Grid.Row="4"
+                                 Grid.Column="0"
+                                 GroupName="Layout"
+                                 x:Name="Horizontal"
+
+                                 Style="{DynamicResource CustomRadioButton}"
+                                 Content="Horizontal"
+                                 FontFamily="{StaticResource ZeldaFont}"
+                                 FontWeight="Bold"
+                                 FontSize="20"
+                                 Margin="10"
+
+                                 IsChecked="{Binding IsHorizontalChecked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
+                                 Command="{Binding ChangeLayoutCommand}"
+                                 CommandParameter="{Binding ElementName=Horizontal}" />
+
+                    <RadioButton Grid.Row="4"
+                                 Grid.Column="1"
+                                 GroupName="Layout"
+                                 x:Name="Vertical"
+
+                                 Style="{DynamicResource CustomRadioButton}"
+                                 Content="Vertical"
+                                 FontFamily="{StaticResource ZeldaFont}"
+                                 FontWeight="Bold"
+                                 FontSize="20"
+                                 Margin="10"
+
+                                 IsChecked="{Binding IsVerticalChecked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
+                                 Command="{Binding ChangeLayoutCommand}"
+                                 CommandParameter="{Binding ElementName=Vertical}" />
+
+                    <RadioButton Grid.Row="4"
+                                 Grid.Column="2"
+                                 GroupName="Layout"
+                                 x:Name="Map"
+
+                                 Style="{DynamicResource CustomRadioButton}"
+                                 Content="Map"
+                                 FontFamily="{StaticResource ZeldaFont}"
+                                 FontWeight="Bold"
+                                 FontSize="20"
+                                 Margin="10"
+
+                                 IsChecked="{Binding IsMapChecked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
+                                 Command="{Binding ChangeLayoutCommand}"
+                                 CommandParameter="{Binding ElementName=Map}" />
+                </Grid>
+            </ScrollViewer>
+        </Border>
     </base:BaseWindow.WindowContent>
 </base:BaseWindow>

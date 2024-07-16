@@ -1,0 +1,47 @@
+﻿<Page x:Class="MajorasMaskTracker.View.Main.MainPageVertical"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+      xmlns:mainViewmodel="clr-namespace:MajorasMaskTracker.Viewmodel.MainViewmodel"
+
+      mc:Ignorable="d"
+      Title="MainPageVertical"
+      Width="450"
+      Height="800">
+    <Page.DataContext>
+        <mainViewmodel:MainPageVerticalViewmodel x:Name="MainPageVerticalViewmodel" />
+    </Page.DataContext>
+
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0"
+                   Margin="5 5 15 15"
+                   Content="{Binding QuestItemPage}"
+                   NavigationUIVisibility="Hidden" />
+
+            <Frame Grid.Row="1"
+                   Margin="15 5 5 15"
+                   Content="{Binding MaskPage}"
+                   NavigationUIVisibility="Hidden" />
+
+            <Frame Grid.Row="2"
+                   Margin="5 15 15 5"
+                   Content="{Binding DungeonPage}"
+                   NavigationUIVisibility="Hidden" />
+
+            <Frame Grid.Row="3"
+                   Margin="15 15 5 5"
+                   Content="{Binding QuestStatusPage}"
+                   NavigationUIVisibility="Hidden" />
+        </Grid>
+    </Viewbox>
+</Page>

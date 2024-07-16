@@ -4,8 +4,14 @@ using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
 
-public class DungeonPageViewmodel : BaseViewModel
+public class DungeonPageViewmodel : BaseViewmodel
 {
+    public DungeonPageViewmodel()
+    {
+        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
+            () => NotifyPropertyChanged(nameof(ForegroundBrush));
+    }
+
     #region Properties
 
     #region Woodfall Temple
@@ -282,84 +288,82 @@ public class DungeonPageViewmodel : BaseViewModel
 
     #region Woodfall Temple
 
-    public BaseCommand CollectWoodfallMapCommand => new BaseCommand((s) => IsWoodfallMapCollected = true);
-    public BaseCommand UncollectWoodfallMapCommand => new BaseCommand((s) => IsWoodfallMapCollected = false);
+    public BaseCommand CollectWoodfallMapCommand => new(s => IsWoodfallMapCollected = true);
+    public BaseCommand UncollectWoodfallMapCommand => new(s => IsWoodfallMapCollected = false);
 
-    public BaseCommand CollectWoodfallCompassCommand => new BaseCommand((s) => IsWoodfallCompassCollected = true);
-    public BaseCommand UncollectWoodfallCompassCommand => new BaseCommand((s) => IsWoodfallCompassCollected = false);
+    public BaseCommand CollectWoodfallCompassCommand => new(s => IsWoodfallCompassCollected = true);
+    public BaseCommand UncollectWoodfallCompassCommand => new(s => IsWoodfallCompassCollected = false);
 
-    public BaseCommand CollectWoodfallBossKeyCommand => new BaseCommand((s) => IsWoodfallBossKeyCollected = true);
-    public BaseCommand UncollectWoodfallBossKeyCommand => new BaseCommand((s) => IsWoodfallBossKeyCollected = false);
+    public BaseCommand CollectWoodfallBossKeyCommand => new(s => IsWoodfallBossKeyCollected = true);
+    public BaseCommand UncollectWoodfallBossKeyCommand => new(s => IsWoodfallBossKeyCollected = false);
 
-    public BaseCommand CollectWoodfallFairyCommand => new BaseCommand((s) => CollectedWoodfallFairies++);
-    public BaseCommand UncollectWoodfallFairyCommand => new BaseCommand((s) => CollectedWoodfallFairies--);
+    public BaseCommand CollectWoodfallFairyCommand => new(s => CollectedWoodfallFairies++);
+    public BaseCommand UncollectWoodfallFairyCommand => new(s => CollectedWoodfallFairies--);
 
-    public BaseCommand CollectWoodfallSmallKeyCommand => new BaseCommand((s) => CollectedWoodfallSmallKeys++);
-    public BaseCommand UncollectWoodfallSmallKeyCommand => new BaseCommand((s) => CollectedWoodfallSmallKeys--);
+    public BaseCommand CollectWoodfallSmallKeyCommand => new(s => CollectedWoodfallSmallKeys++);
+    public BaseCommand UncollectWoodfallSmallKeyCommand => new(s => CollectedWoodfallSmallKeys--);
 
     #endregion
 
 
     #region Snowhead Temple
 
-    public BaseCommand CollectSnowheadMapCommand => new BaseCommand((s) => IsSnowheadMapCollected = true);
-    public BaseCommand UncollectSnowheadMapCommand => new BaseCommand((s) => IsSnowheadMapCollected = false);
+    public BaseCommand CollectSnowheadMapCommand => new(s => IsSnowheadMapCollected = true);
+    public BaseCommand UncollectSnowheadMapCommand => new(s => IsSnowheadMapCollected = false);
 
-    public BaseCommand CollectSnowheadCompassCommand => new BaseCommand((s) => IsSnowheadCompassCollected = true);
-    public BaseCommand UncollectSnowheadCompassCommand => new BaseCommand((s) => IsSnowheadCompassCollected = false);
+    public BaseCommand CollectSnowheadCompassCommand => new(s => IsSnowheadCompassCollected = true);
+    public BaseCommand UncollectSnowheadCompassCommand => new(s => IsSnowheadCompassCollected = false);
 
-    public BaseCommand CollectSnowheadBossKeyCommand => new BaseCommand((s) => IsSnowheadBossKeyCollected = true);
-    public BaseCommand UncollectSnowheadBossKeyCommand => new BaseCommand((s) => IsSnowheadBossKeyCollected = false);
+    public BaseCommand CollectSnowheadBossKeyCommand => new(s => IsSnowheadBossKeyCollected = true);
+    public BaseCommand UncollectSnowheadBossKeyCommand => new(s => IsSnowheadBossKeyCollected = false);
 
-    public BaseCommand CollectSnowheadFairyCommand => new BaseCommand((s) => CollectedSnowheadFairies++);
-    public BaseCommand UncollectSnowheadFairyCommand => new BaseCommand((s) => CollectedSnowheadFairies--);
+    public BaseCommand CollectSnowheadFairyCommand => new(s => CollectedSnowheadFairies++);
+    public BaseCommand UncollectSnowheadFairyCommand => new(s => CollectedSnowheadFairies--);
 
-    public BaseCommand CollectSnowheadSmallKeyCommand => new BaseCommand((s) => CollectedSnowheadSmallKeys++);
-    public BaseCommand UncollectSnowheadSmallKeyCommand => new BaseCommand((s) => CollectedSnowheadSmallKeys--);
+    public BaseCommand CollectSnowheadSmallKeyCommand => new(s => CollectedSnowheadSmallKeys++);
+    public BaseCommand UncollectSnowheadSmallKeyCommand => new(s => CollectedSnowheadSmallKeys--);
 
     #endregion
 
 
     #region Great Bay Temple
 
-    public BaseCommand CollectGreatBayMapCommand => new BaseCommand((s) => IsGreatBayMapCollected = true);
-    public BaseCommand UncollectGreatBayMapCommand => new BaseCommand((s) => IsGreatBayMapCollected = false);
+    public BaseCommand CollectGreatBayMapCommand => new(s => IsGreatBayMapCollected = true);
+    public BaseCommand UncollectGreatBayMapCommand => new(s => IsGreatBayMapCollected = false);
 
-    public BaseCommand CollectGreatBayCompassCommand => new BaseCommand((s) => IsGreatBayCompassCollected = true);
-    public BaseCommand UncollectGreatBayCompassCommand => new BaseCommand((s) => IsGreatBayCompassCollected = false);
+    public BaseCommand CollectGreatBayCompassCommand => new(s => IsGreatBayCompassCollected = true);
+    public BaseCommand UncollectGreatBayCompassCommand => new(s => IsGreatBayCompassCollected = false);
 
-    public BaseCommand CollectGreatBayBossKeyCommand => new BaseCommand((s) => IsGreatBayBossKeyCollected = true);
-    public BaseCommand UncollectGreatBayBossKeyCommand => new BaseCommand((s) => IsGreatBayBossKeyCollected = false);
+    public BaseCommand CollectGreatBayBossKeyCommand => new(s => IsGreatBayBossKeyCollected = true);
+    public BaseCommand UncollectGreatBayBossKeyCommand => new(s => IsGreatBayBossKeyCollected = false);
 
-    public BaseCommand CollectGreatBayFairyCommand => new BaseCommand((s) => CollectedGreatBayFairies++);
-    public BaseCommand UncollectGreatBayFairyCommand => new BaseCommand((s) => CollectedGreatBayFairies--);
+    public BaseCommand CollectGreatBayFairyCommand => new(s => CollectedGreatBayFairies++);
+    public BaseCommand UncollectGreatBayFairyCommand => new(s => CollectedGreatBayFairies--);
 
-    public BaseCommand CollectGreatBaySmallKeyCommand => new BaseCommand((s) => CollectedGreatBaySmallKeys++);
-    public BaseCommand UncollectGreatBaySmallKeyCommand => new BaseCommand((s) => CollectedGreatBaySmallKeys--);
+    public BaseCommand CollectGreatBaySmallKeyCommand => new(s => CollectedGreatBaySmallKeys++);
+    public BaseCommand UncollectGreatBaySmallKeyCommand => new(s => CollectedGreatBaySmallKeys--);
 
     #endregion
 
 
     #region Stone Tower Temple
 
-    public BaseCommand CollectStoneTowerMapCommand => new BaseCommand((s) => IsStoneTowerMapCollected = true);
-    public BaseCommand UncollectStoneTowerMapCommand => new BaseCommand((s) => IsStoneTowerMapCollected = false);
+    public BaseCommand CollectStoneTowerMapCommand => new(s => IsStoneTowerMapCollected = true);
+    public BaseCommand UncollectStoneTowerMapCommand => new(s => IsStoneTowerMapCollected = false);
 
-    public BaseCommand CollectStoneTowerCompassCommand => new BaseCommand((s) => IsStoneTowerCompassCollected = true);
+    public BaseCommand CollectStoneTowerCompassCommand => new(s => IsStoneTowerCompassCollected = true);
 
-    public BaseCommand UncollectStoneTowerCompassCommand =>
-        new BaseCommand((s) => IsStoneTowerCompassCollected = false);
+    public BaseCommand UncollectStoneTowerCompassCommand => new(s => IsStoneTowerCompassCollected = false);
 
-    public BaseCommand CollectStoneTowerBossKeyCommand => new BaseCommand((s) => IsStoneTowerBossKeyCollected = true);
+    public BaseCommand CollectStoneTowerBossKeyCommand => new(s => IsStoneTowerBossKeyCollected = true);
 
-    public BaseCommand UncollectStoneTowerBossKeyCommand =>
-        new BaseCommand((s) => IsStoneTowerBossKeyCollected = false);
+    public BaseCommand UncollectStoneTowerBossKeyCommand => new(s => IsStoneTowerBossKeyCollected = false);
 
-    public BaseCommand CollectStoneTowerFairyCommand => new BaseCommand((s) => CollectedStoneTowerFairies++);
-    public BaseCommand UncollectStoneTowerFairyCommand => new BaseCommand((s) => CollectedStoneTowerFairies--);
+    public BaseCommand CollectStoneTowerFairyCommand => new(s => CollectedStoneTowerFairies++);
+    public BaseCommand UncollectStoneTowerFairyCommand => new(s => CollectedStoneTowerFairies--);
 
-    public BaseCommand CollectStoneTowerSmallKeyCommand => new BaseCommand((s) => CollectedStoneTowerSmallKeys++);
-    public BaseCommand UncollectStoneTowerSmallKeyCommand => new BaseCommand((s) => CollectedStoneTowerSmallKeys--);
+    public BaseCommand CollectStoneTowerSmallKeyCommand => new(s => CollectedStoneTowerSmallKeys++);
+    public BaseCommand UncollectStoneTowerSmallKeyCommand => new(s => CollectedStoneTowerSmallKeys--);
 
     #endregion
 
@@ -387,11 +391,4 @@ public class DungeonPageViewmodel : BaseViewModel
     public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
 
     #endregion
-
-
-    public DungeonPageViewmodel()
-    {
-        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
-            () => NotifyPropertyChanged(nameof(ForegroundBrush));
-    }
 }

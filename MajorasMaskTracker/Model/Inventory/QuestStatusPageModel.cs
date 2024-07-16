@@ -3,10 +3,13 @@ using System.Xml.Serialization;
 using BaseClasses;
 using MajorasMaskTracker.Util.Enum;
 
-namespace MajorasMaskTracker.Model.InventoryPage;
+namespace MajorasMaskTracker.Model.Inventory;
 
 public class QuestStatusPageModel : BaseModel
 {
+    private CollectedBombBag _collectedBombBag = CollectedBombBag.None;
+
+    private CollectedQuiver _collectedQuiver = CollectedQuiver.None;
     [XmlElement] public bool IsOdolwaCollected { get; set; }
     [XmlElement] public bool IsGohtCollected { get; set; }
     [XmlElement] public bool IsGyorgCollected { get; set; }
@@ -29,8 +32,6 @@ public class QuestStatusPageModel : BaseModel
     [XmlElement] public CollectedSword CollectedSword { get; set; } = CollectedSword.None;
     [XmlElement] public CollectedShield CollectedShield { get; set; } = CollectedShield.None;
 
-    private CollectedQuiver _collectedQuiver = CollectedQuiver.None;
-
     [XmlElement]
     public CollectedQuiver CollectedQuiver
     {
@@ -38,13 +39,11 @@ public class QuestStatusPageModel : BaseModel
         set
         {
             if (value is < CollectedQuiver.None or > CollectedQuiver.LargestQuiver) return;
-            
+
             _collectedQuiver = value;
             OnCollectedQuiverChanged?.Invoke();
         }
     }
-
-    private CollectedBombBag _collectedBombBag = CollectedBombBag.None;
 
     [XmlElement]
     public CollectedBombBag CollectedBombBag
@@ -53,7 +52,7 @@ public class QuestStatusPageModel : BaseModel
         set
         {
             if (value is < CollectedBombBag.None or > CollectedBombBag.LargestBombBag) return;
-            
+
             _collectedBombBag = value;
             OnCollectedBombBagChanged?.Invoke();
         }

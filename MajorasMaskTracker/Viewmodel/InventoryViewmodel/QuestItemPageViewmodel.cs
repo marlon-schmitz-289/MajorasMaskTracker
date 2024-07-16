@@ -5,8 +5,26 @@ using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel.InventoryViewmodel;
 
-public class QuestItemPageViewmodel : BaseViewModel
+public class QuestItemPageViewmodel : BaseViewmodel
 {
+    public QuestItemPageViewmodel()
+    {
+        InitializeCommands();
+
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedQuiverChanged += () =>
+        {
+            NotifyPropertyChanged(nameof(IsHeroBowCollected));
+        };
+
+        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedBombBagChanged += () =>
+        {
+            NotifyPropertyChanged(nameof(IsBombBagCollected));
+        };
+
+        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
+            () => NotifyPropertyChanged(nameof(ForegroundBrush));
+    }
+
     public bool IsOcarinaOfTimeCollected
     {
         get => SettingsStore.Instance.Settings.QuestItemsPageSettings.IsOcarinaOfTimeCollected;
@@ -340,101 +358,82 @@ public class QuestItemPageViewmodel : BaseViewModel
     public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
 
 
-    public QuestItemPageViewmodel()
-    {
-        InitializeCommands();
-
-        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedQuiverChanged += () =>
-        {
-            NotifyPropertyChanged(nameof(IsHeroBowCollected));
-        };
-
-        SettingsStore.Instance.Settings.QuestStatusPageSettings.OnCollectedBombBagChanged += () =>
-        {
-            NotifyPropertyChanged(nameof(IsBombBagCollected));
-        };
-
-        SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
-            () => NotifyPropertyChanged(nameof(ForegroundBrush));
-    }
-
-
     private void InitializeCommands()
     {
-        CollectOcarinaCommand = new BaseCommand((o) => IsOcarinaOfTimeCollected = true);
-        UnCollectOcarinaCommand = new BaseCommand((o) => IsOcarinaOfTimeCollected = false);
+        CollectOcarinaCommand = new BaseCommand(o => IsOcarinaOfTimeCollected = true);
+        UnCollectOcarinaCommand = new BaseCommand(o => IsOcarinaOfTimeCollected = false);
 
-        CollectBowCommand = new BaseCommand((o) =>
+        CollectBowCommand = new BaseCommand(o =>
             SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedQuiver++);
-        UnCollectBowCommand = new BaseCommand((o) =>
+        UnCollectBowCommand = new BaseCommand(o =>
             SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedQuiver--);
 
-        CollectFireArrowCommand = new BaseCommand((o) => IsFireArrowCollected = true);
-        UnCollectFireArrowCommand = new BaseCommand((o) => IsFireArrowCollected = false);
+        CollectFireArrowCommand = new BaseCommand(o => IsFireArrowCollected = true);
+        UnCollectFireArrowCommand = new BaseCommand(o => IsFireArrowCollected = false);
 
-        CollectIceArrowCommand = new BaseCommand((o) => IsIceArrowCollected = true);
-        UnCollectIceArrowCommand = new BaseCommand((o) => IsIceArrowCollected = false);
+        CollectIceArrowCommand = new BaseCommand(o => IsIceArrowCollected = true);
+        UnCollectIceArrowCommand = new BaseCommand(o => IsIceArrowCollected = false);
 
-        CollectLightArrowCommand = new BaseCommand((o) => IsLightArrowCollected = true);
-        UnCollectLightArrowCommand = new BaseCommand((o) => IsLightArrowCollected = false);
+        CollectLightArrowCommand = new BaseCommand(o => IsLightArrowCollected = true);
+        UnCollectLightArrowCommand = new BaseCommand(o => IsLightArrowCollected = false);
 
-        CollectRoomKeyCommand = new BaseCommand((o) => IsRoomKeyCollected = true);
-        UnCollectRoomKeyCommand = new BaseCommand((o) => IsRoomKeyCollected = false);
+        CollectRoomKeyCommand = new BaseCommand(o => IsRoomKeyCollected = true);
+        UnCollectRoomKeyCommand = new BaseCommand(o => IsRoomKeyCollected = false);
 
-        CollectBombBagCommand = new BaseCommand((o) =>
+        CollectBombBagCommand = new BaseCommand(o =>
             SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedBombBag++);
-        UnCollectBombBagCommand = new BaseCommand((o) =>
+        UnCollectBombBagCommand = new BaseCommand(o =>
             SettingsStore.Instance.Settings.QuestStatusPageSettings.CollectedBombBag--);
 
-        CollectBombChusCommand = new BaseCommand((o) => IsBombChusCollected = true);
-        UnCollectBombChusCommand = new BaseCommand((o) => IsBombChusCollected = false);
+        CollectBombChusCommand = new BaseCommand(o => IsBombChusCollected = true);
+        UnCollectBombChusCommand = new BaseCommand(o => IsBombChusCollected = false);
 
-        CollectDekuStickCommand = new BaseCommand((o) => IsDekuStickCollected = true);
-        UnCollectDekuStickCommand = new BaseCommand((o) => IsDekuStickCollected = false);
+        CollectDekuStickCommand = new BaseCommand(o => IsDekuStickCollected = true);
+        UnCollectDekuStickCommand = new BaseCommand(o => IsDekuStickCollected = false);
 
-        CollectDekuNutCommand = new BaseCommand((o) => IsDekuNutCollected = true);
-        UnCollectDekuNutCommand = new BaseCommand((o) => IsDekuNutCollected = false);
+        CollectDekuNutCommand = new BaseCommand(o => IsDekuNutCollected = true);
+        UnCollectDekuNutCommand = new BaseCommand(o => IsDekuNutCollected = false);
 
-        CollectMagicBeanCommand = new BaseCommand((o) => IsMagicBeanCollected = true);
-        UnCollectMagicBeanCommand = new BaseCommand((o) => IsMagicBeanCollected = false);
+        CollectMagicBeanCommand = new BaseCommand(o => IsMagicBeanCollected = true);
+        UnCollectMagicBeanCommand = new BaseCommand(o => IsMagicBeanCollected = false);
 
-        CollectScrubTradeItemCommand = new BaseCommand((o) => CollectedScrubTradeItem++);
-        UnCollectScrubTradeItemCommand = new BaseCommand((o) => CollectedScrubTradeItem--);
+        CollectScrubTradeItemCommand = new BaseCommand(o => CollectedScrubTradeItem++);
+        UnCollectScrubTradeItemCommand = new BaseCommand(o => CollectedScrubTradeItem--);
 
-        CollectPowderKegCommand = new BaseCommand((o) => IsPowderKegCollected = true);
-        UnCollectPowderKegCommand = new BaseCommand((o) => IsPowderKegCollected = false);
+        CollectPowderKegCommand = new BaseCommand(o => IsPowderKegCollected = true);
+        UnCollectPowderKegCommand = new BaseCommand(o => IsPowderKegCollected = false);
 
-        CollectPictoBoxCommand = new BaseCommand((o) => IsPictoBoxCollected = true);
-        UnCollectPictoBoxCommand = new BaseCommand((o) => IsPictoBoxCollected = false);
+        CollectPictoBoxCommand = new BaseCommand(o => IsPictoBoxCollected = true);
+        UnCollectPictoBoxCommand = new BaseCommand(o => IsPictoBoxCollected = false);
 
-        CollectLensOfTruthCommand = new BaseCommand((o) => IsLensOfTruthCollected = true);
-        UnCollectLensOfTruthCommand = new BaseCommand((o) => IsLensOfTruthCollected = false);
+        CollectLensOfTruthCommand = new BaseCommand(o => IsLensOfTruthCollected = true);
+        UnCollectLensOfTruthCommand = new BaseCommand(o => IsLensOfTruthCollected = false);
 
-        CollectHookshotCommand = new BaseCommand((o) => IsHookshotCollected = true);
-        UnCollectHookshotCommand = new BaseCommand((o) => IsHookshotCollected = false);
+        CollectHookshotCommand = new BaseCommand(o => IsHookshotCollected = true);
+        UnCollectHookshotCommand = new BaseCommand(o => IsHookshotCollected = false);
 
-        CollectGreatFairySwordCommand = new BaseCommand((o) => IsGreatFairySwordCollected = true);
-        UnCollectGreatFairySwordCommand = new BaseCommand((o) => IsGreatFairySwordCollected = false);
+        CollectGreatFairySwordCommand = new BaseCommand(o => IsGreatFairySwordCollected = true);
+        UnCollectGreatFairySwordCommand = new BaseCommand(o => IsGreatFairySwordCollected = false);
 
-        CollectKafeiItemCommand = new BaseCommand((o) => CollectedKafeiItem++);
-        UnCollectKafeiItemCommand = new BaseCommand((o) => CollectedKafeiItem--);
+        CollectKafeiItemCommand = new BaseCommand(o => CollectedKafeiItem++);
+        UnCollectKafeiItemCommand = new BaseCommand(o => CollectedKafeiItem--);
 
-        CollectFirstBottleCommand = new BaseCommand((o) => IsFirstBottleCollected = true);
-        UnCollectFirstBottleCommand = new BaseCommand((o) => IsFirstBottleCollected = false);
+        CollectFirstBottleCommand = new BaseCommand(o => IsFirstBottleCollected = true);
+        UnCollectFirstBottleCommand = new BaseCommand(o => IsFirstBottleCollected = false);
 
-        CollectSecondBottleCommand = new BaseCommand((o) => IsSecondBottleCollected = true);
-        UnCollectSecondBottleCommand = new BaseCommand((o) => IsSecondBottleCollected = false);
+        CollectSecondBottleCommand = new BaseCommand(o => IsSecondBottleCollected = true);
+        UnCollectSecondBottleCommand = new BaseCommand(o => IsSecondBottleCollected = false);
 
-        CollectThirdBottleCommand = new BaseCommand((o) => IsThirdBottleCollected = true);
-        UnCollectThirdBottleCommand = new BaseCommand((o) => IsThirdBottleCollected = false);
+        CollectThirdBottleCommand = new BaseCommand(o => IsThirdBottleCollected = true);
+        UnCollectThirdBottleCommand = new BaseCommand(o => IsThirdBottleCollected = false);
 
-        CollectFourthBottleCommand = new BaseCommand((o) => IsFourthBottleCollected = true);
-        UnCollectFourthBottleCommand = new BaseCommand((o) => IsFourthBottleCollected = false);
+        CollectFourthBottleCommand = new BaseCommand(o => IsFourthBottleCollected = true);
+        UnCollectFourthBottleCommand = new BaseCommand(o => IsFourthBottleCollected = false);
 
-        CollectFifthBottleCommand = new BaseCommand((o) => IsFifthBottleCollected = true);
-        UnCollectFifthBottleCommand = new BaseCommand((o) => IsFifthBottleCollected = false);
+        CollectFifthBottleCommand = new BaseCommand(o => IsFifthBottleCollected = true);
+        UnCollectFifthBottleCommand = new BaseCommand(o => IsFifthBottleCollected = false);
 
-        CollectSixthBottleCommand = new BaseCommand((o) => IsSixthBottleCollected = true);
-        UnCollectSixthBottleCommand = new BaseCommand((o) => IsSixthBottleCollected = false);
+        CollectSixthBottleCommand = new BaseCommand(o => IsSixthBottleCollected = true);
+        UnCollectSixthBottleCommand = new BaseCommand(o => IsSixthBottleCollected = false);
     }
 }

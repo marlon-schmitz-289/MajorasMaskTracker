@@ -10,42 +10,45 @@
                  mc:Ignorable="d"
 
                  Background="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"
-                 BorderBrush="#FF35438B"
-                 BorderThickness="3"
-                 
-                 TitleBarBackground="#FF35438B"
-                 TitleBarForeground="#FFD8D8D8"
+
+                 TitleBarBackground="{StaticResource TitleBarBackground}"
+                 TitleBarForeground="{StaticResource TitleBarForeground}"
 
                  WindowStartupLocation="CenterScreen"
                  WindowTitle="Majora's Mask Tracker"
 
-                 Height="540"
-                 Width="960"
+                 SizeToContent="WidthAndHeight"
+                 CanMaximize="False"
                  MinHeight="400"
-                 MinWidth="500">
+                 MinWidth="500"
+                 MaxHeight="800"
+                 MaxWidth="1600">
     <Window.DataContext>
         <vm:MainWindowViewmodel x:Name="Mwvmodel" />
     </Window.DataContext>
 
     <base:BaseWindow.WindowContent>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource TitleBarBackground}"
+                BorderThickness="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <Menu Grid.Row="0"
-                  Background="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
-                <MenuItem Header="Settings" Command="{Binding SettingsCommand}"
-                          FontFamily="{StaticResource ZeldaFont}"
-                          FontWeight="Normal"
-                          FontSize="16"
-                          Foreground="{Binding ForegroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
-            </Menu>
+                <Menu Grid.Row="0"
+                      Background="{Binding BackgroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}">
+                    <MenuItem Header="Settings" Command="{Binding SettingsCommand}"
+                              FontFamily="{StaticResource ZeldaFont}"
+                              FontWeight="Normal"
+                              FontSize="16"
+                              Foreground="{Binding ForegroundBrush, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
+                </Menu>
 
-            <Frame Grid.Row="1"
-                   NavigationUIVisibility="Hidden"
-                   Content="{Binding CurrentPage}" />
-        </Grid>
+                <Frame Grid.Row="1"
+                       NavigationUIVisibility="Hidden"
+                       Content="{Binding CurrentPage}" />
+            </Grid>
+        </Border>
     </base:BaseWindow.WindowContent>
 </base:BaseWindow>

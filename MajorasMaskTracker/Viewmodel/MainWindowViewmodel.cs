@@ -8,20 +8,8 @@ using WPFBase.Utils;
 
 namespace MajorasMaskTracker.Viewmodel;
 
-public class MainWindowViewmodel : BaseViewModel
+public class MainWindowViewmodel : BaseViewmodel
 {
-    public Page CurrentPage => CurrentPageStore.Instance.CurrentPage;
-
-    public SolidColorBrush BackgroundBrush => SettingsStore.Instance.ApplicationSettings.BackgroundBrush;
-    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
-
-
-    public BaseCommand SettingsCommand => new BaseCommand((o) =>
-    {
-        SettingsWindow.OpenDialog(Application.Current.MainWindow);
-    });
-
-
     public MainWindowViewmodel()
     {
         CurrentPageStore.Instance.CurrentPageChanged += () => NotifyPropertyChanged(nameof(CurrentPage));
@@ -30,10 +18,18 @@ public class MainWindowViewmodel : BaseViewModel
 
         SettingsStore.Instance.ApplicationSettings.OnBackgroundColorChanged +=
             () => { NotifyPropertyChanged(nameof(BackgroundBrush)); };
-        
+
         SettingsStore.Instance.ApplicationSettings.OnForegroundColorChanged +=
             () => { NotifyPropertyChanged(nameof(ForegroundBrush)); };
 
         SettingsStore.Instance.ApplicationSettings.ChangedBackgroundColor();
     }
+
+    public Page CurrentPage => CurrentPageStore.Instance.CurrentPage;
+
+    public SolidColorBrush BackgroundBrush => SettingsStore.Instance.ApplicationSettings.BackgroundBrush;
+    public SolidColorBrush ForegroundBrush => SettingsStore.Instance.ApplicationSettings.ForegroundBrush;
+
+
+    public BaseCommand SettingsCommand => new(o => { SettingsWindow.OpenDialog(Application.Current.MainWindow); });
 }

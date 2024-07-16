@@ -11,11 +11,10 @@ public class ApplicationSettingsModel : BaseModel
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MajorasMaskTracker");
 
     private static readonly string _SETTINGS_FILE_PATH = Path.Combine(_SETTINGS_PATH, "AppSettings.xml");
-
-
-    public event Action? OnBackgroundColorChanged;
-    private Color _backgroundColor;
     private SolidColorBrush _backgroundBrush;
+    private Color _backgroundColor;
+    private SolidColorBrush _foregroundBrush;
+    private Color _foregroundColor;
 
     [XmlIgnore]
     public Color BackgroundColor
@@ -43,11 +42,6 @@ public class ApplicationSettingsModel : BaseModel
     [XmlElement] public byte BackgroundColorRed { get; set; }
     [XmlElement] public byte BackgroundColorGreen { get; set; }
     [XmlElement] public byte BackgroundColorBlue { get; set; }
-
-
-    public event Action OnForegroundColorChanged;
-    private Color _foregroundColor;
-    private SolidColorBrush _foregroundBrush;
 
     [XmlIgnore]
     public Color ForegroundColor
@@ -80,11 +74,17 @@ public class ApplicationSettingsModel : BaseModel
     [XmlIgnore] public bool ReadFromSettings { get; private set; }
 
 
+    public event Action? OnBackgroundColorChanged;
+
+
+    public event Action OnForegroundColorChanged;
+
+
     public void ChangedBackgroundColor()
     {
         OnBackgroundColorChanged?.Invoke();
     }
-    
+
     public void ChangedForegroundColor()
     {
         OnForegroundColorChanged?.Invoke();
@@ -118,14 +118,10 @@ public class ApplicationSettingsModel : BaseModel
         var ret = (ApplicationSettingsModel)serializer.Deserialize(new StringReader(xml));
 
         if (ret is null)
-        {
             ret = new ApplicationSettingsModel();
-        }
         else
-        {
             ret.ReadFromSettings = true;
-        }
-        
+
         ret.InitializeBrushes();
         return ret;
     }
@@ -133,10 +129,7 @@ public class ApplicationSettingsModel : BaseModel
 
     public void SaveSettings()
     {
-        if (!Directory.Exists(_SETTINGS_PATH))
-        {
-            Directory.CreateDirectory(_SETTINGS_PATH);
-        }
+        if (!Directory.Exists(_SETTINGS_PATH)) Directory.CreateDirectory(_SETTINGS_PATH);
 
         var xml = ToXml();
         File.WriteAllText(_SETTINGS_FILE_PATH, xml);
@@ -145,15 +138,9 @@ public class ApplicationSettingsModel : BaseModel
 
     public static ApplicationSettingsModel LoadSettings()
     {
-        if (!Directory.Exists(_SETTINGS_PATH))
-        {
-            Directory.CreateDirectory(_SETTINGS_PATH);
-        }
+        if (!Directory.Exists(_SETTINGS_PATH)) Directory.CreateDirectory(_SETTINGS_PATH);
 
-        if (!File.Exists(_SETTINGS_FILE_PATH))
-        {
-            return new ApplicationSettingsModel();
-        }
+        if (!File.Exists(_SETTINGS_FILE_PATH)) return new ApplicationSettingsModel();
 
         var xml = File.ReadAllText(_SETTINGS_FILE_PATH);
         return FromXml(xml);
@@ -181,7 +168,7 @@ public class ApplicationSettingsModel : BaseModel
             ForegroundColorGreen = 221;
             ForegroundColorBlue = 221;
         }
-        
+
         BackgroundColor = Color.FromRgb(BackgroundColorRed, BackgroundColorGreen, BackgroundColorBlue);
         ForegroundColor = Color.FromRgb(ForegroundColorRed, ForegroundColorGreen, ForegroundColorBlue);
     }
